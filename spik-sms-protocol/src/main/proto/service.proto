@@ -1,0 +1,68 @@
+option java_package = "com.polytech.spik.protocol";
+option java_outer_classname = "SpikMessages";
+
+enum Status {
+    SENDING = 1;
+    SENT = 2;
+    NOT_READ = 3;
+    READ = 4;
+}
+
+enum MessageIdentifier{
+    CONTACT = 1;
+    CONVERSATION = 2;
+    SMS = 3;
+    SEND_MESSAGE = 4;
+    STATUS_CHANGED = 5;
+}
+
+message Wrapper {
+    oneof type {
+        Contact contact = 1;
+        Conversation conversation = 2;
+        Sms sms = 3;
+        SendMessage sendMessage = 4;
+        StatusChanged statusChanged = 5;
+    }
+}
+
+message Contact {
+    required int64 id = 1;
+    required string name = 2;
+    optional string phone = 3;
+    optional bytes picture = 4;
+}
+
+message Conversation {
+   required int64 id = 1;
+   repeated int64 participants = 2;
+   repeated Sms messages = 3;
+}
+
+message Sms {
+    required int64 id = 1;
+    required int64 date = 3;
+    required string text = 4;
+    required bool read = 5;
+    required Status status = 6;
+
+    extensions 100 to 199;
+}
+
+extend Sms {
+    optional string mimeType = 100;
+    optional bytes data = 101;
+}
+
+message SendMessage {
+    required int64 mid = 1;
+    repeated string participants = 2;
+    required string text = 3;
+    optional string mimeType = 4;
+    optional bytes data = 5;
+}
+
+message StatusChanged {
+    required int64 mid = 1;
+    required Status status = 2;
+}

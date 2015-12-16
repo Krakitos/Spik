@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import org.controlsfx.control.StatusBar?>
+<?import java.lang.Double?>
+<?import java.lang.Integer?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.polytech.spik.controllers.MainController">
+    <fx:define>
+        <Double fx:id="MAX_DOUBLE" fx:constant="MAX_VALUE" />
+        <Integer fx:id="PREFERED_HEIGHT" fx:value="40" />
+    </fx:define>
+    <center>
+        <BorderPane>
+            <left>
+                <ListView fx:id="conversations_list"/>
+            </left>
+            <center>
+                <VBox HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets top="5" bottom="5" left="5" right="5" />
+                    </padding>
+                    <Label fx:id="participants_label" prefHeight="$PREFERED_HEIGHT" prefWidth="$MAX_DOUBLE" alignment="CENTER" />
+                    <ListView fx:id="messages_list" VBox.vgrow="ALWAYS"/>
+                    <HBox fx:id="message_container" prefHeight="$PREFERED_HEIGHT">
+                        <TextField fx:id="message_input" HBox.hgrow="ALWAYS" prefHeight="${message_container.prefHeight}" promptText="%spik.placeholder.enter_msg"/>
+                        <Button fx:id="send_btn" text="%spik.btn.send" prefHeight="${message_container.prefHeight}" onAction="#sendMessage" />
+                    </HBox>
+                </VBox>
+            </center>
+        </BorderPane>
+    </center>
+    <bottom>
+        <StatusBar fx:id="statusBar" text="">
+            <rightItems>
+                <ImageView fx:id="serverStatusView">
+                    <image>
+                        <Image url="@../images/ic_signal_wifi_off_black_48dp.png"
+                               preserveRatio="true"
+                               requestedWidth="20"
+                               smooth="true" />
+                    </image>
+                </ImageView>
+            </rightItems>
+        </StatusBar>
+    </bottom>
+</BorderPane>

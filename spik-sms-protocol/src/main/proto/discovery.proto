@@ -1,0 +1,31 @@
+option java_package = "com.polytech.spik.protocol";
+option java_outer_classname = "DiscoveryMessages";
+
+enum OperatingSystem{
+    WINDOWS = 1;
+    MACOS = 2;
+    LINUX = 3;
+    ANDROID = 4;
+}
+
+message DiscoveryMessage{
+    oneof type {
+        DiscoveryRequest request = 1;
+        DiscoveryResponse response = 2;
+    }
+}
+
+message DiscoveryRequest{
+    required string name = 1;
+    required OperatingSystem os = 2;
+    required string manufacturer = 3;
+    required string model = 4;
+    required int32 sdkVersion = 5;
+}
+
+message DiscoveryResponse {
+    required string name = 1;
+    required OperatingSystem os = 2;
+    required string version = 3;
+    required int32 port = 4;
+}
