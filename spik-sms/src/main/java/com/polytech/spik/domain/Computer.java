@@ -30,6 +30,8 @@ public class Computer {
         return os;
     }
 
+    public String version(){ return version; }
+
     public int port(){
         return port;
     }

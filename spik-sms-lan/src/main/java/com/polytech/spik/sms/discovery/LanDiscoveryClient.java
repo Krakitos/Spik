@@ -9,6 +9,8 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.DatagramPacket;
 import io.netty.channel.socket.nio.NioDatagramChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,6 +48,10 @@ public class LanDiscoveryClient implements Closeable{
                     protected void initChannel(NioDatagramChannel ch) throws Exception {
                         final ChannelPipeline pipeline = ch.pipeline();
 
+                        if(System.getProperty("spik.network.debug", "false").equals("true")) {
+                            pipeline.addLast(new LoggingHandler(LogLevel.INFO));
+                        }
+
                         pipeline.addLast(new ReadTimeoutHandler(2));
                         pipeline.addLast(new LanDiscoveryClientHandler(callback));
                     }
@@ -58,13 +64,11 @@ public class LanDiscoveryClient implements Closeable{
     }
 
     public void sendDiscoveryRequest(Phone phone) throws InterruptedException {
-        LOGGER.trace("Sending discovery request");
-
         final DiscoveryMessages.DiscoveryRequest request = DiscoveryMessages.DiscoveryRequest.newBuilder()
                 .setName(phone.name())
                 .setManufacturer(phone.manufacturer())
                 .setModel(phone.model())
-                .setOs(DiscoveryMessages.OperatingSystem.valueOf(phone.os()))
+                .setOs(DiscoveryMessages.OperatingSystem.valueOf(phone.os().toUpperCase()))
                 .setSdkVersion(phone.sdkVersion())
                 .build();
 
@@ -72,10 +76,14 @@ public class LanDiscoveryClient implements Closeable{
                 .setRequest(request)
                 .build();
 
-        final ByteBuf raw = Unpooled.copiedBuffer(msg.toByteArray());
+        final ByteBuf raw = Unpooled.wrappedBuffer(msg.toByteArray());
+
+        LOGGER.trace("Sending discovery request");
 
         callback.onDiscoveryStarted();
+
         channel.writeAndFlush(new DatagramPacket(raw, DISCOVERY_ADDRESS));
+
         channel.closeFuture().sync();
     }
 
