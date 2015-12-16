@@ -2,10 +2,12 @@ package com.polytech.spik.sms.service;
 
 import com.polytech.spik.exceptions.UnboundServerException;
 import com.polytech.spik.protocol.SpikMessages;
-import com.polytech.spik.sms.SmsHandlerFactory;
 import com.polytech.spik.sms.filters.DynamicIpFilter;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.*;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
+import io.netty.channel.EventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.LengthFieldPrepender;
@@ -42,16 +44,16 @@ public class LanSmsServer implements Closeable {
     private Set<InetAddress> authorizedIps;
     private Timer authorizedIpsEvictor;
 
-    public LanSmsServer(EventLoopGroup eventLoopGroup, final SmsHandlerFactory factory) {
+    public LanSmsServer(EventLoopGroup eventLoopGroup, final HandlerFactory factory) {
         authorizedIps = new HashSet<>();
         authorizedIpsEvictor = new Timer("IP Evictor", false);
 
         bootstrap = new ServerBootstrap()
             .group(eventLoopGroup)
             .channel(NioServerSocketChannel.class)
-            .childHandler(new ChannelInitializer<ServerChannel>() {
+            .childHandler(new ChannelInitializer<Channel>() {
                 @Override
-                protected void initChannel(ServerChannel channel) throws Exception {
+                protected void initChannel(Channel channel) throws Exception {
                     final ChannelPipeline pipeline = channel.pipeline();
 
                     pipeline.addLast(new DynamicIpFilter(authorizedIps));
@@ -62,7 +64,7 @@ public class LanSmsServer implements Closeable {
                     pipeline.addLast(new SnappyFrameEncoder());
                     pipeline.addLast(new ProtobufDecoder(SpikMessages.Wrapper.getDefaultInstance()));
                     pipeline.addLast(new ProtobufEncoder());
-                    pipeline.addLast(new LanSmsHandler(factory.newInstance()));
+                    pipeline.addLast(factory.newInstance());
 
                     if(System.getProperty("spik.network.debug", "false").equals("true")) {
                         pipeline.addFirst(new LoggingHandler(LogLevel.INFO));
@@ -102,7 +104,7 @@ public class LanSmsServer implements Closeable {
                     LOGGER.info("Removing address {} from authorized IPs", address);
                     authorizedIps.remove(address);
                 }
-            }, TimeUnit.SECONDS.toMillis(2));
+            }, TimeUnit.SECONDS.toMillis(10));
 
         }else
             LOGGER.warn("Tried to authorize an ip which is already allowed");
@@ -112,5 +114,9 @@ public class LanSmsServer implements Closeable {
     public void close() throws IOException {
         LOGGER.info("Closing server");
         channel.closeFuture().syncUninterruptibly().awaitUninterruptibly();
+    }
+
+    public interface HandlerFactory {
+        LanSmsHandler newInstance();
     }
 }

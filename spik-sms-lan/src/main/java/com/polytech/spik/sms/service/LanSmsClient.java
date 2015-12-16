@@ -1,7 +1,6 @@
 package com.polytech.spik.sms.service;
 
 import com.polytech.spik.protocol.SpikMessages;
-import com.polytech.spik.sms.SmsHandler;
 import com.polytech.spik.sms.SmsServiceClient;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
@@ -33,11 +32,11 @@ public class LanSmsClient extends SmsServiceClient {
     private Bootstrap bootstrap;
     private Channel channel;
 
-    public LanSmsClient(SmsHandler handler) {
+    public LanSmsClient(LanSmsHandler handler) {
         this(handler, new NioEventLoopGroup(1));
     }
 
-    public LanSmsClient(final SmsHandler handler, NioEventLoopGroup loopGroup) {
+    public LanSmsClient(final LanSmsHandler handler, NioEventLoopGroup loopGroup) {
         bootstrap = new Bootstrap()
                 .channel(NioSocketChannel.class)
                 .group(loopGroup)
@@ -45,14 +44,14 @@ public class LanSmsClient extends SmsServiceClient {
 
                     @Override
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
-                        final ChannelPipeline pipeline = channel.pipeline();
+                        final ChannelPipeline pipeline = socketChannel.pipeline();
                         pipeline.addLast(new LengthFieldBasedFrameDecoder(1 << 16, 0, 2, 0, 2));
                         pipeline.addLast(new LengthFieldPrepender(2));
                         pipeline.addLast(new SnappyFrameDecoder());
                         pipeline.addLast(new SnappyFrameEncoder());
                         pipeline.addLast(new ProtobufDecoder(SpikMessages.Wrapper.getDefaultInstance()));
                         pipeline.addLast(new ProtobufEncoder());
-                        pipeline.addLast(new LanSmsHandler(handler));
+                        pipeline.addLast(handler);
 
                         if(System.getProperty("spik.network.debug", "false").equals("true")) {
                             pipeline.addFirst(new LoggingHandler(LogLevel.INFO));
@@ -68,7 +67,7 @@ public class LanSmsClient extends SmsServiceClient {
 
 
     @Override
-    protected void lowSend(SpikMessages.WrapperOrBuilder msg) {
+    public void lowSend(SpikMessages.WrapperOrBuilder msg) {
         if(channel != null){
             LOGGER.debug("Writing message {}", msg);
             channel.writeAndFlush(msg);

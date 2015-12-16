@@ -13,9 +13,13 @@ public interface RemoteContext {
 
     void addConversation(Conversation conversation);
 
+    Optional<Conversation> findConversationById(long threadId);
+
     void addContact(Contact contact);
 
     Optional<Contact> findContactById(long id);
 
     void addMessage(long threadId, Message msg);
+
+    void clear();
 }

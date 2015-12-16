@@ -7,27 +7,17 @@ import javafx.beans.property.SimpleStringProperty;
 /**
  * Created by momo- on 15/12/2015.
  */
-public class Message {
+public class Message{
 
-    private SimpleLongProperty id;
     private SimpleLongProperty date;
     private SimpleObjectProperty<Status> status;
     private SimpleStringProperty text;
 
 
-    public Message(long id, long date, Status status, String text) {
-        this.id = new SimpleLongProperty(id);
+    public Message(long date, Status status, String text) {
         this.date = new SimpleLongProperty(date);
         this.status = new SimpleObjectProperty<>(status);
         this.text = new SimpleStringProperty(text);
-    }
-
-    public long id() {
-        return id.get();
-    }
-
-    public SimpleLongProperty idProperty() {
-        return id;
     }
 
     public long date() {

@@ -4,7 +4,6 @@ import com.intellij.openapi.util.SystemInfo;
 import com.polytech.spik.domain.Phone;
 import com.polytech.spik.exceptions.UnboundServerException;
 import com.polytech.spik.protocol.DiscoveryMessages;
-import com.polytech.spik.sms.SmsHandlerFactory;
 import com.polytech.spik.sms.discovery.AbstractLanDiscoveryHandler;
 import com.polytech.spik.sms.discovery.LanDiscoveryServer;
 import com.polytech.spik.sms.service.LanSmsServer;
@@ -31,7 +30,7 @@ public class LanSmsService {
     private LanSmsServer lanSmsServer;
     private LanDiscoveryServer lanDiscoveryServer;
 
-    public LanSmsService(SmsHandlerFactory handlerFactory) {
+    public LanSmsService(LanSmsServer.HandlerFactory handlerFactory) {
         EventLoopGroup eventLoopGroup = new NioEventLoopGroup(2, Executors.newFixedThreadPool(2));
         lanSmsServer = new LanSmsServer(eventLoopGroup, handlerFactory);
         lanDiscoveryServer = new LanDiscoveryServer(eventLoopGroup, new AbstractLanDiscoveryHandler(){

@@ -69,19 +69,19 @@ public final class SpikMessages {
       "pe\"C\n\007Contact\022\n\n\002id\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022" +
       "\r\n\005phone\030\003 \001(\t\022\017\n\007picture\030\004 \001(\014\"H\n\014Conve" +
       "rsation\022\n\n\002id\030\001 \002(\003\022\024\n\014participants\030\002 \003(" +
-      "\003\022\026\n\010messages\030\003 \003(\0132\004.Sms\"[\n\003Sms\022\n\n\002id\030\001" +
-      " \002(\003\022\014\n\004date\030\003 \002(\003\022\014\n\004text\030\004 \002(\t\022\014\n\004read",
-      "\030\005 \002(\010\022\027\n\006status\030\006 \002(\0162\007.Status*\005\010d\020\310\001\"^" +
-      "\n\013SendMessage\022\013\n\003mid\030\001 \002(\003\022\024\n\014participan" +
-      "ts\030\002 \003(\t\022\014\n\004text\030\003 \002(\t\022\020\n\010mimeType\030\004 \001(\t" +
-      "\022\014\n\004data\030\005 \001(\014\"5\n\rStatusChanged\022\013\n\003mid\030\001" +
-      " \002(\003\022\027\n\006status\030\002 \002(\0162\007.Status*7\n\006Status\022" +
-      "\013\n\007SENDING\020\001\022\010\n\004SENT\020\002\022\014\n\010NOT_READ\020\003\022\010\n\004" +
-      "READ\020\004*a\n\021MessageIdentifier\022\013\n\007CONTACT\020\001" +
-      "\022\020\n\014CONVERSATION\020\002\022\007\n\003SMS\020\003\022\020\n\014SEND_MESS" +
-      "AGE\020\004\022\022\n\016STATUS_CHANGED\020\005:\026\n\010mimeType\022\004." +
-      "Sms\030d \001(\t:\022\n\004data\022\004.Sms\030e \001(\014B*\n\032com.pol",
-      "ytech.spik.protocolB\014SpikMessages"
+      "\003\022\026\n\010messages\030\003 \003(\0132\004.Sms\"a\n\003Sms\022\020\n\010thre" +
+      "adId\030\001 \001(\003\022\014\n\004date\030\002 \002(\003\022\014\n\004text\030\003 \002(\t\022\014",
+      "\n\004read\030\004 \002(\010\022\027\n\006status\030\005 \002(\0162\007.Status*\005\010" +
+      "d\020\310\001\"^\n\013SendMessage\022\013\n\003mid\030\001 \002(\003\022\024\n\014part" +
+      "icipants\030\002 \003(\t\022\014\n\004text\030\003 \002(\t\022\020\n\010mimeType" +
+      "\030\004 \001(\t\022\014\n\004data\030\005 \001(\014\"5\n\rStatusChanged\022\013\n" +
+      "\003mid\030\001 \002(\003\022\027\n\006status\030\002 \002(\0162\007.Status*7\n\006S" +
+      "tatus\022\013\n\007SENDING\020\001\022\010\n\004SENT\020\002\022\014\n\010NOT_READ" +
+      "\020\003\022\010\n\004READ\020\004*a\n\021MessageIdentifier\022\013\n\007CON" +
+      "TACT\020\001\022\020\n\014CONVERSATION\020\002\022\007\n\003SMS\020\003\022\020\n\014SEN" +
+      "D_MESSAGE\020\004\022\022\n\016STATUS_CHANGED\020\005:\026\n\010mimeT" +
+      "ype\022\004.Sms\030d \001(\t:\022\n\004data\022\004.Sms\030e \001(\014B*\n\032c",
+      "om.polytech.spik.protocolB\014SpikMessages"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -118,7 +118,7 @@ public final class SpikMessages {
     internal_static_Sms_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_Sms_descriptor,
-        new java.lang.String[] { "Id", "Date", "Text", "Read", "Status", });
+        new java.lang.String[] { "ThreadId", "Date", "Text", "Read", "Status", });
     internal_static_SendMessage_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_SendMessage_fieldAccessorTable = new
@@ -526,52 +526,52 @@ public final class SpikMessages {
           ExtendableMessageOrBuilder<Sms> {
 
     /**
-     * <code>required int64 id = 1;</code>
+     * <code>optional int64 threadId = 1;</code>
      */
-    boolean hasId();
+    boolean hasThreadId();
     /**
-     * <code>required int64 id = 1;</code>
+     * <code>optional int64 threadId = 1;</code>
      */
-    long getId();
+    long getThreadId();
 
     /**
-     * <code>required int64 date = 3;</code>
+     * <code>required int64 date = 2;</code>
      */
     boolean hasDate();
     /**
-     * <code>required int64 date = 3;</code>
+     * <code>required int64 date = 2;</code>
      */
     long getDate();
 
     /**
-     * <code>required string text = 4;</code>
+     * <code>required string text = 3;</code>
      */
     boolean hasText();
     /**
-     * <code>required string text = 4;</code>
+     * <code>required string text = 3;</code>
      */
     java.lang.String getText();
     /**
-     * <code>required string text = 4;</code>
+     * <code>required string text = 3;</code>
      */
     com.google.protobuf.ByteString
         getTextBytes();
 
     /**
-     * <code>required bool read = 5;</code>
+     * <code>required bool read = 4;</code>
      */
     boolean hasRead();
     /**
-     * <code>required bool read = 5;</code>
+     * <code>required bool read = 4;</code>
      */
     boolean getRead();
 
     /**
-     * <code>required .Status status = 6;</code>
+     * <code>required .Status status = 5;</code>
      */
     boolean hasStatus();
     /**
-     * <code>required .Status status = 6;</code>
+     * <code>required .Status status = 5;</code>
      */
     com.polytech.spik.protocol.SpikMessages.Status getStatus();
   }
@@ -3844,11 +3844,11 @@ public enum TypeCase
         Sms> implements
       // @@protoc_insertion_point(message_implements:Sms)
       SmsOrBuilder {
-    public static final int ID_FIELD_NUMBER = 1;
-    public static final int DATE_FIELD_NUMBER = 3;
-    public static final int TEXT_FIELD_NUMBER = 4;
-    public static final int READ_FIELD_NUMBER = 5;
-    public static final int STATUS_FIELD_NUMBER = 6;
+    public static final int THREADID_FIELD_NUMBER = 1;
+    public static final int DATE_FIELD_NUMBER = 2;
+    public static final int TEXT_FIELD_NUMBER = 3;
+    public static final int READ_FIELD_NUMBER = 4;
+    public static final int STATUS_FIELD_NUMBER = 5;
     private static final Sms defaultInstance;
     private static final long serialVersionUID = 0L;
     public static com.google.protobuf.Parser<Sms> PARSER =
@@ -3868,7 +3868,7 @@ public enum TypeCase
 
     private final com.google.protobuf.UnknownFieldSet unknownFields;
     private int bitField0_;
-    private long id_;
+    private long threadId_;
     private long date_;
     private java.lang.Object text_;
     private boolean read_;
@@ -3906,30 +3906,30 @@ public enum TypeCase
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              id_ = input.readInt64();
+              threadId_ = input.readInt64();
               break;
             }
-            case 24: {
+            case 16: {
               bitField0_ |= 0x00000002;
               date_ = input.readInt64();
               break;
             }
-            case 34: {
+            case 26: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
               text_ = bs;
               break;
             }
-            case 40: {
+            case 32: {
               bitField0_ |= 0x00000008;
               read_ = input.readBool();
               break;
             }
-            case 48: {
+            case 40: {
               int rawValue = input.readEnum();
               com.polytech.spik.protocol.SpikMessages.Status value = com.polytech.spik.protocol.SpikMessages.Status.valueOf(rawValue);
               if (value == null) {
-                unknownFields.mergeVarintField(6, rawValue);
+                unknownFields.mergeVarintField(5, rawValue);
               } else {
                 bitField0_ |= 0x00000010;
                 status_ = value;
@@ -4049,42 +4049,42 @@ public enum TypeCase
     }
 
     /**
-     * <code>required int64 id = 1;</code>
+     * <code>optional int64 threadId = 1;</code>
      */
-    public boolean hasId() {
+    public boolean hasThreadId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
 
     /**
-     * <code>required int64 id = 1;</code>
+     * <code>optional int64 threadId = 1;</code>
      */
-    public long getId() {
-      return id_;
+    public long getThreadId() {
+      return threadId_;
     }
 
     /**
-     * <code>required int64 date = 3;</code>
+     * <code>required int64 date = 2;</code>
      */
     public boolean hasDate() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
 
     /**
-     * <code>required int64 date = 3;</code>
+     * <code>required int64 date = 2;</code>
      */
     public long getDate() {
       return date_;
     }
 
     /**
-     * <code>required string text = 4;</code>
+     * <code>required string text = 3;</code>
      */
     public boolean hasText() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
 
     /**
-     * <code>required string text = 4;</code>
+     * <code>required string text = 3;</code>
      */
     public java.lang.String getText() {
       java.lang.Object ref = text_;
@@ -4102,7 +4102,7 @@ public enum TypeCase
     }
 
     /**
-     * <code>required string text = 4;</code>
+     * <code>required string text = 3;</code>
      */
     public com.google.protobuf.ByteString
         getTextBytes() {
@@ -4119,35 +4119,35 @@ public enum TypeCase
     }
 
     /**
-     * <code>required bool read = 5;</code>
+     * <code>required bool read = 4;</code>
      */
     public boolean hasRead() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
 
     /**
-     * <code>required bool read = 5;</code>
+     * <code>required bool read = 4;</code>
      */
     public boolean getRead() {
       return read_;
     }
 
     /**
-     * <code>required .Status status = 6;</code>
+     * <code>required .Status status = 5;</code>
      */
     public boolean hasStatus() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
 
     /**
-     * <code>required .Status status = 6;</code>
+     * <code>required .Status status = 5;</code>
      */
     public com.polytech.spik.protocol.SpikMessages.Status getStatus() {
       return status_;
     }
 
     private void initFields() {
-      id_ = 0L;
+      threadId_ = 0L;
       date_ = 0L;
       text_ = "";
       read_ = false;
@@ -4159,10 +4159,6 @@ public enum TypeCase
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       if (!hasDate()) {
         memoizedIsInitialized = 0;
         return false;
@@ -4194,19 +4190,19 @@ public enum TypeCase
         .ExtendableMessage<com.polytech.spik.protocol.SpikMessages.Sms>.ExtensionWriter extensionWriter =
           newExtensionWriter();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt64(1, id_);
+        output.writeInt64(1, threadId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt64(3, date_);
+        output.writeInt64(2, date_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(4, getTextBytes());
+        output.writeBytes(3, getTextBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBool(5, read_);
+        output.writeBool(4, read_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeEnum(6, status_.getNumber());
+        output.writeEnum(5, status_.getNumber());
       }
       extensionWriter.writeUntil(200, output);
       getUnknownFields().writeTo(output);
@@ -4219,23 +4215,23 @@ public enum TypeCase
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, id_);
+          .computeInt64Size(1, threadId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, date_);
+          .computeInt64Size(2, date_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getTextBytes());
+          .computeBytesSize(3, getTextBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, read_);
+          .computeBoolSize(4, read_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(6, status_.getNumber());
+          .computeEnumSize(5, status_.getNumber());
       }
       size += extensionsSerializedSize();
       size += getUnknownFields().getSerializedSize();
@@ -4269,7 +4265,7 @@ public enum TypeCase
         // @@protoc_insertion_point(builder_implements:Sms)
         com.polytech.spik.protocol.SpikMessages.SmsOrBuilder {
       private int bitField0_;
-      private long id_ ;
+      private long threadId_ ;
       private long date_ ;
       private java.lang.Object text_ = "";
       private boolean read_ ;
@@ -4309,7 +4305,7 @@ public enum TypeCase
 
       public Builder clear() {
         super.clear();
-        id_ = 0L;
+        threadId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
         date_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -4350,7 +4346,7 @@ public enum TypeCase
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.id_ = id_;
+        result.threadId_ = threadId_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -4383,8 +4379,8 @@ public enum TypeCase
 
       public Builder mergeFrom(com.polytech.spik.protocol.SpikMessages.Sms other) {
         if (other == com.polytech.spik.protocol.SpikMessages.Sms.getDefaultInstance()) return this;
-        if (other.hasId()) {
-          setId(other.getId());
+        if (other.hasThreadId()) {
+          setThreadId(other.getThreadId());
         }
         if (other.hasDate()) {
           setDate(other.getDate());
@@ -4406,10 +4402,6 @@ public enum TypeCase
       }
 
       public final boolean isInitialized() {
-        if (!hasId()) {
-
-          return false;
-        }
         if (!hasDate()) {
 
           return false;
@@ -4452,55 +4444,55 @@ public enum TypeCase
       }
 
       /**
-       * <code>required int64 id = 1;</code>
+       * <code>optional int64 threadId = 1;</code>
        */
-      public boolean hasId() {
+      public boolean hasThreadId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
 
       /**
-       * <code>required int64 id = 1;</code>
+       * <code>optional int64 threadId = 1;</code>
        */
-      public long getId() {
-        return id_;
+      public long getThreadId() {
+        return threadId_;
       }
 
       /**
-       * <code>required int64 id = 1;</code>
+       * <code>optional int64 threadId = 1;</code>
        */
-      public Builder setId(long value) {
+      public Builder setThreadId(long value) {
         bitField0_ |= 0x00000001;
-        id_ = value;
+        threadId_ = value;
         onChanged();
         return this;
       }
 
       /**
-       * <code>required int64 id = 1;</code>
+       * <code>optional int64 threadId = 1;</code>
        */
-      public Builder clearId() {
+      public Builder clearThreadId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        id_ = 0L;
+        threadId_ = 0L;
         onChanged();
         return this;
       }
 
       /**
-       * <code>required int64 date = 3;</code>
+       * <code>required int64 date = 2;</code>
        */
       public boolean hasDate() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
 
       /**
-       * <code>required int64 date = 3;</code>
+       * <code>required int64 date = 2;</code>
        */
       public long getDate() {
         return date_;
       }
 
       /**
-       * <code>required int64 date = 3;</code>
+       * <code>required int64 date = 2;</code>
        */
       public Builder setDate(long value) {
         bitField0_ |= 0x00000002;
@@ -4510,7 +4502,7 @@ public enum TypeCase
       }
 
       /**
-       * <code>required int64 date = 3;</code>
+       * <code>required int64 date = 2;</code>
        */
       public Builder clearDate() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -4520,14 +4512,14 @@ public enum TypeCase
       }
 
       /**
-       * <code>required string text = 4;</code>
+       * <code>required string text = 3;</code>
        */
       public boolean hasText() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
 
       /**
-       * <code>required string text = 4;</code>
+       * <code>required string text = 3;</code>
        */
       public java.lang.String getText() {
         java.lang.Object ref = text_;
@@ -4545,7 +4537,7 @@ public enum TypeCase
       }
 
       /**
-       * <code>required string text = 4;</code>
+       * <code>required string text = 3;</code>
        */
       public Builder setText(
           java.lang.String value) {
@@ -4559,7 +4551,7 @@ public enum TypeCase
       }
 
       /**
-       * <code>required string text = 4;</code>
+       * <code>required string text = 3;</code>
        */
       public com.google.protobuf.ByteString
           getTextBytes() {
@@ -4576,7 +4568,7 @@ public enum TypeCase
       }
 
       /**
-       * <code>required string text = 4;</code>
+       * <code>required string text = 3;</code>
        */
       public Builder setTextBytes(
           com.google.protobuf.ByteString value) {
@@ -4590,7 +4582,7 @@ public enum TypeCase
       }
 
       /**
-       * <code>required string text = 4;</code>
+       * <code>required string text = 3;</code>
        */
       public Builder clearText() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -4600,21 +4592,21 @@ public enum TypeCase
       }
 
       /**
-       * <code>required bool read = 5;</code>
+       * <code>required bool read = 4;</code>
        */
       public boolean hasRead() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
 
       /**
-       * <code>required bool read = 5;</code>
+       * <code>required bool read = 4;</code>
        */
       public boolean getRead() {
         return read_;
       }
 
       /**
-       * <code>required bool read = 5;</code>
+       * <code>required bool read = 4;</code>
        */
       public Builder setRead(boolean value) {
         bitField0_ |= 0x00000008;
@@ -4624,7 +4616,7 @@ public enum TypeCase
       }
 
       /**
-       * <code>required bool read = 5;</code>
+       * <code>required bool read = 4;</code>
        */
       public Builder clearRead() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -4634,19 +4626,19 @@ public enum TypeCase
       }
 
       /**
-       * <code>required .Status status = 6;</code>
+       * <code>required .Status status = 5;</code>
        */
       public boolean hasStatus() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required .Status status = 6;</code>
+       * <code>required .Status status = 5;</code>
        */
       public com.polytech.spik.protocol.SpikMessages.Status getStatus() {
         return status_;
       }
       /**
-       * <code>required .Status status = 6;</code>
+       * <code>required .Status status = 5;</code>
        */
       public Builder setStatus(com.polytech.spik.protocol.SpikMessages.Status value) {
         if (value == null) {
@@ -4658,7 +4650,7 @@ public enum TypeCase
         return this;
       }
       /**
-       * <code>required .Status status = 6;</code>
+       * <code>required .Status status = 5;</code>
        */
       public Builder clearStatus() {
         bitField0_ = (bitField0_ & ~0x00000010);

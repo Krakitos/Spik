@@ -1,5 +1,6 @@
 package com.polytech.spik.sms;
 
+import com.google.protobuf.ByteString;
 import com.polytech.spik.protocol.SpikMessages;
 import org.slf4j.Logger;
 
@@ -28,7 +29,21 @@ public abstract class SmsServiceClient implements Closeable {
         lowSend(SpikMessages.Wrapper.newBuilder().setSendMessage(msg));
     }
 
-    protected abstract void lowSend(SpikMessages.WrapperOrBuilder msg);
+    public void sendContact(long id, String name, String phone, byte[] photo){
+        getLogger().trace("Sending contact {}", id);
+
+        SpikMessages.Contact.Builder msg = SpikMessages.Contact.newBuilder()
+                .setId(id)
+                .setName(name)
+                .setPhone(phone);
+
+        if(photo != null)
+            msg.setPicture(ByteString.copyFrom(photo));
+
+        lowSend(SpikMessages.Wrapper.newBuilder().setContact(msg));
+    }
+
+    public abstract void lowSend(SpikMessages.WrapperOrBuilder msg);
 
     protected abstract Logger getLogger();
 }
