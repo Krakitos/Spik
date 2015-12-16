@@ -21,6 +21,18 @@ public class LanSmsHandler extends SimpleChannelInboundHandler<SpikMessages.Wrap
     }
 
     @Override
+    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
+        super.channelRegistered(ctx);
+        handler.onConnected();
+    }
+
+    @Override
+    public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
+        super.channelUnregistered(ctx);
+        handler.onDisconnected();
+    }
+
+    @Override
     protected void channelRead0(ChannelHandlerContext ctx, SpikMessages.Wrapper msg) throws Exception {
         if(msg.hasContact())
             handler.onContactReceived(msg.getContact());

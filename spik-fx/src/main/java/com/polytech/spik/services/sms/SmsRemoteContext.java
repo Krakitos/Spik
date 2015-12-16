@@ -20,6 +20,16 @@ public class SmsRemoteContext extends FXRemoteContext implements SmsHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(SmsRemoteContext.class);
 
     @Override
+    public void onConnected() {
+        LOGGER.info("Channel connected");
+    }
+
+    @Override
+    public void onDisconnected() {
+        LOGGER.info("Channel disconnected");
+    }
+
+    @Override
     public void onContactReceived(SpikMessages.Contact contact) {
         LOGGER.info("Received Contact {} / {}", contact.getId(), contact.getName());
 

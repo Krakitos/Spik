@@ -7,6 +7,10 @@ import com.polytech.spik.protocol.SpikMessages;
  */
 public interface SmsHandler {
 
+    void onConnected();
+
+    void onDisconnected();
+
     void onContactReceived(SpikMessages.Contact contact);
 
     void onConversationReceive(SpikMessages.Conversation conversation);
