@@ -9,9 +9,11 @@ import com.polytech.spik.sms.discovery.AbstractLanDiscoveryHandler;
 import com.polytech.spik.sms.discovery.LanDiscoveryServer;
 import com.polytech.spik.sms.service.LanSmsServer;
 import com.polytech.util.ComputerInfo;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.DatagramPacket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,12 +28,11 @@ public class LanSmsService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LanSmsService.class);
 
-    private EventLoopGroup eventLoopGroup;
     private LanSmsServer lanSmsServer;
     private LanDiscoveryServer lanDiscoveryServer;
 
     public LanSmsService(SmsHandlerFactory handlerFactory) {
-        eventLoopGroup = new NioEventLoopGroup(2, Executors.newFixedThreadPool(2));
+        EventLoopGroup eventLoopGroup = new NioEventLoopGroup(2, Executors.newFixedThreadPool(2));
         lanSmsServer = new LanSmsServer(eventLoopGroup, handlerFactory);
         lanDiscoveryServer = new LanDiscoveryServer(eventLoopGroup, new AbstractLanDiscoveryHandler(){
             @Override
@@ -55,7 +56,7 @@ public class LanSmsService {
 
                     LOGGER.info("Sending discovery response to {}", sender);
 
-                    ctx.writeAndFlush(response);
+                    ctx.writeAndFlush(new DatagramPacket(Unpooled.wrappedBuffer(response.toByteArray()), sender));
 
                 }catch (UnboundServerException e){
                     LOGGER.warn("Unable to response to the discovery request {}", e.getMessage());
@@ -79,9 +80,11 @@ public class LanSmsService {
 
     public void run() throws InterruptedException {
         lanSmsServer.start();
+        lanDiscoveryServer.start();
     }
 
     public void stop() throws IOException {
         lanSmsServer.close();
+        lanDiscoveryServer.close();
     }
 }
