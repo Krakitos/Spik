@@ -1,5 +1,6 @@
 package com.polytech.spik.sms.service;
 
+import com.polytech.spik.exceptions.UnboundServerException;
 import com.polytech.spik.protocol.SpikMessages;
 import com.polytech.spik.sms.SmsHandlerFactory;
 import com.polytech.spik.sms.filters.DynamicIpFilter;
@@ -21,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import java.io.Closeable;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -68,6 +70,15 @@ public class LanSmsServer implements Closeable {
         channel = bootstrap.bind(10101).sync().await().channel();
 
         LOGGER.info("Server bound on {}", channel.localAddress());
+    }
+
+    public int listeningPort() throws UnboundServerException {
+        final InetSocketAddress address = ((InetSocketAddress) channel.localAddress());
+
+        if( address == null)
+            throw new UnboundServerException();
+        else
+            return address.getPort();
     }
 
     /**
