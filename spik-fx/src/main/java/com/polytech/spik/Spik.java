@@ -1,4 +1,4 @@
-package com.funtowiczmo.spik;
+package com.polytech.spik;
 
 import javafx.application.Application;
 import javafx.application.Platform;
