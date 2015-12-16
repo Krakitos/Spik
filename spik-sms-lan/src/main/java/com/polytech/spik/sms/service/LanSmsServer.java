@@ -25,6 +25,9 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by mfuntowicz on 14/12/15.
@@ -35,39 +38,43 @@ public class LanSmsServer implements Closeable {
 
     private ServerBootstrap bootstrap;
     private Channel channel;
+
     private Set<InetAddress> authorizedIps;
+    private Timer authorizedIpsEvictor;
 
     public LanSmsServer(EventLoopGroup eventLoopGroup, final SmsHandlerFactory factory) {
         authorizedIps = new HashSet<>();
+        authorizedIpsEvictor = new Timer("IP Evictor", false);
+
         bootstrap = new ServerBootstrap()
-                .group(eventLoopGroup)
-                .channel(NioServerSocketChannel.class)
-                .childHandler(new ChannelInitializer<ServerChannel>() {
-                    @Override
-                    protected void initChannel(ServerChannel channel) throws Exception {
-                        final ChannelPipeline pipeline = channel.pipeline();
+            .group(eventLoopGroup)
+            .channel(NioServerSocketChannel.class)
+            .childHandler(new ChannelInitializer<ServerChannel>() {
+                @Override
+                protected void initChannel(ServerChannel channel) throws Exception {
+                    final ChannelPipeline pipeline = channel.pipeline();
 
-                        pipeline.addLast(new DynamicIpFilter(authorizedIps));
-                        pipeline.addLast(new UniqueIpFilter());
-                        pipeline.addLast(new LengthFieldBasedFrameDecoder(1 << 16, 0, 2, 0, 2));
-                        pipeline.addLast(new LengthFieldPrepender(2));
-                        pipeline.addLast(new SnappyFrameDecoder());
-                        pipeline.addLast(new SnappyFrameEncoder());
-                        pipeline.addLast(new ProtobufDecoder(SpikMessages.Wrapper.getDefaultInstance()));
-                        pipeline.addLast(new ProtobufEncoder());
-                        pipeline.addLast(new LanSmsHandler(factory.newInstance()));
+                    pipeline.addLast(new DynamicIpFilter(authorizedIps));
+                    pipeline.addLast(new UniqueIpFilter());
+                    pipeline.addLast(new LengthFieldBasedFrameDecoder(1 << 16, 0, 2, 0, 2));
+                    pipeline.addLast(new LengthFieldPrepender(2));
+                    pipeline.addLast(new SnappyFrameDecoder());
+                    pipeline.addLast(new SnappyFrameEncoder());
+                    pipeline.addLast(new ProtobufDecoder(SpikMessages.Wrapper.getDefaultInstance()));
+                    pipeline.addLast(new ProtobufEncoder());
+                    pipeline.addLast(new LanSmsHandler(factory.newInstance()));
 
-                        if(System.getProperty("spik.network.debug", "false").equals("true")) {
-                            pipeline.addFirst(new LoggingHandler(LogLevel.INFO));
-                        }
+                    if(System.getProperty("spik.network.debug", "false").equals("true")) {
+                        pipeline.addFirst(new LoggingHandler(LogLevel.INFO));
                     }
-                });
+                }
+            });
     }
 
     public void start() throws InterruptedException {
         LOGGER.info("Binding the server");
 
-        channel = bootstrap.bind(10101).sync().await().channel();
+        channel = bootstrap.bind(0).sync().await().channel();
 
         LOGGER.info("Server bound on {}", channel.localAddress());
     }
@@ -85,10 +92,19 @@ public class LanSmsServer implements Closeable {
      * Allow the specified IP to connect onto the server
      * @param address
      */
-    public void authorizeIp(InetAddress address){
-        if(authorizedIps.add(address))
+    public void authorizeIp(final InetAddress address){
+        if(authorizedIps.add(address)) {
             LOGGER.info("Authorizing ip {}", address);
-        else
+
+            authorizedIpsEvictor.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    LOGGER.info("Removing address {} from authorized IPs", address);
+                    authorizedIps.remove(address);
+                }
+            }, TimeUnit.SECONDS.toMillis(2));
+
+        }else
             LOGGER.warn("Tried to authorize an ip which is already allowed");
     }
 
