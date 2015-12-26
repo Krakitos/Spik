@@ -13,7 +13,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.slf4j.Logger;
@@ -33,17 +32,6 @@ import java.util.stream.StreamSupport;
 public class MainController implements Initializable {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
-
-    /** Constants **/
-    private static final Image SERVER_DOWN_IMG =
-            new Image(MainController.class.getClassLoader().getResourceAsStream("images/ic_signal_wifi_off_black_48dp.png"), 20, 20, true, true);
-
-    private static final Image SERVER_UP_IMG =
-            new Image(MainController.class.getClassLoader().getResourceAsStream("images/ic_signal_wifi_4_bar_black_48dp.png"), 20, 20, true, true);
-
-    private static final Image DEVICE_CONNECTED_IMG =
-            new Image(MainController.class.getClassLoader().getResourceAsStream("images/ic_phonelink_ring_black_48dp.png"), 20, 20, true, true);
-
 
     /** User Interface Bindings **/
     public TextField message_input;

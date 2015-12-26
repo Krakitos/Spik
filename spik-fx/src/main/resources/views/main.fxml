@@ -3,10 +3,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import org.controlsfx.control.StatusBar?>
 <?import java.lang.Double?>
 <?import java.lang.Integer?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.polytech.spik.controllers.MainController">
@@ -26,7 +23,7 @@
 
                     <HBox>
                         <padding>
-                            <Insets left="5" right="5" top="2" bottom="2" />
+                            <Insets left="20" right="20" top="10" bottom="10" />
                         </padding>
                         <TextField fx:id="message_input" HBox.hgrow="ALWAYS" prefHeight="$PREFERED_HEIGHT" promptText="%spik.placeholder.enter_msg" onKeyPressed="#onKeyPressed"/>
                     </HBox>
@@ -34,7 +31,7 @@
             </center>
         </BorderPane>
     </center>
-    <bottom>
+    <!--<bottom>
         <StatusBar fx:id="statusBar" text="">
             <rightItems>
                 <ImageView fx:id="serverStatusView">
@@ -47,5 +44,5 @@
                 </ImageView>
             </rightItems>
         </StatusBar>
-    </bottom>
+    </bottom>-->
 </BorderPane>
