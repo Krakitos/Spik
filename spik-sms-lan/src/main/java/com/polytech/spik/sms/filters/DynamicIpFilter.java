@@ -1,12 +1,12 @@
 package com.polytech.spik.sms.filters;
 
+import com.polytech.spik.domain.Phone;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.ipfilter.AbstractRemoteAddressFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.util.Set;
 
@@ -17,15 +17,20 @@ public class DynamicIpFilter extends AbstractRemoteAddressFilter<InetSocketAddre
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DynamicIpFilter.class);
 
-    private final Set<InetAddress> authorizedIps;
+    private final Set<Phone> authorizedPhones;
 
-    public DynamicIpFilter(final Set<InetAddress> authorizedIps) {
-        this.authorizedIps = authorizedIps;
+    public DynamicIpFilter(final Set<Phone> authorizedPhones) {
+        this.authorizedPhones = authorizedPhones;
     }
 
     @Override
     protected boolean accept(ChannelHandlerContext ctx, InetSocketAddress address) throws Exception {
-        return authorizedIps.contains(address.getAddress());
+        for (Phone phone : authorizedPhones) {
+            if(phone.address().getAddress().equals(address.getAddress()))
+                return true;
+
+        }
+        return false;
     }
 
     @Override
@@ -45,6 +50,6 @@ public class DynamicIpFilter extends AbstractRemoteAddressFilter<InetSocketAddre
      */
     public void clear(){
         LOGGER.trace("Removing all allowed IPs");
-        authorizedIps.clear();
+        authorizedPhones.clear();
     }
 }

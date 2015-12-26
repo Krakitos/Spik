@@ -1,6 +1,8 @@
 package com.polytech.spik.sms.service;
 
+import com.polytech.spik.exceptions.UnboundChannelException;
 import com.polytech.spik.protocol.SpikMessages;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import org.slf4j.Logger;
@@ -13,14 +15,13 @@ public abstract class LanSmsHandler extends SimpleChannelInboundHandler<SpikMess
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LanSmsHandler.class);
 
-    protected LanSmsHandler() {
-
-    }
+    private Channel channel;
 
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
         super.channelRegistered(ctx);
 
+        channel = ctx.channel();
         onConnected();
     }
 
@@ -28,6 +29,7 @@ public abstract class LanSmsHandler extends SimpleChannelInboundHandler<SpikMess
     public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
         super.channelUnregistered(ctx);
 
+        channel = null;
         onDisconnected();
     }
 
@@ -45,6 +47,18 @@ public abstract class LanSmsHandler extends SimpleChannelInboundHandler<SpikMess
             onSendMessage(msg.getSendMessage());
         else
             LOGGER.warn("Received an unknown message {}", msg);
+    }
+
+    public void write(SpikMessages.Wrapper msg) throws UnboundChannelException {
+        if(channel != null){
+            LOGGER.trace("Writing message to {}", channel.remoteAddress());
+
+            channel.writeAndFlush(msg);
+        }else{
+            LOGGER.warn("Attempt to write message to a null channel");
+
+            throw new UnboundChannelException();
+        }
     }
 
     protected abstract void onConnected();

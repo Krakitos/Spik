@@ -51,7 +51,7 @@ public class LanSmsService {
                 try {
                     final int port = lanSmsServer.listeningPort();
                     final DiscoveryMessages.DiscoveryMessage response = createDiscoveryResponse(port);
-                    lanSmsServer.authorizeIp(sender.getAddress());
+                    lanSmsServer.authorize(phone);
 
                     LOGGER.info("Sending discovery response to {}", sender);
 

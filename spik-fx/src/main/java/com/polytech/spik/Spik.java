@@ -30,6 +30,7 @@ public class Spik extends Application {
     }
 
     @Override
+    @SuppressWarnings("all")
     public void start(Stage primaryStage) throws Exception {
         LOGGER.info("Started Spik");
         final Rectangle2D screen = Screen.getPrimary().getBounds();
@@ -37,7 +38,11 @@ public class Spik extends Application {
                 getClass().getClassLoader().getResource("views/main.fxml"),
                 getResourceBundle()
         );
-        final Scene scene = new Scene(parent, screen.getWidth() * 0.7, screen.getHeight() * 0.7);
+
+        final double width = Math.min(1024, screen.getWidth() * 0.7);
+        final double height = Math.min(800, screen.getHeight() * 0.7);
+
+        final Scene scene = new Scene(parent, width, height);
 
         Font.loadFont(getClass().getClassLoader().getResourceAsStream("fonts/Roboto-Black.ttf"), 12);
 

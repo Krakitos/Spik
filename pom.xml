@@ -13,6 +13,7 @@
         <module>spik-sms-lan</module>
         <module>spik-util</module>
         <module>spik-fx</module>
+        <module>spik-common</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -1,7 +1,7 @@
 package com.polytech.spik.views.lists;
 
 import com.polytech.spik.domain.Contact;
-import com.polytech.spik.domain.Conversation;
+import com.polytech.spik.domain.FXConversation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 /**
  * Created by momo- on 28/10/2015.
  */
-public class ConversationItem extends ListCell<Conversation> {
+public class ConversationItem extends ListCell<FXConversation> {
 
     private static final Image EMPTY_CONTACT =
             new Image(ConversationItem.class.getClassLoader().getResourceAsStream("images/ic_person_black_48dp.png"), 30, 30, true, true);
@@ -46,11 +46,11 @@ public class ConversationItem extends ListCell<Conversation> {
     }
 
     @Override
-    protected void updateItem(Conversation item, boolean empty) {
+    protected void updateItem(FXConversation item, boolean empty) {
         super.updateItem(item, empty);
 
         if(Objects.nonNull(item)){
-            if(item.participants().size() == 1){
+            if(item.participantsProperty().size() == 1){
                 /*if(item.participants().get(0).hasPicture()) {
                     Image pic = new Image(new ByteArrayInputStream(item.participants().get(0).picture()), 30, 30, true, true);
                     contactImg.setImage(pic);
@@ -61,7 +61,7 @@ public class ConversationItem extends ListCell<Conversation> {
                 contactImg.setImage(EMPTY_CONTACT);
             }
 
-            contactName.setText(item.participants().stream().map(Contact::name).collect(Collectors.joining(", ")));
+            contactName.setText(item.participantsProperty().stream().map(Contact::name).collect(Collectors.joining(", ")));
             conversationSnippet.textProperty().bind(item.snippetProperty());
         }else
             hide();

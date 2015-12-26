@@ -15,6 +15,12 @@
     <dependencies>
         <dependency>
             <groupId>com.polytech</groupId>
+            <artifactId>spik-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.polytech</groupId>
             <artifactId>spik-sms-protocol</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

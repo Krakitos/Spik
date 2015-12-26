@@ -2,27 +2,25 @@ package com.polytech.spik.domain;
 
 import javafx.beans.property.*;
 
-import java.util.Optional;
-
 /**
  * Created by momo- on 15/12/2015.
  */
-public class Contact {
+public class FXContact implements Contact {
 
     private SimpleLongProperty id;
     private StringProperty name;
     private StringProperty address;
-    private Optional<byte[]> picture;
+    private byte[] picture;
 
-    public Contact(long id, String name, String address) {
+    public FXContact(long id, String name, String address) {
         this(id, name, address, null);
     }
 
-    public Contact(long id, String name, String address, byte[] picture) {
+    public FXContact(long id, String name, String address, byte[] picture) {
         this.id = new SimpleLongProperty(id);
         this.name = new SimpleStringProperty(name);
         this.address = new SimpleStringProperty(address);
-        this.picture = Optional.ofNullable(picture);
+        this.picture = picture;
     }
 
     public long id(){
@@ -49,17 +47,22 @@ public class Contact {
         return address;
     }
 
-    public Optional<byte[]> picture(){
+    public byte[] picture(){
         return picture;
     }
 
     @Override
+    public boolean hasPicture() {
+        return picture == null;
+    }
+
+    @Override
     public String toString() {
-        return "Contact{" +
+        return "FXContact{" +
                 "id=" + id() +
                 ", name=" + name() +
                 ", address=" + address() +
-                ", picture=" + picture.isPresent() +
+                ", picture=" + hasPicture() +
                 '}';
     }
 }

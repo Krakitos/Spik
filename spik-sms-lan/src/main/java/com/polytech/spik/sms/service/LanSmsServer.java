@@ -1,5 +1,6 @@
 package com.polytech.spik.sms.service;
 
+import com.polytech.spik.domain.Phone;
 import com.polytech.spik.exceptions.UnboundServerException;
 import com.polytech.spik.protocol.SpikMessages;
 import com.polytech.spik.sms.filters.DynamicIpFilter;
@@ -23,7 +24,6 @@ import org.slf4j.LoggerFactory;
 
 import java.io.Closeable;
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.util.HashSet;
 import java.util.Set;
@@ -41,12 +41,12 @@ public class LanSmsServer implements Closeable {
     private ServerBootstrap bootstrap;
     private Channel channel;
 
-    private Set<InetAddress> authorizedIps;
-    private Timer authorizedIpsEvictor;
+    private Set<Phone> authorizedPhones;
+    private Timer authorizedPhonesTimeout;
 
     public LanSmsServer(EventLoopGroup eventLoopGroup, final HandlerFactory factory) {
-        authorizedIps = new HashSet<>();
-        authorizedIpsEvictor = new Timer("IP Evictor", false);
+        authorizedPhones = new HashSet<>();
+        authorizedPhonesTimeout = new Timer("Phone Timeout", false);
 
         bootstrap = new ServerBootstrap()
             .group(eventLoopGroup)
@@ -56,7 +56,7 @@ public class LanSmsServer implements Closeable {
                 protected void initChannel(Channel channel) throws Exception {
                     final ChannelPipeline pipeline = channel.pipeline();
 
-                    pipeline.addLast(new DynamicIpFilter(authorizedIps));
+                    pipeline.addLast(new DynamicIpFilter(authorizedPhones));
                     pipeline.addLast(new UniqueIpFilter());
                     pipeline.addLast(new LengthFieldBasedFrameDecoder(1 << 16, 0, 2, 0, 2));
                     pipeline.addLast(new LengthFieldPrepender(2));
@@ -92,22 +92,36 @@ public class LanSmsServer implements Closeable {
 
     /**
      * Allow the specified IP to connect onto the server
-     * @param address
+     * @param phone
      */
-    public void authorizeIp(final InetAddress address){
-        if(authorizedIps.add(address)) {
-            LOGGER.info("Authorizing ip {}", address);
+    public void authorize(final Phone phone){
+        if(authorizedPhones.add(phone)) {
+            LOGGER.info("Authorizing phone {}", phone);
 
-            authorizedIpsEvictor.schedule(new TimerTask() {
+            authorizedPhonesTimeout.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    LOGGER.info("Removing address {} from authorized IPs", address);
-                    authorizedIps.remove(address);
+                    LOGGER.info("Removing phone {} from authorized one", phone);
+                    authorizedPhones.remove(phone);
                 }
             }, TimeUnit.SECONDS.toMillis(10));
 
         }else
             LOGGER.warn("Tried to authorize an ip which is already allowed");
+    }
+
+    /**
+     * Try to get the Phone which correspond to the specified IP
+     * @param address
+     * @return Phone instance if phone is authorized, null otherwise
+     */
+    public Phone getPhoneIfAuthorized(InetSocketAddress address){
+        for (Phone phone : authorizedPhones) {
+            if(phone.address().equals(address))
+                return phone;
+        }
+
+        return null;
     }
 
     @Override

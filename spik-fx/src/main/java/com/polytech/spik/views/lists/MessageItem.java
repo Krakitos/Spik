@@ -1,6 +1,6 @@
 package com.polytech.spik.views.lists;
 
-import com.polytech.spik.domain.Message;
+import com.polytech.spik.domain.FXMessage;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -17,7 +17,7 @@ import java.time.temporal.ChronoUnit;
 /**
  * Created by momo- on 04/11/2015.
  */
-public class MessageItem extends ListCell<Message> {
+public class MessageItem extends ListCell<FXMessage> {
 
     private static final DateTimeFormatter TODAY_FORMATTER = DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM);
     private static final DateTimeFormatter DEFAULT_FORMATTER = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
@@ -45,7 +45,7 @@ public class MessageItem extends ListCell<Message> {
     }
 
     @Override
-    protected void updateItem(Message item, boolean empty) {
+    protected void updateItem(FXMessage item, boolean empty) {
         super.updateItem(item, empty);
 
         if (empty || item == null){
@@ -57,7 +57,7 @@ public class MessageItem extends ListCell<Message> {
             );
 
 
-            container.setAlignment(item.statusProperty().getValue() == Message.Status.SENT ? SENT_MESSAGE : RECEIVED_MESSAGE);
+            container.setAlignment(item.statusProperty().getValue() == FXMessage.Status.SENT ? SENT_MESSAGE : RECEIVED_MESSAGE);
             messageText.setText(item.text());
 
             if(dateReceived.isBefore(LocalDateTime.now().truncatedTo(ChronoUnit.DAYS))) {
