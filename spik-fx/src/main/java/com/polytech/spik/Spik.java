@@ -39,7 +39,7 @@ public class Spik extends Application {
                 getResourceBundle()
         );
 
-        final double width = Math.min(1024, screen.getWidth() * 0.7);
+        final double width = Math.min(1280, screen.getWidth() * 0.7);
         final double height = Math.min(800, screen.getHeight() * 0.7);
 
         final Scene scene = new Scene(parent, width, height);
