@@ -91,7 +91,7 @@ public class MainController implements Initializable {
 
     private void updateParticipants(Iterable<Contact> participants) {
         final List<String> address = StreamSupport.stream(participants.spliterator(), true)
-                .map(Contact::address)
+                .map(Contact::name)
                 .collect(Collectors.toList());
 
         final String label = String.join(", ", address);
