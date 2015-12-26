@@ -15,7 +15,7 @@
     <center>
         <BorderPane>
             <left>
-                <ListView fx:id="conversations_list"/>
+                <ListView fx:id="conversations_list" prefWidth="350"/>
             </left>
             <center>
                 <VBox HBox.hgrow="ALWAYS">
