@@ -5,6 +5,7 @@ import com.polytech.spik.domain.Conversation;
 import com.polytech.spik.domain.Message;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by momo- on 19/12/2015.
@@ -42,6 +43,13 @@ public interface Context {
      * @return
      */
     Conversation findConversationById(long id);
+
+    /**
+     * Attempt to find a conversation according to the specified participants
+     * @param participants
+     * @return
+     */
+    Conversation findConversationByParticipants(List<String> participants);
 
     /**
      * Conversations of this context

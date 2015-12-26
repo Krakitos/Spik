@@ -24,6 +24,12 @@ public interface Conversation {
     Iterable<Message> messages();
 
     /**
+     * Add a message to the conversation
+     * @param message
+     */
+    void addMessage(Message message);
+
+    /**
      * Snippet of this conversation
      * @return
      */

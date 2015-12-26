@@ -62,6 +62,12 @@ public class FXConversation implements Conversation{
         return messages.stream().collect(Collectors.toList());
     }
 
+    @Override
+    public void addMessage(Message message) {
+        if(message instanceof FXMessage)
+            messages.add(((FXMessage) message));
+    }
+
     public ObservableList<FXMessage> messagesProperty(){
         return messages;
     }
@@ -83,10 +89,7 @@ public class FXConversation implements Conversation{
         }
     }
 
-
-
     public static class MessageComparator implements Comparator<FXMessage>{
-
         @Override
         public int compare(FXMessage a, FXMessage b) {
             return Long.compareUnsigned(a.date(), b.date());

@@ -13,10 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import org.slf4j.Logger;
@@ -139,7 +136,13 @@ public class MainController implements Initializable {
                 .findFirst();
 
         if(context.isPresent()){
-            /*context.get().sendMessage(selectedItem.participants(), message_input.getText());*/
+            context.get().sendMessage(selectedItem.participants(), message_input.getText());
+            message_input.clear();
+        }else{
+            LOGGER.error("Unable to find context to sendMessage");
+
+            Alert alert = new Alert(Alert.AlertType.ERROR, resources.getString("spik.sms.unable_to_send"), ButtonType.CLOSE);
+            alert.show();
         }
     }
 }

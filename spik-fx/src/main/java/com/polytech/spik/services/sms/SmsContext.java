@@ -1,6 +1,7 @@
 package com.polytech.spik.services.sms;
 
 import com.polytech.spik.domain.*;
+import com.polytech.spik.exceptions.UnboundChannelException;
 import com.polytech.spik.protocol.SpikMessages;
 import com.polytech.spik.remotes.FXContext;
 import com.polytech.spik.remotes.FXContextWrapper;
@@ -10,8 +11,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Created by momo- on 19/12/2015.
@@ -23,6 +26,34 @@ public abstract class SmsContext extends LanSmsHandler implements FXContextWrapp
 
     public SmsContext(FXContext context) {
         this.context = context;
+    }
+
+    @Override
+    public void sendMessage(Iterable<Contact> participants, String text) {
+        final List<String> participantsIds = StreamSupport.stream(participants.spliterator(), false)
+                .map(Contact::address)
+                .collect(Collectors.toList());
+
+        LOGGER.info("Sending message to {}", participantsIds);
+
+        FXMessage message = new FXMessage(System.currentTimeMillis(), Message.Status.SENT, text);
+        Conversation c = context.findConversationByParticipants(participantsIds);
+
+        if(Objects.nonNull(c)){
+            c.addMessage(message);
+        }else{
+            LOGGER.warn("Creating new conversation is not implemented yet");
+        }
+
+        SpikMessages.SendMessage.Builder msg = SpikMessages.SendMessage.newBuilder()
+                .addAllParticipants(participantsIds)
+                .setMid(System.currentTimeMillis())
+                .setText(text);
+        try {
+            write(SpikMessages.Wrapper.newBuilder().setSendMessage(msg).build());
+        } catch (UnboundChannelException e) {
+            LOGGER.warn("Unable to send SendMessage", e);
+        }
     }
 
     @Override
@@ -67,7 +98,7 @@ public abstract class SmsContext extends LanSmsHandler implements FXContextWrapp
 
         if(conversation.isPresent()) {
             LOGGER.trace("Adding message {} to conversation {}", sms.getDate(), sms.getThreadId());
-            Platform.runLater(() -> conversation.get().messagesProperty().add(fromSms(sms)));
+            Platform.runLater(() -> conversation.get().addMessage(fromSms(sms)));
         }else
             LOGGER.warn("Unable to find conversation {}", sms.getThreadId());
 
