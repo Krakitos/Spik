@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
@@ -15,18 +17,18 @@
     <center>
         <BorderPane>
             <left>
-                <ListView fx:id="conversations_list" prefWidth="350"/>
+                <ListView fx:id="conversations_list" styleClass="conversation_list" prefWidth="350"/>
             </left>
             <center>
                 <VBox HBox.hgrow="ALWAYS">
-                    <padding>
-                        <Insets top="5" bottom="5" left="5" right="5" />
-                    </padding>
                     <Label fx:id="participants_label" prefHeight="$PREFERED_HEIGHT" prefWidth="$MAX_DOUBLE" alignment="CENTER" />
-                    <ListView fx:id="messages_list" VBox.vgrow="ALWAYS"/>
-                    <HBox fx:id="message_container" prefHeight="$PREFERED_HEIGHT">
-                        <TextField fx:id="message_input" HBox.hgrow="ALWAYS" prefHeight="${message_container.prefHeight}" promptText="%spik.placeholder.enter_msg"/>
-                        <Button fx:id="send_btn" text="%spik.btn.send" prefHeight="${message_container.prefHeight}" onAction="#sendMessage" />
+                    <ListView fx:id="messages_list" styleClass="message_list" VBox.vgrow="ALWAYS"/>
+
+                    <HBox>
+                        <padding>
+                            <Insets left="5" right="5" top="2" bottom="2" />
+                        </padding>
+                        <TextField fx:id="message_input" HBox.hgrow="ALWAYS" prefHeight="$PREFERED_HEIGHT" promptText="%spik.placeholder.enter_msg" onKeyPressed="#onKeyPressed"/>
                     </HBox>
                 </VBox>
             </center>

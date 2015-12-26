@@ -11,11 +11,11 @@ import com.polytech.spik.views.lists.ConversationItem;
 import com.polytech.spik.views.lists.MessageItem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.layout.HBox;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,9 +48,7 @@ public class MainController implements Initializable {
     /** User Interface Bindings **/
     public TextField message_input;
     public ListView<FXConversation> conversations_list;
-    public HBox message_container;
     public ListView<FXMessage> messages_list;
-    public Button send_btn;
     public Label participants_label;
 
     /** Model **/
@@ -74,8 +72,6 @@ public class MainController implements Initializable {
     }
 
     private void setupUi(){
-        send_btn.disableProperty().bind(message_input.textProperty().isEmpty());
-
         conversations_list.setCellFactory(param -> new ConversationItem());
         messages_list.setCellFactory(param -> new MessageItem());
 
@@ -127,22 +123,24 @@ public class MainController implements Initializable {
         }
     }
 
-    public void sendMessage(ActionEvent actionEvent) {
-        LOGGER.trace("Click on send button (message.size = {})", message_input.getText().length());
-        FXConversation selectedItem = conversations_list.getSelectionModel().getSelectedItem();
+    public void onKeyPressed(KeyEvent event) {
+        if(event.getCode() == KeyCode.ENTER && !message_input.getText().isEmpty()){
+            LOGGER.trace("Click on send button (message.size = {})", message_input.getText().length());
+            FXConversation selectedItem = conversations_list.getSelectionModel().getSelectedItem();
 
-        Optional<FXContextWrapper> context = contexts.stream()
-                .filter(c -> c.fxContext().conversationsProperty().contains(selectedItem))
-                .findFirst();
+            Optional<FXContextWrapper> context = contexts.stream()
+                    .filter(c -> c.fxContext().conversationsProperty().contains(selectedItem))
+                    .findFirst();
 
-        if(context.isPresent()){
-            context.get().sendMessage(selectedItem.participants(), message_input.getText());
-            message_input.clear();
-        }else{
-            LOGGER.error("Unable to find context to sendMessage");
+            if(context.isPresent()){
+                context.get().sendMessage(selectedItem.participants(), message_input.getText());
+                message_input.clear();
+            }else{
+                LOGGER.error("Unable to find context to sendMessage");
 
-            Alert alert = new Alert(Alert.AlertType.ERROR, resources.getString("spik.sms.unable_to_send"), ButtonType.CLOSE);
-            alert.show();
+                Alert alert = new Alert(Alert.AlertType.ERROR, resources.getString("spik.sms.unable_to_send"), ButtonType.CLOSE);
+                alert.show();
+            }
         }
     }
 }
