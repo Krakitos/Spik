@@ -53,7 +53,7 @@ public class FXContact implements Contact {
 
     @Override
     public boolean hasPicture() {
-        return picture == null;
+        return picture != null;
     }
 
     @Override
