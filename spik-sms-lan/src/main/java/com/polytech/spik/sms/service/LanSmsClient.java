@@ -5,6 +5,7 @@ import com.polytech.spik.sms.SmsServiceClient;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
@@ -40,6 +41,8 @@ public class LanSmsClient extends SmsServiceClient {
         bootstrap = new Bootstrap()
                 .channel(NioSocketChannel.class)
                 .group(loopGroup)
+                .option(ChannelOption.SO_KEEPALIVE, true)
+                .option(ChannelOption.TCP_NODELAY, true)
                 .handler(new ChannelInitializer<SocketChannel>() {
 
                     @Override
