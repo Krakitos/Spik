@@ -73,6 +73,18 @@ public class MainController implements Initializable {
         });
     }
 
+    private void cleanUi(FXContext fxContext){
+        if(Platform.isFxApplicationThread()){
+            LOGGER.info("Cleaning UI for context {}", fxContext);
+
+            fxContext.clear();
+            messages_list.setItems(null);
+            participants_label.setText(null);
+        }else{
+            Platform.runLater(() -> cleanUi(fxContext));
+        }
+    }
+
     private void updateParticipants(Iterable<Contact> participants) {
         final List<String> address = StreamSupport.stream(participants.spliterator(), true)
                 .map(Contact::name)
@@ -99,7 +111,7 @@ public class MainController implements Initializable {
                     @Override
                     protected void onDisconnected() {
                         LOGGER.info("Device disconnected");
-                        Platform.runLater(() -> fxContext().clear());
+                        cleanUi(fxContext());
                     }
                 };
 
