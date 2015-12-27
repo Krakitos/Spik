@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
@@ -45,7 +46,9 @@ public class FXContext implements Context {
 
     @Override
     public void addConversation(Collection<Contact> participants) {
-        if(conversations.parallelStream().noneMatch(c -> c.participantsProperty().containsAll(participants))){
+        if(conversations.parallelStream().noneMatch(c ->
+                c.participantsProperty().size() == participants.size() &&
+                c.participantsProperty().containsAll(participants))){
             conversations.add(new FXConversation(System.currentTimeMillis(), participants));
         }
     }
@@ -63,6 +66,23 @@ public class FXContext implements Context {
     }
 
     @Override
+    public Conversation findConversationByParticipants(List<String> participants) {
+        conversationsLoop:
+        for(FXConversation c : conversations){
+            if(c.participantsProperty().size() == participants.size()){
+                for (Contact contact : c.participants()) {
+                    if(!participants.contains(contact.address()))
+                        continue conversationsLoop;
+                }
+
+                return c;
+            }
+        }
+
+        return null;
+    }
+
+    @Override
     public Iterable<Conversation> conversations() {
         return conversations.stream().collect(Collectors.toList());
     }
@@ -74,7 +94,7 @@ public class FXContext implements Context {
     @Override
     public void addMessage(Conversation c, Message msg) {
         if(c instanceof FXConversation && conversations.contains(c)){
-
+            c.addMessage(msg);
         }
     }
 

@@ -18,7 +18,7 @@
             </left>
             <center>
                 <VBox HBox.hgrow="ALWAYS">
-                    <Label fx:id="participants_label" prefHeight="$PREFERED_HEIGHT" prefWidth="$MAX_DOUBLE" alignment="CENTER" />
+                    <Label fx:id="participants_label" visible="false" prefHeight="$PREFERED_HEIGHT" prefWidth="$MAX_DOUBLE" styleClass="header"/>
                     <ListView fx:id="messages_list" styleClass="message_list" VBox.vgrow="ALWAYS"/>
 
                     <HBox>
@@ -31,18 +31,4 @@
             </center>
         </BorderPane>
     </center>
-    <!--<bottom>
-        <StatusBar fx:id="statusBar" text="">
-            <rightItems>
-                <ImageView fx:id="serverStatusView">
-                    <image>
-                        <Image url="@../images/ic_signal_wifi_off_black_48dp.png"
-                               preserveRatio="true"
-                               requestedWidth="20"
-                               smooth="true" />
-                    </image>
-                </ImageView>
-            </rightItems>
-        </StatusBar>
-    </bottom>-->
 </BorderPane>

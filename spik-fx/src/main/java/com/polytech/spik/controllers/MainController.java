@@ -9,6 +9,7 @@ import com.polytech.spik.services.sms.LanSmsService;
 import com.polytech.spik.services.sms.SmsContext;
 import com.polytech.spik.views.lists.ConversationItem;
 import com.polytech.spik.views.lists.MessageItem;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -70,7 +71,6 @@ public class MainController implements Initializable {
                 messages_list.scrollTo(newValue.messagesProperty().size());
             }
         });
-
     }
 
     private void updateParticipants(Iterable<Contact> participants) {
@@ -80,6 +80,10 @@ public class MainController implements Initializable {
 
         final String label = String.join(", ", address);
         participants_label.setText(label);
+
+
+        if(!participants_label.isVisible())
+            participants_label.setVisible(true);
     }
 
     private void launchSpik() {
@@ -94,7 +98,8 @@ public class MainController implements Initializable {
 
                     @Override
                     protected void onDisconnected() {
-
+                        LOGGER.info("Device disconnected");
+                        Platform.runLater(() -> fxContext().clear());
                     }
                 };
 
