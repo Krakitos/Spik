@@ -1,5 +1,6 @@
 package com.polytech.spik.controllers;
 
+import com.guigarage.controls.SimpleMediaListCell;
 import com.polytech.spik.domain.Contact;
 import com.polytech.spik.domain.FXConversation;
 import com.polytech.spik.domain.FXMessage;
@@ -7,7 +8,6 @@ import com.polytech.spik.remotes.FXContext;
 import com.polytech.spik.remotes.FXContextWrapper;
 import com.polytech.spik.services.sms.LanSmsService;
 import com.polytech.spik.services.sms.SmsContext;
-import com.polytech.spik.views.lists.ConversationItem;
 import com.polytech.spik.views.lists.MessageItem;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -61,7 +61,7 @@ public class MainController implements Initializable {
     }
 
     private void setupUi(){
-        conversations_list.setCellFactory(param -> new ConversationItem());
+        conversations_list.setCellFactory(param -> new SimpleMediaListCell());
         messages_list.setCellFactory(param -> new MessageItem());
 
         conversations_list.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
