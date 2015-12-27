@@ -37,7 +37,7 @@ public class FXConversation implements Conversation{
         this.sortedMessages = this.messages.sorted(DEFAULT_COMPARATOR);
 
         this.snippet = new SimpleStringProperty();
-        this.messages.addListener((InvalidationListener) c -> updateSnippet());
+        this.sortedMessages.addListener((InvalidationListener) c -> updateSnippet());
 
         updateSnippet();
     }
