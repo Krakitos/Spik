@@ -3,6 +3,7 @@ package com.polytech.spik.controllers;
 import com.guigarage.controls.SimpleMediaListCell;
 import com.polytech.spik.domain.Contact;
 import com.polytech.spik.domain.FXConversation;
+import com.polytech.spik.domain.FXEventHandler;
 import com.polytech.spik.domain.FXMessage;
 import com.polytech.spik.remotes.FXContext;
 import com.polytech.spik.remotes.FXContextWrapper;
@@ -13,9 +14,12 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +34,7 @@ import java.util.stream.StreamSupport;
 /**
  * Created by momo- on 15/12/2015.
  */
-public class MainController implements Initializable {
+public class MainController implements Initializable, FXEventHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
 
@@ -61,7 +65,7 @@ public class MainController implements Initializable {
     }
 
     private void setupUi(){
-        conversations_list.setCellFactory(param -> new SimpleMediaListCell());
+        conversations_list.setCellFactory(param -> new SimpleMediaListCell<>());
         messages_list.setCellFactory(param -> new MessageItem());
 
         conversations_list.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -101,17 +105,25 @@ public class MainController implements Initializable {
     private void launchSpik() {
         try {
             smsService = new LanSmsService(() -> {
-                SmsContext context = new SmsContext(new FXContext()){
+                SmsContext context = new SmsContext(new FXContext(), this){
 
                     @Override
                     protected void onConnected() {
-
+                        showNotification(
+                            resources.getString("spik.sms.connection"),
+                            resources.getString("spik.sms.device_connected")
+                        );
                     }
 
                     @Override
                     protected void onDisconnected() {
                         LOGGER.info("Device disconnected");
                         cleanUi(fxContext());
+
+                        showNotification(
+                            resources.getString("spik.sms.disconnection"),
+                            resources.getString("spik.sms.device_disconnected")
+                        );
                     }
                 };
 
@@ -119,12 +131,33 @@ public class MainController implements Initializable {
 
                 LOGGER.trace("Registered new context {}", context);
 
-                conversations_list.setItems(context.fxContext().conversationsProperty());
+                conversations_list.setItems(
+                    context.fxContext()
+                    .conversationsProperty()
+                    .sorted((a, b) -> -Long.compareUnsigned(a.lastMessageDate(), b.lastMessageDate()))
+                );
+
                 return context;
             });
             smsService.run();
         } catch (InterruptedException e) {
             LOGGER.error("Unable to launch Sms Service", e);
+        }
+    }
+
+    private void showNotification(String title, String content){
+        if(!Platform.isFxApplicationThread()){
+            LOGGER.warn("Trying to show notification on non UI Thread");
+            Platform.runLater(() -> showNotification(title, content));
+        }else {
+            LOGGER.trace("Showing notification : {}", title);
+
+            Notifications.create()
+                    .position(Pos.BOTTOM_RIGHT)
+                    .hideAfter(Duration.seconds(2))
+                    .title(title)
+                    .text(content)
+                    .show();
         }
     }
 
@@ -147,5 +180,18 @@ public class MainController implements Initializable {
                 alert.show();
             }
         }
+    }
+
+    @Override
+    public void onMessageReceived(FXConversation c, FXMessage message) {
+        String partipants = String.join(
+                ", ",
+                c.participantsProperty().stream().map(Contact::name).collect(Collectors.toList())
+        );
+
+        showNotification(
+            String.format(resources.getString("spik.sms.message_received_title"), partipants),
+            message.text().substring(0, Math.min(50, message.text().length()))
+        );
     }
 }
