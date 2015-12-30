@@ -1,5 +1,7 @@
 package com.polytech.spik.controllers;
 
+import com.guigarage.controls.Emoji;
+import com.guigarage.controls.EmojiUtil;
 import com.guigarage.controls.SimpleMediaListCell;
 import com.polytech.spik.domain.Contact;
 import com.polytech.spik.domain.FXConversation;
@@ -14,10 +16,14 @@ import com.polytech.spik.views.notifications.NotificationManager;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Popup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,6 +47,13 @@ public class MainController implements Initializable, FXEventHandler {
     public ListView<FXConversation> conversations_list;
     public ListView<FXMessage> messages_list;
     public Label participants_label;
+    public Button emojiDisplayer;
+
+    final Node emojiGrid = EmojiUtil.createEmoticonsPane(emoji -> {
+        message_input.appendText(emoji.getEmoji().getEmoji());
+    });
+
+    final Popup emojiPopup = new Popup();
 
     /** Model **/
     private ResourceBundle resources;
@@ -63,7 +76,15 @@ public class MainController implements Initializable, FXEventHandler {
     }
 
     private void setupUi(){
-        conversations_list.setCellFactory(param -> new SimpleMediaListCell<>());
+        conversations_list.setCellFactory(param -> {
+            SimpleMediaListCell<FXConversation> cell = new SimpleMediaListCell<>();
+            cell.getTitleLabel().getStyleClass().clear();
+            cell.getTitleLabel().setStyle("-fx-font-size: 16; -fx-font-weight: 600");
+
+            cell.getDescriptionLabel().getStyleClass().clear();
+            cell.getDescriptionLabel().setStyle("-fx-font-size: 14; -fx-fill: darkgray; -fx-text-overrun: ellipsis");
+            return cell;
+        });
         messages_list.setCellFactory(param -> new MessageItem());
 
         conversations_list.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -72,6 +93,25 @@ public class MainController implements Initializable, FXEventHandler {
                 messages_list.setItems(newValue.sortedMessagesProperty());
                 messages_list.scrollTo(newValue.messagesProperty().size());
             }
+        });
+
+        emojiDisplayer.setText(Emoji.E_0000.getEmoji());
+        emojiPopup.setConsumeAutoHidingEvents(false);
+        emojiPopup.setAutoHide(true);
+        emojiPopup.getContent().add(emojiGrid);
+
+        emojiPopup.setOnShown(ev -> {
+            Bounds bounds = message_input.localToScreen(message_input.getBoundsInLocal());
+            double emojiWidth = emojiPopup.getWidth();
+            double emojiHeight = emojiPopup.getHeight();
+
+            System.out.println(emojiWidth + " " + emojiHeight);
+
+            double x = bounds.getMinX() + emojiWidth/2;
+            double y = bounds.getMinY() - emojiHeight;
+
+            emojiPopup.setAnchorX(x);
+            emojiPopup.setAnchorY(y);
         });
     }
 
@@ -143,17 +183,6 @@ public class MainController implements Initializable, FXEventHandler {
         }
     }
 
-    private void showNotification(String title, String content){
-        if(!Platform.isFxApplicationThread()){
-            LOGGER.warn("Trying to show notification on non UI Thread");
-            Platform.runLater(() -> showNotification(title, content));
-        }else {
-            LOGGER.trace("Showing notification : {}", title);
-
-            NotificationManager.getInstance().provider().notify("Spik", title, content);
-        }
-    }
-
     public void onKeyPressed(KeyEvent event) {
         if(event.getCode() == KeyCode.ENTER && !message_input.getText().isEmpty()){
             LOGGER.trace("Click on send button (message.size = {})", message_input.getText().length());
@@ -186,5 +215,22 @@ public class MainController implements Initializable, FXEventHandler {
             String.format(resources.getString("spik.sms.message_received_title"), partipants),
             message.text().substring(0, Math.min(50, message.text().length()))
         );
+    }
+
+    private void showNotification(String title, String content){
+        if(!Platform.isFxApplicationThread()){
+            LOGGER.warn("Trying to show notification on non UI Thread");
+            Platform.runLater(() -> showNotification(title, content));
+        }else {
+            LOGGER.trace("Showing notification : {}", title);
+
+            NotificationManager.getInstance().provider().notify("Spik", title, content);
+        }
+    }
+
+    public void onEmojiDisplayerClick(ActionEvent e) {
+
+        if(!emojiPopup.isShowing())
+            emojiPopup.show(emojiDisplayer, 0, 0);
     }
 }

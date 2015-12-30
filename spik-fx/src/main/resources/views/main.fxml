@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.lang.Double?>
 <?import java.lang.Integer?>
@@ -21,11 +19,12 @@
                     <Label fx:id="participants_label" visible="false" prefHeight="$PREFERED_HEIGHT" prefWidth="$MAX_DOUBLE" styleClass="header"/>
                     <ListView fx:id="messages_list" editable="false" focusTraversable="false" styleClass="message_list" VBox.vgrow="ALWAYS"/>
 
-                    <HBox>
+                    <HBox fx:id="input_container" spacing="5">
                         <padding>
                             <Insets left="20" right="20" top="10" bottom="10" />
                         </padding>
                         <TextField fx:id="message_input" HBox.hgrow="ALWAYS" prefHeight="$PREFERED_HEIGHT" promptText="%spik.placeholder.enter_msg" onKeyPressed="#onKeyPressed"/>
+                        <Button fx:id="emojiDisplayer" alignment="CENTER" prefHeight="$PREFERED_HEIGHT" prefWidth="${emojiDisplayer.prefHeight}" onAction="#onEmojiDisplayerClick"/>
                     </HBox>
                 </VBox>
             </center>
