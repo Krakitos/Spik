@@ -39,11 +39,7 @@ public class SystemInfo extends SystemInfoRt {
     public static final boolean is64Bit = !is32Bit;
     public static final boolean isAMD64 = "amd64".equals(OS_ARCH);
     public static final boolean isMacIntel64 = isMac && "x86_64".equals(OS_ARCH);
-    public static final String nativeFileManagerName = isMac ? "Finder" :
-            isGnome ? "Nautilus" :
-                    isKDE ? "Konqueror" :
-                            isWindows ? "Explorer" :
-                                    "File Manager";
+
     /**
      * Whether IDEA is running under MacOS X version 10.4 or later.
      *
@@ -83,6 +79,12 @@ public class SystemInfo extends SystemInfoRt {
     private static final String _SUN_DESKTOP = SUN_DESKTOP.toLowerCase();
     public static final boolean isKDE = _SUN_DESKTOP.contains("kde");
     public static final boolean isGnome = _SUN_DESKTOP.contains("gnome");
+
+    public static final String nativeFileManagerName = isMac ? "Finder" :
+            isGnome ? "Nautilus" :
+                    isKDE ? "Konqueror" :
+                            isWindows ? "Explorer" :
+                                    "File Manager";
     /**
      * Operating system is supposed to have middle mouse button click occupied by paste action.
      *
