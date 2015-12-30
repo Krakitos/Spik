@@ -124,7 +124,7 @@ public class FXConversation implements Conversation, Media {
             Image toDisplay = participants.stream()
                     .filter(Contact::hasPicture)
                     .findAny()
-                    .map(c -> new Image( new ByteArrayInputStream(c.picture()), 32, 32, true, true))
+                    .map(c -> new Image(new ByteArrayInputStream(c.picture())))
                     .orElse(EMPTY_CONTACT);
 
             image = new SimpleObjectProperty<>(toDisplay);
