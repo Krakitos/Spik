@@ -10,16 +10,14 @@ import com.polytech.spik.remotes.FXContextWrapper;
 import com.polytech.spik.services.sms.LanSmsService;
 import com.polytech.spik.services.sms.SmsContext;
 import com.polytech.spik.views.lists.MessageItem;
+import com.polytech.spik.views.notifications.NotificationManager;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.util.Duration;
-import org.controlsfx.control.Notifications;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -152,12 +150,7 @@ public class MainController implements Initializable, FXEventHandler {
         }else {
             LOGGER.trace("Showing notification : {}", title);
 
-            Notifications.create()
-                    .position(Pos.BOTTOM_RIGHT)
-                    .hideAfter(Duration.seconds(2))
-                    .title(title)
-                    .text(content)
-                    .show();
+            NotificationManager.getInstance().provider().notify("Spik", title, content);
         }
     }
 
