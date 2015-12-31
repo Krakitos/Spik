@@ -34,4 +34,10 @@ public interface Conversation {
      * @return
      */
     String snippet();
+
+    /**
+     * Date of the last message
+     * @return
+     */
+    long lastMessageDate();
 }

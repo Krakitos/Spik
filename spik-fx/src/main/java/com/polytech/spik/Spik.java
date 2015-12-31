@@ -1,5 +1,6 @@
 package com.polytech.spik;
 
+import com.polytech.spik.views.notifications.NotificationManager;
 import javafx.application.Application;
 import javafx.application.ConditionalFeature;
 import javafx.application.Platform;
@@ -62,6 +63,7 @@ public class Spik extends Application {
 
         primaryStage.setOnCloseRequest(e -> {
             Platform.exit();
+            NotificationManager.getInstance().provider().clean();
             System.exit(0);
         });
         primaryStage.show();

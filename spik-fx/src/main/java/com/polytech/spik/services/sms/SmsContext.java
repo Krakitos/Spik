@@ -23,9 +23,11 @@ public abstract class SmsContext extends LanSmsHandler implements FXContextWrapp
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SmsContext.class);
     private final FXContext context;
+    private final FXEventHandler handler;
 
-    public SmsContext(FXContext context) {
+    public SmsContext(FXContext context, FXEventHandler handler) {
         this.context = context;
+        this.handler = handler;
     }
 
     @Override
@@ -98,7 +100,14 @@ public abstract class SmsContext extends LanSmsHandler implements FXContextWrapp
 
         if(conversation.isPresent()) {
             LOGGER.trace("Adding message {} to conversation {}", sms.getDate(), sms.getThreadId());
-            Platform.runLater(() -> conversation.get().addMessage(fromSms(sms)));
+            Platform.runLater(() -> {
+                FXConversation c = conversation.get();
+                FXMessage message = fromSms(sms);
+
+                c.addMessage(message);
+
+                handler.onMessageReceived(conversation.get(), message);
+            });
         }else
             LOGGER.warn("Unable to find conversation {}", sms.getThreadId());
 
