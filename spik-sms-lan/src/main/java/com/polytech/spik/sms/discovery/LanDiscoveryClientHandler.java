@@ -18,23 +18,21 @@ public class LanDiscoveryClientHandler extends AbstractLanDiscoveryHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LanDiscoveryClientHandler.class);
 
-    private final LanDiscoveryClientCallback callback;
     private List<Computer> computers;
 
-    public LanDiscoveryClientHandler(LanDiscoveryClientCallback callback){
-        this.callback = callback;
+    public LanDiscoveryClientHandler(){
         this.computers = new ArrayList<>();
+    }
+
+    public List<Computer> computers(){
+        return computers;
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         if (cause instanceof ReadTimeoutException) {
-            ctx.executor().submit(new Runnable() {
-                @Override
-                public void run() {
-                    callback.onDiscoveryDone(computers);
-                }
-            });
+            if(LOGGER.isDebugEnabled())
+                LOGGER.debug("Read Timed out");
         }
     }
 

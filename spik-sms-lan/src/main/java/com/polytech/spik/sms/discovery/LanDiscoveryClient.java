@@ -1,5 +1,6 @@
 package com.polytech.spik.sms.discovery;
 
+import com.polytech.spik.domain.Computer;
 import com.polytech.spik.domain.Phone;
 import com.polytech.spik.protocol.DiscoveryMessages;
 import io.netty.bootstrap.Bootstrap;
@@ -15,56 +16,55 @@ import io.netty.handler.timeout.ReadTimeoutHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.Closeable;
-import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.util.List;
 
 /**
  * Created by mfuntowicz on 24/10/15.
  */
-public class LanDiscoveryClient implements Closeable{
+public class LanDiscoveryClient {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LanDiscoveryClient.class);
 
-    private static final InetSocketAddress DISCOVERY_ADDRESS =
-            new InetSocketAddress("255.255.255.255", 10101);
+    private static final int DEFAULT_PORT = 10101;
 
-    private final LanDiscoveryClientCallback callback;
-    private final Bootstrap bootstrap;
-    private Channel channel;
+    private final EventLoopGroup loopGroup;
 
-    public LanDiscoveryClient(final LanDiscoveryClientCallback callback){
-        this(new NioEventLoopGroup(), callback);
+    public LanDiscoveryClient(){
+        this(new NioEventLoopGroup(1));
     }
 
-    public LanDiscoveryClient(final EventLoopGroup group, final LanDiscoveryClientCallback callback){
-        this.callback = callback;
-        bootstrap = new Bootstrap()
-                .group(group)
-                .channel(NioDatagramChannel.class)
-                .option(ChannelOption.SO_BROADCAST, true)
-                .handler(new ChannelInitializer<NioDatagramChannel>() {
-                    @Override
-                    protected void initChannel(NioDatagramChannel ch) throws Exception {
-                        final ChannelPipeline pipeline = ch.pipeline();
-
-                        if(System.getProperty("spik.network.debug", "false").equals("true")) {
-                            pipeline.addLast(new LoggingHandler(LogLevel.INFO));
-                        }
-
-                        pipeline.addLast(new ReadTimeoutHandler(2));
-                        pipeline.addLast(new LanDiscoveryClientHandler(callback));
-                    }
-                });
+    public LanDiscoveryClient(final EventLoopGroup loopGroup){
+        this.loopGroup = loopGroup;
     }
 
-    public void connect() throws InterruptedException {
-        LOGGER.debug("Binding the UDP Socket");
-        channel = bootstrap.bind(0).sync().channel();
+    public List<Computer> discover(String broadcastIp, Phone phone) {
+        ByteBuf raw = createMessage(phone);
+        LanDiscoveryClientHandler handler = new LanDiscoveryClientHandler();
+        InetSocketAddress broadcastSocketIp = new InetSocketAddress(broadcastIp, DEFAULT_PORT);
+
+        LOGGER.info("Sending Broadcast discovery to: {}", broadcastSocketIp);
+
+        Channel channel = null;
+        try {
+            channel = createBootstrap(handler).bind(0).syncUninterruptibly().channel();
+            channel.writeAndFlush(new DatagramPacket(raw, broadcastSocketIp));
+            channel.closeFuture().sync();
+        }catch (InterruptedException e){
+            LOGGER.warn("Discovery process interrupted", e);
+        }finally {
+            if(channel != null) {
+                if (channel.isOpen())
+                    channel.closeFuture().awaitUninterruptibly();
+            }
+        }
+
+        return handler.computers();
     }
 
-    public void sendDiscoveryRequest(Phone phone) throws InterruptedException {
-        final DiscoveryMessages.DiscoveryRequest request = DiscoveryMessages.DiscoveryRequest.newBuilder()
+    private ByteBuf createMessage(Phone phone){
+        final DiscoveryMessages.DiscoveryRequest request =
+                DiscoveryMessages.DiscoveryRequest.newBuilder()
                 .setName(phone.name())
                 .setManufacturer(phone.manufacturer())
                 .setModel(phone.model())
@@ -76,20 +76,26 @@ public class LanDiscoveryClient implements Closeable{
                 .setRequest(request)
                 .build();
 
-        final ByteBuf raw = Unpooled.wrappedBuffer(msg.toByteArray());
-
-        LOGGER.trace("Sending discovery request");
-
-        callback.onDiscoveryStarted();
-
-        channel.writeAndFlush(new DatagramPacket(raw, DISCOVERY_ADDRESS));
-
-        channel.closeFuture().sync();
+        return Unpooled.wrappedBuffer(msg.toByteArray());
     }
 
-    @Override
-    public void close() throws IOException {
-        if(channel != null)
-            channel.close().awaitUninterruptibly();
+    private Bootstrap createBootstrap(final LanDiscoveryClientHandler handler){
+        return new Bootstrap()
+            .group(loopGroup)
+            .channel(NioDatagramChannel.class)
+            .option(ChannelOption.SO_BROADCAST, true)
+            .handler(new ChannelInitializer<NioDatagramChannel>() {
+                @Override
+                protected void initChannel(NioDatagramChannel ch) throws Exception {
+                    final ChannelPipeline pipeline = ch.pipeline();
+
+                    if(System.getProperty("spik.network.debug", "false").equals("true")) {
+                        pipeline.addLast(new LoggingHandler(LogLevel.INFO));
+                    }
+
+                    pipeline.addLast(new ReadTimeoutHandler(2));
+                    pipeline.addLast(handler);
+                }
+            });
     }
 }
