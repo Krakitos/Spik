@@ -71,6 +71,7 @@
     -fx-padding: 0;
     -fx-font-size: 0;
     -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box , rgba(0, 0, 0, 0.6) , 10, 0, 2, 2);
 }
 
 #search_input{
