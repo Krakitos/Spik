@@ -34,6 +34,11 @@ public class LibNotifyProvider implements NotificationProvider {
     }
 
     @Override
+    public void notify(String name, String title, String description, String icon) {
+
+    }
+
+    @Override
     public void clean() {
         synchronized (myLock) {
             myDisposed = true;

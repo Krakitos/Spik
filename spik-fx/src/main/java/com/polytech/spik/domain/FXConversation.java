@@ -19,7 +19,7 @@ public class FXConversation implements Conversation, Media {
 
     private static final int SNIPPET_LENGTH = 40;
     private static final Image EMPTY_CONTACT =
-            new Image(FXConversation.class.getClassLoader().getResourceAsStream("images/ic_person_black_48dp.png"), 192, 192, true, true);
+            new Image(FXConversation.class.getClassLoader().getResourceAsStream("images/ic_account_circle_black_48dp_2x.png"));
 
     public static Comparator<FXMessage> DEFAULT_COMPARATOR = new MessageComparator();
 

@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
@@ -30,6 +31,7 @@ public class Spik extends Application {
     private static final String I18N_BASE_NAME = "i18n/strings";
 
     public static void main(String[] args) {
+        System.setProperty("prism.lcdtext", "false");
         Application.launch(args);
     }
 
@@ -53,13 +55,20 @@ public class Spik extends Application {
         primaryStage.initStyle(StageStyle.UNIFIED);
 
         final Scene scene = new Scene(parent, width, height);
-        scene.setFill(Color.TRANSPARENT);
 
-        Font.loadFont(getClass().getClassLoader().getResourceAsStream("fonts/Roboto-Black.ttf"), 12);
+        final Font roboto = Font.loadFont(getClass().getClassLoader().getResourceAsStream("fonts/Roboto-Black.ttf"), 12);
+        final Font noto = Font.loadFont(getClass().getClassLoader().getResourceAsStream("fonts/NotoColorEmoji.ttf"), 12);
+
+        LOGGER.info("Loaded Font {}", roboto);
+        LOGGER.info("Loaded Font {}", noto);
 
         scene.getStylesheets().add("styles/styles.css");
         primaryStage.setTitle("Spik :)");
         primaryStage.setScene(scene);
+        primaryStage.getIcons().addAll(
+            new Image(getClass().getClassLoader().getResourceAsStream("images/ic_phonelink_ring_white_48dp_2x.png")),
+            new Image(getClass().getClassLoader().getResourceAsStream("images/ic_phonelink_ring_black_48dp_2x.png"))
+        );
 
         primaryStage.setOnCloseRequest(e -> {
             Platform.exit();
