@@ -18,6 +18,9 @@ import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import io.netty.handler.ssl.SslContext;
+import io.netty.handler.ssl.SslContextBuilder;
+import io.netty.handler.ssl.util.InsecureTrustManagerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,6 +51,11 @@ public class LanSmsClient extends SmsServiceClient {
                     @Override
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
                         final ChannelPipeline pipeline = socketChannel.pipeline();
+                        final SslContext context = SslContextBuilder.forClient()
+                                    .trustManager(InsecureTrustManagerFactory.INSTANCE)
+                                    .build();
+
+                        pipeline.addLast(context.newHandler(socketChannel.alloc()));
                         pipeline.addLast(new LengthFieldBasedFrameDecoder(1 << 16, 0, 2, 0, 2));
                         pipeline.addLast(new LengthFieldPrepender(2));
                         pipeline.addLast(new SnappyFrameDecoder());

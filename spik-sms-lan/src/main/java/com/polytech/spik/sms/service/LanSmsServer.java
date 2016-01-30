@@ -19,6 +19,9 @@ import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.ipfilter.UniqueIpFilter;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import io.netty.handler.ssl.SslContext;
+import io.netty.handler.ssl.SslContextBuilder;
+import io.netty.handler.ssl.util.SelfSignedCertificate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,7 +58,10 @@ public class LanSmsServer implements Closeable {
                 @Override
                 protected void initChannel(Channel channel) throws Exception {
                     final ChannelPipeline pipeline = channel.pipeline();
+                    final SelfSignedCertificate ssc = new SelfSignedCertificate();
+                    final SslContext context = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey()).build();
 
+                    pipeline.addLast(context.newHandler(channel.alloc()));
                     pipeline.addLast(new DynamicIpFilter(authorizedPhones));
                     pipeline.addLast(new UniqueIpFilter());
                     pipeline.addLast(new LengthFieldBasedFrameDecoder(1 << 16, 0, 2, 0, 2));
