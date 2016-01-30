@@ -8,5 +8,7 @@ public interface NotificationProvider {
 
     void notify(String name, String title, String description);
 
+    void notify(String name, String title, String description, String icon);
+
     void clean();
 }

@@ -17,6 +17,7 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
@@ -48,10 +49,9 @@ public class MainController implements Initializable, FXEventHandler {
     public ListView<FXMessage> messages_list;
     public Label participants_label;
     public Button emojiDisplayer;
+    public Button new_conversation;
 
-    final Node emojiGrid = EmojiUtil.createEmoticonsPane(emoji -> {
-        message_input.appendText(emoji.getEmoji().getEmoji());
-    });
+    final Node emojiGrid = EmojiUtil.createEmoticonsPane(emoji -> message_input.appendText(emoji.getEmoji().getEmoji()));
 
     final Popup emojiPopup = new Popup();
 
@@ -95,6 +95,7 @@ public class MainController implements Initializable, FXEventHandler {
             }
         });
 
+        //Setup Emoji pane
         emojiDisplayer.setText(Emoji.E_0000.getEmoji());
         emojiPopup.setConsumeAutoHidingEvents(false);
         emojiPopup.setAutoHide(true);
@@ -232,5 +233,13 @@ public class MainController implements Initializable, FXEventHandler {
 
         if(!emojiPopup.isShowing())
             emojiPopup.show(emojiDisplayer, 0, 0);
+    }
+
+    public void onCreateConversation(Event event) {
+        LOGGER.debug("Clicked on Create Conversation Btn");
+    }
+
+    public void onClick(Event event) {
+        LOGGER.debug("Clicked on {}", event);
     }
 }

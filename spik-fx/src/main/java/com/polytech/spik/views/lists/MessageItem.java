@@ -26,8 +26,8 @@ public class MessageItem extends ListCell<FXMessage> {
     private static final DateTimeFormatter TODAY_FORMATTER = DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM);
     private static final DateTimeFormatter DEFAULT_FORMATTER = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
 
-    private static final Pos SENT_MESSAGE = Pos.CENTER_LEFT;
-    private static final Pos RECEIVED_MESSAGE = Pos.CENTER_RIGHT;
+    private static final Pos SENT_MESSAGE = Pos.CENTER_RIGHT;
+    private static final Pos RECEIVED_MESSAGE = Pos.CENTER_LEFT;
 
     private Label messageText;
     private Label messageDate;

@@ -1,6 +1,17 @@
+@font-face {
+    font-family: 'OpenSansEmoji';
+    src: url('../fonts/OpenSansEmoji.ttf');
+}
+
 .root{
-    -fx-font: 14px "Roboto";
+    -fx-font: 14px "Noboto";
     -fx-background-color: #ecf0f1;
+
+}
+
+.text-field{
+    -fx-font-family: "OpenSansEmoji";
+    -fx-font-size: 32;
 }
 
 #conversations_list.list-cell:odd{
@@ -44,8 +55,29 @@
 }
 
 .header{
-    -fx-background-color: #448AFF;
+    -fx-font-size: 1.5em;
+    -fx-background-color: #4285F4;
     -fx-alignment: center;
-    -fx-text-fill: white bold;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
     -fx-text-alignment: center;
+}
+
+#new_conversation{
+    -fx-background-color: #4CAF50;
+    -fx-background-radius: 42, 42;
+    -fx-border-radius: 50;
+    -fx-border-width: 2;
+    -fx-padding: 0;
+    -fx-font-size: 0;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box , rgba(0, 0, 0, 0.6) , 10, 0, 2, 2);
+}
+
+#search_input{
+    -fx-prompt-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-color: #5E97F6;
+    -fx-padding: 15, 0, 15, 0;
+    -fx-background-insets: 10, 0, 10, 0;
 }
