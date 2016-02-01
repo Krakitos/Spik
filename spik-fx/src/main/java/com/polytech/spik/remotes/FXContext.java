@@ -8,6 +8,8 @@ import com.polytech.spik.domain.Message;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -18,6 +20,8 @@ import java.util.stream.Collectors;
  * Created by momo- on 15/12/2015.
  */
 public class FXContext implements Context {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(FXContext.class);
 
     protected ObservableList<FXConversation> conversations;
     protected ObservableSet<Contact> contacts;
@@ -31,7 +35,9 @@ public class FXContext implements Context {
 
     @Override
     public void addContact(Contact contact) {
-        contacts.add(contact);
+        if(!contacts.add(contact)){
+            LOGGER.trace("Contact {} was not added, already present", contact.id());
+        }
     }
 
     @Override
