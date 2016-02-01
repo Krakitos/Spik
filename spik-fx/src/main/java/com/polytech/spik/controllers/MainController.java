@@ -21,7 +21,6 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
-import javafx.geometry.Point3D;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -29,15 +28,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Popup;
+import javafx.util.Callback;
 import javafx.util.Duration;
+import javafx.util.StringConverter;
+import org.controlsfx.control.spreadsheet.StringConverterWithFormat;
+import org.controlsfx.control.textfield.AutoCompletionBinding;
+import org.controlsfx.control.textfield.TextFields;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -60,10 +61,11 @@ public class MainController implements Initializable, FXEventHandler {
     public ListView<FXConversation> conversations_list;
     public ListView<FXMessage> messages_list;
     public Label participants_label;
+    public TextField participants_input;
     public Button emojiDisplayer;
     public Button new_conversation;
-    public ImageView new_conversation_img;
 
+    public ImageView new_conversation_img;
     final Node emojiGrid = EmojiUtil.createEmoticonsPane(emoji -> message_input.appendText(emoji.getEmoji().getEmoji()));
     final Popup emojiPopup = new Popup();
 
@@ -106,6 +108,8 @@ public class MainController implements Initializable, FXEventHandler {
                 messages_list.scrollTo(newValue.messagesProperty().size());
             }
         });
+
+        participants_input.visibleProperty().bind(participants_label.visibleProperty().not());
 
         //Setup Emoji pane
         emojiDisplayer.setText(Emoji.E_0000.getEmoji());
@@ -171,7 +175,6 @@ public class MainController implements Initializable, FXEventHandler {
 
         final String label = String.join(", ", address);
         participants_label.setText(label);
-
 
         if(!participants_label.isVisible())
             participants_label.setVisible(true);
@@ -273,6 +276,9 @@ public class MainController implements Initializable, FXEventHandler {
 
     public void onCreateConversation(Event event) {
         LOGGER.debug("Clicked on Create Conversation Btn");
+
+
+
     }
 
     public void onClick(Event event) {

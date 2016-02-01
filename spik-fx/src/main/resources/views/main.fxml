@@ -43,6 +43,7 @@
             <center>
                 <VBox HBox.hgrow="ALWAYS">
                     <Label fx:id="participants_label" visible="true" prefHeight="$PREFERED_HEIGHT" prefWidth="$MAX_DOUBLE" styleClass="header"/>
+                    <TextField fx:id="participants_input" prefHeight="$PREFERED_HEIGHT" prefWidth="$MAX_DOUBLE" />
                     <ListView fx:id="messages_list" editable="false" focusTraversable="false" styleClass="message_list" VBox.vgrow="ALWAYS"/>
 
                     <HBox fx:id="input_container" spacing="5">
