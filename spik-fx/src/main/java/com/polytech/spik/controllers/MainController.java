@@ -15,6 +15,7 @@ import com.polytech.spik.views.lists.MessageItem;
 import com.polytech.spik.views.notifications.NotificationManager;
 import javafx.animation.*;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -277,7 +278,7 @@ public class MainController implements Initializable, FXEventHandler {
     public void onCreateConversation(Event event) {
         LOGGER.debug("Clicked on Create Conversation Btn");
 
-
+        participants_label.setVisible(false);
 
     }
 
