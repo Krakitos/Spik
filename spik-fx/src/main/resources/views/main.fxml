@@ -30,8 +30,7 @@
                                 <styleClass>rounded_btn</styleClass>
                                 <pickOnBounds>true</pickOnBounds>
                                 <graphic>
-                                    <ImageView>
-                                        <Image url="@../images/ic_add_white_48dp_2x.png" smooth="true" preserveRatio="true" requestedHeight="36"/>
+                                    <ImageView fx:id="new_conversation_img">
                                         <smooth>true</smooth>
                                     </ImageView>
                                 </graphic>

@@ -4,147 +4,11 @@
 package com.polytech.spik.protocol;
 
 public final class SpikMessages {
-  public static final int MIMETYPE_FIELD_NUMBER = 100;
-  /**
-   * <code>extend .Sms { ... }</code>
-   */
-  public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-      com.polytech.spik.protocol.SpikMessages.Sms,
-      java.lang.String> mimeType = com.google.protobuf.GeneratedMessage
-          .newFileScopedGeneratedExtension(
-        java.lang.String.class,
-        null);
-  public static final int DATA_FIELD_NUMBER = 101;
-  /**
-   * <code>extend .Sms { ... }</code>
-   */
-  public static final
-    com.google.protobuf.GeneratedMessage.GeneratedExtension<
-      com.polytech.spik.protocol.SpikMessages.Sms,
-      com.google.protobuf.ByteString> data = com.google.protobuf.GeneratedMessage
-          .newFileScopedGeneratedExtension(
-        com.google.protobuf.ByteString.class,
-        null);
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Wrapper_descriptor;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Contact_descriptor;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Conversation_descriptor;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Sms_descriptor;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_SendMessage_descriptor;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_StatusChanged_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_Wrapper_fieldAccessorTable;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_Contact_fieldAccessorTable;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_Conversation_fieldAccessorTable;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_Sms_fieldAccessorTable;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_SendMessage_fieldAccessorTable;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_StatusChanged_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\rservice.proto\"\270\001\n\007Wrapper\022\033\n\007contact\030\001" +
-      " \001(\0132\010.ContactH\000\022%\n\014conversation\030\002 \001(\0132\r" +
-      ".ConversationH\000\022\023\n\003sms\030\003 \001(\0132\004.SmsH\000\022#\n\013" +
-      "sendMessage\030\004 \001(\0132\014.SendMessageH\000\022\'\n\rsta" +
-      "tusChanged\030\005 \001(\0132\016.StatusChangedH\000B\006\n\004ty" +
-      "pe\"C\n\007Contact\022\n\n\002id\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022" +
-      "\r\n\005phone\030\003 \001(\t\022\017\n\007picture\030\004 \001(\014\"H\n\014Conve" +
-      "rsation\022\n\n\002id\030\001 \002(\003\022\024\n\014participants\030\002 \003(" +
-      "\003\022\026\n\010messages\030\003 \003(\0132\004.Sms\"a\n\003Sms\022\020\n\010thre" +
-      "adId\030\001 \001(\003\022\014\n\004date\030\002 \002(\003\022\014\n\004text\030\003 \002(\t\022\014",
-      "\n\004read\030\004 \002(\010\022\027\n\006status\030\005 \002(\0162\007.Status*\005\010" +
-      "d\020\310\001\"^\n\013SendMessage\022\013\n\003mid\030\001 \002(\003\022\024\n\014part" +
-      "icipants\030\002 \003(\t\022\014\n\004text\030\003 \002(\t\022\020\n\010mimeType" +
-      "\030\004 \001(\t\022\014\n\004data\030\005 \001(\014\"5\n\rStatusChanged\022\013\n" +
-      "\003mid\030\001 \002(\003\022\027\n\006status\030\002 \002(\0162\007.Status*7\n\006S" +
-      "tatus\022\013\n\007SENDING\020\001\022\010\n\004SENT\020\002\022\014\n\010NOT_READ" +
-      "\020\003\022\010\n\004READ\020\004*a\n\021MessageIdentifier\022\013\n\007CON" +
-      "TACT\020\001\022\020\n\014CONVERSATION\020\002\022\007\n\003SMS\020\003\022\020\n\014SEN" +
-      "D_MESSAGE\020\004\022\022\n\016STATUS_CHANGED\020\005:\026\n\010mimeT" +
-      "ype\022\004.Sms\030d \001(\t:\022\n\004data\022\004.Sms\030e \001(\014B*\n\032c",
-      "om.polytech.spik.protocolB\014SpikMessages"
-    };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
-    internal_static_Wrapper_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_Wrapper_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_Wrapper_descriptor,
-        new java.lang.String[] { "Contact", "Conversation", "Sms", "SendMessage", "StatusChanged", "Type", });
-    internal_static_Contact_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_Contact_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_Contact_descriptor,
-        new java.lang.String[] { "Id", "Name", "Phone", "Picture", });
-    internal_static_Conversation_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_Conversation_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_Conversation_descriptor,
-        new java.lang.String[] { "Id", "Participants", "Messages", });
-    internal_static_Sms_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_Sms_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_Sms_descriptor,
-        new java.lang.String[] { "ThreadId", "Date", "Text", "Read", "Status", });
-    internal_static_SendMessage_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_SendMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_SendMessage_descriptor,
-        new java.lang.String[] { "Mid", "Participants", "Text", "MimeType", "Data", });
-    internal_static_StatusChanged_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_StatusChanged_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_StatusChanged_descriptor,
-        new java.lang.String[] { "Mid", "Status", });
-    mimeType.internalInit(descriptor.getExtensions().get(0));
-    data.internalInit(descriptor.getExtensions().get(1));
-  }
   private SpikMessages() {}
-
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
     registry.add(com.polytech.spik.protocol.SpikMessages.mimeType);
     registry.add(com.polytech.spik.protocol.SpikMessages.data);
-  }
-
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
   }
   /**
    * Protobuf enum {@code Status}
@@ -185,21 +49,9 @@ public final class SpikMessages {
      * <code>READ = 4;</code>
      */
     public static final int READ_VALUE = 4;
-    private static final Status[] VALUES = values();
-    private static com.google.protobuf.Internal.EnumLiteMap<Status>
-        internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<Status>() {
-            public Status findValueByNumber(int number) {
-              return Status.valueOf(number);
-            }
-          };
-    private final int index;
-    private final int value;
 
-    private Status(int index, int value) {
-      this.index = index;
-      this.value = value;
-    }
+
+    public final int getNumber() { return value; }
 
     public static Status valueOf(int value) {
       switch (value) {
@@ -215,11 +67,28 @@ public final class SpikMessages {
         internalGetValueMap() {
       return internalValueMap;
     }
+    private static com.google.protobuf.Internal.EnumLiteMap<Status>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Status>() {
+            public Status findValueByNumber(int number) {
+              return Status.valueOf(number);
+            }
+          };
 
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
       return com.polytech.spik.protocol.SpikMessages.getDescriptor().getEnumTypes().get(0);
     }
+
+    private static final Status[] VALUES = values();
 
     public static Status valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
@@ -230,20 +99,17 @@ public final class SpikMessages {
       return VALUES[desc.getIndex()];
     }
 
-    public final int getNumber() { return value; }
+    private final int index;
+    private final int value;
 
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      return getDescriptor().getValues().get(index);
-    }
-
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
+    private Status(int index, int value) {
+      this.index = index;
+      this.value = value;
     }
 
     // @@protoc_insertion_point(enum_scope:Status)
   }
+
   /**
    * Protobuf enum {@code MessageIdentifier}
    */
@@ -291,21 +157,9 @@ public final class SpikMessages {
      * <code>STATUS_CHANGED = 5;</code>
      */
     public static final int STATUS_CHANGED_VALUE = 5;
-    private static final MessageIdentifier[] VALUES = values();
-    private static com.google.protobuf.Internal.EnumLiteMap<MessageIdentifier>
-        internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<MessageIdentifier>() {
-            public MessageIdentifier findValueByNumber(int number) {
-              return MessageIdentifier.valueOf(number);
-            }
-          };
-    private final int index;
-    private final int value;
 
-    private MessageIdentifier(int index, int value) {
-      this.index = index;
-      this.value = value;
-    }
+
+    public final int getNumber() { return value; }
 
     public static MessageIdentifier valueOf(int value) {
       switch (value) {
@@ -322,11 +176,28 @@ public final class SpikMessages {
         internalGetValueMap() {
       return internalValueMap;
     }
+    private static com.google.protobuf.Internal.EnumLiteMap<MessageIdentifier>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<MessageIdentifier>() {
+            public MessageIdentifier findValueByNumber(int number) {
+              return MessageIdentifier.valueOf(number);
+            }
+          };
 
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
       return com.polytech.spik.protocol.SpikMessages.getDescriptor().getEnumTypes().get(1);
     }
+
+    private static final MessageIdentifier[] VALUES = values();
 
     public static MessageIdentifier valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
@@ -337,20 +208,17 @@ public final class SpikMessages {
       return VALUES[desc.getIndex()];
     }
 
-    public final int getNumber() { return value; }
+    private final int index;
+    private final int value;
 
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      return getDescriptor().getValues().get(index);
-    }
-
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
+    private MessageIdentifier(int index, int value) {
+      this.index = index;
+      this.value = value;
     }
 
     // @@protoc_insertion_point(enum_scope:MessageIdentifier)
   }
+
   public interface WrapperOrBuilder extends
       // @@protoc_insertion_point(interface_extends:Wrapper)
       com.google.protobuf.MessageOrBuilder {
@@ -420,253 +288,6 @@ public final class SpikMessages {
      */
     com.polytech.spik.protocol.SpikMessages.StatusChangedOrBuilder getStatusChangedOrBuilder();
   }
-  public interface ContactOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Contact)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>required int64 id = 1;</code>
-     */
-    boolean hasId();
-    /**
-     * <code>required int64 id = 1;</code>
-     */
-    long getId();
-
-    /**
-     * <code>required string name = 2;</code>
-     */
-    boolean hasName();
-    /**
-     * <code>required string name = 2;</code>
-     */
-    java.lang.String getName();
-    /**
-     * <code>required string name = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
-
-    /**
-     * <code>optional string phone = 3;</code>
-     */
-    boolean hasPhone();
-    /**
-     * <code>optional string phone = 3;</code>
-     */
-    java.lang.String getPhone();
-    /**
-     * <code>optional string phone = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getPhoneBytes();
-
-    /**
-     * <code>optional bytes picture = 4;</code>
-     */
-    boolean hasPicture();
-    /**
-     * <code>optional bytes picture = 4;</code>
-     */
-    com.google.protobuf.ByteString getPicture();
-  }
-  public interface ConversationOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Conversation)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>required int64 id = 1;</code>
-     */
-    boolean hasId();
-    /**
-     * <code>required int64 id = 1;</code>
-     */
-    long getId();
-
-    /**
-     * <code>repeated int64 participants = 2;</code>
-     */
-    java.util.List<java.lang.Long> getParticipantsList();
-    /**
-     * <code>repeated int64 participants = 2;</code>
-     */
-    int getParticipantsCount();
-    /**
-     * <code>repeated int64 participants = 2;</code>
-     */
-    long getParticipants(int index);
-
-    /**
-     * <code>repeated .Sms messages = 3;</code>
-     */
-    java.util.List<com.polytech.spik.protocol.SpikMessages.Sms>
-        getMessagesList();
-    /**
-     * <code>repeated .Sms messages = 3;</code>
-     */
-    com.polytech.spik.protocol.SpikMessages.Sms getMessages(int index);
-    /**
-     * <code>repeated .Sms messages = 3;</code>
-     */
-    int getMessagesCount();
-    /**
-     * <code>repeated .Sms messages = 3;</code>
-     */
-    java.util.List<? extends com.polytech.spik.protocol.SpikMessages.SmsOrBuilder>
-        getMessagesOrBuilderList();
-    /**
-     * <code>repeated .Sms messages = 3;</code>
-     */
-    com.polytech.spik.protocol.SpikMessages.SmsOrBuilder getMessagesOrBuilder(
-        int index);
-  }
-  public interface SmsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Sms)
-      com.google.protobuf.GeneratedMessage.
-          ExtendableMessageOrBuilder<Sms> {
-
-    /**
-     * <code>optional int64 threadId = 1;</code>
-     */
-    boolean hasThreadId();
-    /**
-     * <code>optional int64 threadId = 1;</code>
-     */
-    long getThreadId();
-
-    /**
-     * <code>required int64 date = 2;</code>
-     */
-    boolean hasDate();
-    /**
-     * <code>required int64 date = 2;</code>
-     */
-    long getDate();
-
-    /**
-     * <code>required string text = 3;</code>
-     */
-    boolean hasText();
-    /**
-     * <code>required string text = 3;</code>
-     */
-    java.lang.String getText();
-    /**
-     * <code>required string text = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getTextBytes();
-
-    /**
-     * <code>required bool read = 4;</code>
-     */
-    boolean hasRead();
-    /**
-     * <code>required bool read = 4;</code>
-     */
-    boolean getRead();
-
-    /**
-     * <code>required .Status status = 5;</code>
-     */
-    boolean hasStatus();
-    /**
-     * <code>required .Status status = 5;</code>
-     */
-    com.polytech.spik.protocol.SpikMessages.Status getStatus();
-  }
-  public interface SendMessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:SendMessage)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>required int64 mid = 1;</code>
-     */
-    boolean hasMid();
-    /**
-     * <code>required int64 mid = 1;</code>
-     */
-    long getMid();
-
-    /**
-     * <code>repeated string participants = 2;</code>
-     */
-    com.google.protobuf.ProtocolStringList
-        getParticipantsList();
-    /**
-     * <code>repeated string participants = 2;</code>
-     */
-    int getParticipantsCount();
-    /**
-     * <code>repeated string participants = 2;</code>
-     */
-    java.lang.String getParticipants(int index);
-    /**
-     * <code>repeated string participants = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getParticipantsBytes(int index);
-
-    /**
-     * <code>required string text = 3;</code>
-     */
-    boolean hasText();
-    /**
-     * <code>required string text = 3;</code>
-     */
-    java.lang.String getText();
-    /**
-     * <code>required string text = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getTextBytes();
-
-    /**
-     * <code>optional string mimeType = 4;</code>
-     */
-    boolean hasMimeType();
-    /**
-     * <code>optional string mimeType = 4;</code>
-     */
-    java.lang.String getMimeType();
-    /**
-     * <code>optional string mimeType = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getMimeTypeBytes();
-
-    /**
-     * <code>optional bytes data = 5;</code>
-     */
-    boolean hasData();
-    /**
-     * <code>optional bytes data = 5;</code>
-     */
-    com.google.protobuf.ByteString getData();
-  }
-  public interface StatusChangedOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:StatusChanged)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>required int64 mid = 1;</code>
-     */
-    boolean hasMid();
-    /**
-     * <code>required int64 mid = 1;</code>
-     */
-    long getMid();
-
-    /**
-     * <code>required .Status status = 2;</code>
-     */
-    boolean hasStatus();
-    /**
-     * <code>required .Status status = 2;</code>
-     */
-    com.polytech.spik.protocol.SpikMessages.Status getStatus();
-  }
-
   /**
    * Protobuf type {@code Wrapper}
    */
@@ -674,42 +295,28 @@ public final class SpikMessages {
       com.google.protobuf.GeneratedMessage implements
       // @@protoc_insertion_point(message_implements:Wrapper)
       WrapperOrBuilder {
-    public static final int CONTACT_FIELD_NUMBER = 1;
-    public static final int CONVERSATION_FIELD_NUMBER = 2;
-    public static final int SMS_FIELD_NUMBER = 3;
-    public static final int SENDMESSAGE_FIELD_NUMBER = 4;
-    public static final int STATUSCHANGED_FIELD_NUMBER = 5;
-    private static final Wrapper defaultInstance;
-    private static final long serialVersionUID = 0L;
-    public static com.google.protobuf.Parser<Wrapper> PARSER =
-        new com.google.protobuf.AbstractParser<Wrapper>() {
-      public Wrapper parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Wrapper(input, extensionRegistry);
-      }
-    };
-
-    static {
-      defaultInstance = new Wrapper(true);
-      defaultInstance.initFields();
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    private int bitField0_;
-    private int typeCase_ = 0;
-    private java.lang.Object type_;
-    private byte memoizedIsInitialized = -1;
-    private int memoizedSerializedSize = -1;
-        // Use Wrapper.newBuilder() to construct.
+    // Use Wrapper.newBuilder() to construct.
     private Wrapper(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
-    };
-
+    }
     private Wrapper(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
+    private static final Wrapper defaultInstance;
+    public static Wrapper getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Wrapper getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
     private Wrapper(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -810,92 +417,9 @@ public final class SpikMessages {
         makeExtensionsImmutable();
       }
     }
-
-    public static Wrapper getDefaultInstance() {
-      return defaultInstance;
-    }
-
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.polytech.spik.protocol.SpikMessages.internal_static_Wrapper_descriptor;
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-
-    public static Builder newBuilder(com.polytech.spik.protocol.SpikMessages.Wrapper prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-
-    public Wrapper getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -905,10 +429,52 @@ public final class SpikMessages {
               com.polytech.spik.protocol.SpikMessages.Wrapper.class, com.polytech.spik.protocol.SpikMessages.Wrapper.Builder.class);
     }
 
+    public static com.google.protobuf.Parser<Wrapper> PARSER =
+        new com.google.protobuf.AbstractParser<Wrapper>() {
+      public Wrapper parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Wrapper(input, extensionRegistry);
+      }
+    };
+
     @java.lang.Override
     public com.google.protobuf.Parser<Wrapper> getParserForType() {
       return PARSER;
     }
+
+    private int bitField0_;
+    private int typeCase_ = 0;
+    private java.lang.Object type_;
+    public enum TypeCase
+        implements com.google.protobuf.Internal.EnumLite {
+      CONTACT(1),
+      CONVERSATION(2),
+      SMS(3),
+      SENDMESSAGE(4),
+      STATUSCHANGED(5),
+      TYPE_NOT_SET(0);
+      private int value = 0;
+      private TypeCase(int value) {
+        this.value = value;
+      }
+      public static TypeCase valueOf(int value) {
+        switch (value) {
+          case 1: return CONTACT;
+          case 2: return CONVERSATION;
+          case 3: return SMS;
+          case 4: return SENDMESSAGE;
+          case 5: return STATUSCHANGED;
+          case 0: return TYPE_NOT_SET;
+          default: throw new java.lang.IllegalArgumentException(
+            "Value is undefined for this oneof enum.");
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
 
     public TypeCase
     getTypeCase() {
@@ -916,13 +482,13 @@ public final class SpikMessages {
           typeCase_);
     }
 
+    public static final int CONTACT_FIELD_NUMBER = 1;
     /**
      * <code>optional .Contact contact = 1;</code>
      */
     public boolean hasContact() {
       return typeCase_ == 1;
     }
-
     /**
      * <code>optional .Contact contact = 1;</code>
      */
@@ -932,7 +498,6 @@ public final class SpikMessages {
       }
       return com.polytech.spik.protocol.SpikMessages.Contact.getDefaultInstance();
     }
-
     /**
      * <code>optional .Contact contact = 1;</code>
      */
@@ -943,13 +508,13 @@ public final class SpikMessages {
       return com.polytech.spik.protocol.SpikMessages.Contact.getDefaultInstance();
     }
 
+    public static final int CONVERSATION_FIELD_NUMBER = 2;
     /**
      * <code>optional .Conversation conversation = 2;</code>
      */
     public boolean hasConversation() {
       return typeCase_ == 2;
     }
-
     /**
      * <code>optional .Conversation conversation = 2;</code>
      */
@@ -959,7 +524,6 @@ public final class SpikMessages {
       }
       return com.polytech.spik.protocol.SpikMessages.Conversation.getDefaultInstance();
     }
-
     /**
      * <code>optional .Conversation conversation = 2;</code>
      */
@@ -970,13 +534,13 @@ public final class SpikMessages {
       return com.polytech.spik.protocol.SpikMessages.Conversation.getDefaultInstance();
     }
 
+    public static final int SMS_FIELD_NUMBER = 3;
     /**
      * <code>optional .Sms sms = 3;</code>
      */
     public boolean hasSms() {
       return typeCase_ == 3;
     }
-
     /**
      * <code>optional .Sms sms = 3;</code>
      */
@@ -986,7 +550,6 @@ public final class SpikMessages {
       }
       return com.polytech.spik.protocol.SpikMessages.Sms.getDefaultInstance();
     }
-
     /**
      * <code>optional .Sms sms = 3;</code>
      */
@@ -997,13 +560,13 @@ public final class SpikMessages {
       return com.polytech.spik.protocol.SpikMessages.Sms.getDefaultInstance();
     }
 
+    public static final int SENDMESSAGE_FIELD_NUMBER = 4;
     /**
      * <code>optional .SendMessage sendMessage = 4;</code>
      */
     public boolean hasSendMessage() {
       return typeCase_ == 4;
     }
-
     /**
      * <code>optional .SendMessage sendMessage = 4;</code>
      */
@@ -1013,7 +576,6 @@ public final class SpikMessages {
       }
       return com.polytech.spik.protocol.SpikMessages.SendMessage.getDefaultInstance();
     }
-
     /**
      * <code>optional .SendMessage sendMessage = 4;</code>
      */
@@ -1024,13 +586,13 @@ public final class SpikMessages {
       return com.polytech.spik.protocol.SpikMessages.SendMessage.getDefaultInstance();
     }
 
+    public static final int STATUSCHANGED_FIELD_NUMBER = 5;
     /**
      * <code>optional .StatusChanged statusChanged = 5;</code>
      */
     public boolean hasStatusChanged() {
       return typeCase_ == 5;
     }
-
     /**
      * <code>optional .StatusChanged statusChanged = 5;</code>
      */
@@ -1040,7 +602,6 @@ public final class SpikMessages {
       }
       return com.polytech.spik.protocol.SpikMessages.StatusChanged.getDefaultInstance();
     }
-
     /**
      * <code>optional .StatusChanged statusChanged = 5;</code>
      */
@@ -1053,7 +614,7 @@ public final class SpikMessages {
 
     private void initFields() {
     }
-
+    private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1114,6 +675,7 @@ public final class SpikMessages {
       getUnknownFields().writeTo(output);
     }
 
+    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
@@ -1144,14 +706,71 @@ public final class SpikMessages {
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Wrapper parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
 
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.polytech.spik.protocol.SpikMessages.Wrapper prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
     public Builder toBuilder() { return newBuilder(this); }
 
     @java.lang.Override
@@ -1160,35 +779,6 @@ public final class SpikMessages {
       Builder builder = new Builder(parent);
       return builder;
     }
-public enum TypeCase
-        implements com.google.protobuf.Internal.EnumLite {
-      CONTACT(1),
-      CONVERSATION(2),
-      SMS(3),
-      SENDMESSAGE(4),
-      STATUSCHANGED(5),
-      TYPE_NOT_SET(0);
-      private int value = 0;
-      private TypeCase(int value) {
-        this.value = value;
-      }
-      public static TypeCase valueOf(int value) {
-        switch (value) {
-          case 1: return CONTACT;
-          case 2: return CONVERSATION;
-          case 3: return SMS;
-          case 4: return SENDMESSAGE;
-          case 5: return STATUSCHANGED;
-          case 0: return TYPE_NOT_SET;
-          default: throw new java.lang.IllegalArgumentException(
-            "Value is undefined for this oneof enum.");
-        }
-      }
-      public int getNumber() {
-        return this.value;
-      }
-    }
-
     /**
      * Protobuf type {@code Wrapper}
      */
@@ -1196,19 +786,17 @@ public enum TypeCase
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Wrapper)
         com.polytech.spik.protocol.SpikMessages.WrapperOrBuilder {
-      private int typeCase_ = 0;
-      private java.lang.Object type_;
-      private int bitField0_;
-      private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.SpikMessages.Contact, com.polytech.spik.protocol.SpikMessages.Contact.Builder, com.polytech.spik.protocol.SpikMessages.ContactOrBuilder> contactBuilder_;
-      private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.SpikMessages.Conversation, com.polytech.spik.protocol.SpikMessages.Conversation.Builder, com.polytech.spik.protocol.SpikMessages.ConversationOrBuilder> conversationBuilder_;
-      private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.SpikMessages.Sms, com.polytech.spik.protocol.SpikMessages.Sms.Builder, com.polytech.spik.protocol.SpikMessages.SmsOrBuilder> smsBuilder_;
-      private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.SpikMessages.SendMessage, com.polytech.spik.protocol.SpikMessages.SendMessage.Builder, com.polytech.spik.protocol.SpikMessages.SendMessageOrBuilder> sendMessageBuilder_;
-      private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.SpikMessages.StatusChanged, com.polytech.spik.protocol.SpikMessages.StatusChanged.Builder, com.polytech.spik.protocol.SpikMessages.StatusChangedOrBuilder> statusChangedBuilder_;
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.polytech.spik.protocol.SpikMessages.internal_static_Wrapper_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.polytech.spik.protocol.SpikMessages.internal_static_Wrapper_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.polytech.spik.protocol.SpikMessages.Wrapper.class, com.polytech.spik.protocol.SpikMessages.Wrapper.Builder.class);
+      }
 
       // Construct using com.polytech.spik.protocol.SpikMessages.Wrapper.newBuilder()
       private Builder() {
@@ -1220,26 +808,12 @@ public enum TypeCase
         super(parent);
         maybeForceBuilderInitialization();
       }
-
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.polytech.spik.protocol.SpikMessages.internal_static_Wrapper_descriptor;
-      }
-
-      private static Builder create() {
-        return new Builder();
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.polytech.spik.protocol.SpikMessages.internal_static_Wrapper_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.polytech.spik.protocol.SpikMessages.Wrapper.class, com.polytech.spik.protocol.SpikMessages.Wrapper.Builder.class);
-      }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
+      }
+      private static Builder create() {
+        return new Builder();
       }
 
       public Builder clear() {
@@ -1358,31 +932,31 @@ public enum TypeCase
       public final boolean isInitialized() {
         if (hasContact()) {
           if (!getContact().isInitialized()) {
-
+            
             return false;
           }
         }
         if (hasConversation()) {
           if (!getConversation().isInitialized()) {
-
+            
             return false;
           }
         }
         if (hasSms()) {
           if (!getSms().isInitialized()) {
-
+            
             return false;
           }
         }
         if (hasSendMessage()) {
           if (!getSendMessage().isInitialized()) {
-
+            
             return false;
           }
         }
         if (hasStatusChanged()) {
           if (!getStatusChanged().isInitialized()) {
-
+            
             return false;
           }
         }
@@ -1406,7 +980,8 @@ public enum TypeCase
         }
         return this;
       }
-
+      private int typeCase_ = 0;
+      private java.lang.Object type_;
       public TypeCase
           getTypeCase() {
         return TypeCase.valueOf(
@@ -1420,13 +995,16 @@ public enum TypeCase
         return this;
       }
 
+      private int bitField0_;
+
+      private com.google.protobuf.SingleFieldBuilder<
+          com.polytech.spik.protocol.SpikMessages.Contact, com.polytech.spik.protocol.SpikMessages.Contact.Builder, com.polytech.spik.protocol.SpikMessages.ContactOrBuilder> contactBuilder_;
       /**
        * <code>optional .Contact contact = 1;</code>
        */
       public boolean hasContact() {
         return typeCase_ == 1;
       }
-
       /**
        * <code>optional .Contact contact = 1;</code>
        */
@@ -1443,22 +1021,6 @@ public enum TypeCase
           return com.polytech.spik.protocol.SpikMessages.Contact.getDefaultInstance();
         }
       }
-
-      /**
-       * <code>optional .Contact contact = 1;</code>
-       */
-      public Builder setContact(
-          com.polytech.spik.protocol.SpikMessages.Contact.Builder builderForValue) {
-        if (contactBuilder_ == null) {
-          type_ = builderForValue.build();
-          onChanged();
-        } else {
-          contactBuilder_.setMessage(builderForValue.build());
-        }
-        typeCase_ = 1;
-        return this;
-      }
-
       /**
        * <code>optional .Contact contact = 1;</code>
        */
@@ -1475,7 +1037,20 @@ public enum TypeCase
         typeCase_ = 1;
         return this;
       }
-
+      /**
+       * <code>optional .Contact contact = 1;</code>
+       */
+      public Builder setContact(
+          com.polytech.spik.protocol.SpikMessages.Contact.Builder builderForValue) {
+        if (contactBuilder_ == null) {
+          type_ = builderForValue.build();
+          onChanged();
+        } else {
+          contactBuilder_.setMessage(builderForValue.build());
+        }
+        typeCase_ = 1;
+        return this;
+      }
       /**
        * <code>optional .Contact contact = 1;</code>
        */
@@ -1498,7 +1073,6 @@ public enum TypeCase
         typeCase_ = 1;
         return this;
       }
-
       /**
        * <code>optional .Contact contact = 1;</code>
        */
@@ -1518,14 +1092,12 @@ public enum TypeCase
         }
         return this;
       }
-
       /**
        * <code>optional .Contact contact = 1;</code>
        */
       public com.polytech.spik.protocol.SpikMessages.Contact.Builder getContactBuilder() {
         return getContactFieldBuilder().getBuilder();
       }
-
       /**
        * <code>optional .Contact contact = 1;</code>
        */
@@ -1539,12 +1111,11 @@ public enum TypeCase
           return com.polytech.spik.protocol.SpikMessages.Contact.getDefaultInstance();
         }
       }
-
       /**
        * <code>optional .Contact contact = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.SpikMessages.Contact, com.polytech.spik.protocol.SpikMessages.Contact.Builder, com.polytech.spik.protocol.SpikMessages.ContactOrBuilder>
+          com.polytech.spik.protocol.SpikMessages.Contact, com.polytech.spik.protocol.SpikMessages.Contact.Builder, com.polytech.spik.protocol.SpikMessages.ContactOrBuilder> 
           getContactFieldBuilder() {
         if (contactBuilder_ == null) {
           if (!(typeCase_ == 1)) {
@@ -1561,13 +1132,14 @@ public enum TypeCase
         return contactBuilder_;
       }
 
+      private com.google.protobuf.SingleFieldBuilder<
+          com.polytech.spik.protocol.SpikMessages.Conversation, com.polytech.spik.protocol.SpikMessages.Conversation.Builder, com.polytech.spik.protocol.SpikMessages.ConversationOrBuilder> conversationBuilder_;
       /**
        * <code>optional .Conversation conversation = 2;</code>
        */
       public boolean hasConversation() {
         return typeCase_ == 2;
       }
-
       /**
        * <code>optional .Conversation conversation = 2;</code>
        */
@@ -1584,22 +1156,6 @@ public enum TypeCase
           return com.polytech.spik.protocol.SpikMessages.Conversation.getDefaultInstance();
         }
       }
-
-      /**
-       * <code>optional .Conversation conversation = 2;</code>
-       */
-      public Builder setConversation(
-          com.polytech.spik.protocol.SpikMessages.Conversation.Builder builderForValue) {
-        if (conversationBuilder_ == null) {
-          type_ = builderForValue.build();
-          onChanged();
-        } else {
-          conversationBuilder_.setMessage(builderForValue.build());
-        }
-        typeCase_ = 2;
-        return this;
-      }
-
       /**
        * <code>optional .Conversation conversation = 2;</code>
        */
@@ -1616,7 +1172,20 @@ public enum TypeCase
         typeCase_ = 2;
         return this;
       }
-
+      /**
+       * <code>optional .Conversation conversation = 2;</code>
+       */
+      public Builder setConversation(
+          com.polytech.spik.protocol.SpikMessages.Conversation.Builder builderForValue) {
+        if (conversationBuilder_ == null) {
+          type_ = builderForValue.build();
+          onChanged();
+        } else {
+          conversationBuilder_.setMessage(builderForValue.build());
+        }
+        typeCase_ = 2;
+        return this;
+      }
       /**
        * <code>optional .Conversation conversation = 2;</code>
        */
@@ -1639,7 +1208,6 @@ public enum TypeCase
         typeCase_ = 2;
         return this;
       }
-
       /**
        * <code>optional .Conversation conversation = 2;</code>
        */
@@ -1659,14 +1227,12 @@ public enum TypeCase
         }
         return this;
       }
-
       /**
        * <code>optional .Conversation conversation = 2;</code>
        */
       public com.polytech.spik.protocol.SpikMessages.Conversation.Builder getConversationBuilder() {
         return getConversationFieldBuilder().getBuilder();
       }
-
       /**
        * <code>optional .Conversation conversation = 2;</code>
        */
@@ -1680,12 +1246,11 @@ public enum TypeCase
           return com.polytech.spik.protocol.SpikMessages.Conversation.getDefaultInstance();
         }
       }
-
       /**
        * <code>optional .Conversation conversation = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.SpikMessages.Conversation, com.polytech.spik.protocol.SpikMessages.Conversation.Builder, com.polytech.spik.protocol.SpikMessages.ConversationOrBuilder>
+          com.polytech.spik.protocol.SpikMessages.Conversation, com.polytech.spik.protocol.SpikMessages.Conversation.Builder, com.polytech.spik.protocol.SpikMessages.ConversationOrBuilder> 
           getConversationFieldBuilder() {
         if (conversationBuilder_ == null) {
           if (!(typeCase_ == 2)) {
@@ -1702,13 +1267,14 @@ public enum TypeCase
         return conversationBuilder_;
       }
 
+      private com.google.protobuf.SingleFieldBuilder<
+          com.polytech.spik.protocol.SpikMessages.Sms, com.polytech.spik.protocol.SpikMessages.Sms.Builder, com.polytech.spik.protocol.SpikMessages.SmsOrBuilder> smsBuilder_;
       /**
        * <code>optional .Sms sms = 3;</code>
        */
       public boolean hasSms() {
         return typeCase_ == 3;
       }
-
       /**
        * <code>optional .Sms sms = 3;</code>
        */
@@ -1725,22 +1291,6 @@ public enum TypeCase
           return com.polytech.spik.protocol.SpikMessages.Sms.getDefaultInstance();
         }
       }
-
-      /**
-       * <code>optional .Sms sms = 3;</code>
-       */
-      public Builder setSms(
-          com.polytech.spik.protocol.SpikMessages.Sms.Builder builderForValue) {
-        if (smsBuilder_ == null) {
-          type_ = builderForValue.build();
-          onChanged();
-        } else {
-          smsBuilder_.setMessage(builderForValue.build());
-        }
-        typeCase_ = 3;
-        return this;
-      }
-
       /**
        * <code>optional .Sms sms = 3;</code>
        */
@@ -1757,7 +1307,20 @@ public enum TypeCase
         typeCase_ = 3;
         return this;
       }
-
+      /**
+       * <code>optional .Sms sms = 3;</code>
+       */
+      public Builder setSms(
+          com.polytech.spik.protocol.SpikMessages.Sms.Builder builderForValue) {
+        if (smsBuilder_ == null) {
+          type_ = builderForValue.build();
+          onChanged();
+        } else {
+          smsBuilder_.setMessage(builderForValue.build());
+        }
+        typeCase_ = 3;
+        return this;
+      }
       /**
        * <code>optional .Sms sms = 3;</code>
        */
@@ -1780,7 +1343,6 @@ public enum TypeCase
         typeCase_ = 3;
         return this;
       }
-
       /**
        * <code>optional .Sms sms = 3;</code>
        */
@@ -1800,14 +1362,12 @@ public enum TypeCase
         }
         return this;
       }
-
       /**
        * <code>optional .Sms sms = 3;</code>
        */
       public com.polytech.spik.protocol.SpikMessages.Sms.Builder getSmsBuilder() {
         return getSmsFieldBuilder().getBuilder();
       }
-
       /**
        * <code>optional .Sms sms = 3;</code>
        */
@@ -1821,12 +1381,11 @@ public enum TypeCase
           return com.polytech.spik.protocol.SpikMessages.Sms.getDefaultInstance();
         }
       }
-
       /**
        * <code>optional .Sms sms = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.SpikMessages.Sms, com.polytech.spik.protocol.SpikMessages.Sms.Builder, com.polytech.spik.protocol.SpikMessages.SmsOrBuilder>
+          com.polytech.spik.protocol.SpikMessages.Sms, com.polytech.spik.protocol.SpikMessages.Sms.Builder, com.polytech.spik.protocol.SpikMessages.SmsOrBuilder> 
           getSmsFieldBuilder() {
         if (smsBuilder_ == null) {
           if (!(typeCase_ == 3)) {
@@ -1843,13 +1402,14 @@ public enum TypeCase
         return smsBuilder_;
       }
 
+      private com.google.protobuf.SingleFieldBuilder<
+          com.polytech.spik.protocol.SpikMessages.SendMessage, com.polytech.spik.protocol.SpikMessages.SendMessage.Builder, com.polytech.spik.protocol.SpikMessages.SendMessageOrBuilder> sendMessageBuilder_;
       /**
        * <code>optional .SendMessage sendMessage = 4;</code>
        */
       public boolean hasSendMessage() {
         return typeCase_ == 4;
       }
-
       /**
        * <code>optional .SendMessage sendMessage = 4;</code>
        */
@@ -1866,22 +1426,6 @@ public enum TypeCase
           return com.polytech.spik.protocol.SpikMessages.SendMessage.getDefaultInstance();
         }
       }
-
-      /**
-       * <code>optional .SendMessage sendMessage = 4;</code>
-       */
-      public Builder setSendMessage(
-          com.polytech.spik.protocol.SpikMessages.SendMessage.Builder builderForValue) {
-        if (sendMessageBuilder_ == null) {
-          type_ = builderForValue.build();
-          onChanged();
-        } else {
-          sendMessageBuilder_.setMessage(builderForValue.build());
-        }
-        typeCase_ = 4;
-        return this;
-      }
-
       /**
        * <code>optional .SendMessage sendMessage = 4;</code>
        */
@@ -1898,7 +1442,20 @@ public enum TypeCase
         typeCase_ = 4;
         return this;
       }
-
+      /**
+       * <code>optional .SendMessage sendMessage = 4;</code>
+       */
+      public Builder setSendMessage(
+          com.polytech.spik.protocol.SpikMessages.SendMessage.Builder builderForValue) {
+        if (sendMessageBuilder_ == null) {
+          type_ = builderForValue.build();
+          onChanged();
+        } else {
+          sendMessageBuilder_.setMessage(builderForValue.build());
+        }
+        typeCase_ = 4;
+        return this;
+      }
       /**
        * <code>optional .SendMessage sendMessage = 4;</code>
        */
@@ -1921,7 +1478,6 @@ public enum TypeCase
         typeCase_ = 4;
         return this;
       }
-
       /**
        * <code>optional .SendMessage sendMessage = 4;</code>
        */
@@ -1941,14 +1497,12 @@ public enum TypeCase
         }
         return this;
       }
-
       /**
        * <code>optional .SendMessage sendMessage = 4;</code>
        */
       public com.polytech.spik.protocol.SpikMessages.SendMessage.Builder getSendMessageBuilder() {
         return getSendMessageFieldBuilder().getBuilder();
       }
-
       /**
        * <code>optional .SendMessage sendMessage = 4;</code>
        */
@@ -1962,12 +1516,11 @@ public enum TypeCase
           return com.polytech.spik.protocol.SpikMessages.SendMessage.getDefaultInstance();
         }
       }
-
       /**
        * <code>optional .SendMessage sendMessage = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.SpikMessages.SendMessage, com.polytech.spik.protocol.SpikMessages.SendMessage.Builder, com.polytech.spik.protocol.SpikMessages.SendMessageOrBuilder>
+          com.polytech.spik.protocol.SpikMessages.SendMessage, com.polytech.spik.protocol.SpikMessages.SendMessage.Builder, com.polytech.spik.protocol.SpikMessages.SendMessageOrBuilder> 
           getSendMessageFieldBuilder() {
         if (sendMessageBuilder_ == null) {
           if (!(typeCase_ == 4)) {
@@ -1984,6 +1537,8 @@ public enum TypeCase
         return sendMessageBuilder_;
       }
 
+      private com.google.protobuf.SingleFieldBuilder<
+          com.polytech.spik.protocol.SpikMessages.StatusChanged, com.polytech.spik.protocol.SpikMessages.StatusChanged.Builder, com.polytech.spik.protocol.SpikMessages.StatusChangedOrBuilder> statusChangedBuilder_;
       /**
        * <code>optional .StatusChanged statusChanged = 5;</code>
        */
@@ -2006,22 +1561,6 @@ public enum TypeCase
           return com.polytech.spik.protocol.SpikMessages.StatusChanged.getDefaultInstance();
         }
       }
-
-      /**
-       * <code>optional .StatusChanged statusChanged = 5;</code>
-       */
-      public Builder setStatusChanged(
-          com.polytech.spik.protocol.SpikMessages.StatusChanged.Builder builderForValue) {
-        if (statusChangedBuilder_ == null) {
-          type_ = builderForValue.build();
-          onChanged();
-        } else {
-          statusChangedBuilder_.setMessage(builderForValue.build());
-        }
-        typeCase_ = 5;
-        return this;
-      }
-
       /**
        * <code>optional .StatusChanged statusChanged = 5;</code>
        */
@@ -2038,7 +1577,20 @@ public enum TypeCase
         typeCase_ = 5;
         return this;
       }
-
+      /**
+       * <code>optional .StatusChanged statusChanged = 5;</code>
+       */
+      public Builder setStatusChanged(
+          com.polytech.spik.protocol.SpikMessages.StatusChanged.Builder builderForValue) {
+        if (statusChangedBuilder_ == null) {
+          type_ = builderForValue.build();
+          onChanged();
+        } else {
+          statusChangedBuilder_.setMessage(builderForValue.build());
+        }
+        typeCase_ = 5;
+        return this;
+      }
       /**
        * <code>optional .StatusChanged statusChanged = 5;</code>
        */
@@ -2103,7 +1655,7 @@ public enum TypeCase
        * <code>optional .StatusChanged statusChanged = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.SpikMessages.StatusChanged, com.polytech.spik.protocol.SpikMessages.StatusChanged.Builder, com.polytech.spik.protocol.SpikMessages.StatusChangedOrBuilder>
+          com.polytech.spik.protocol.SpikMessages.StatusChanged, com.polytech.spik.protocol.SpikMessages.StatusChanged.Builder, com.polytech.spik.protocol.SpikMessages.StatusChangedOrBuilder> 
           getStatusChangedFieldBuilder() {
         if (statusChangedBuilder_ == null) {
           if (!(typeCase_ == 5)) {
@@ -2123,9 +1675,64 @@ public enum TypeCase
       // @@protoc_insertion_point(builder_scope:Wrapper)
     }
 
+    static {
+      defaultInstance = new Wrapper(true);
+      defaultInstance.initFields();
+    }
+
     // @@protoc_insertion_point(class_scope:Wrapper)
   }
 
+  public interface ContactOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Contact)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int64 id = 1;</code>
+     */
+    boolean hasId();
+    /**
+     * <code>required int64 id = 1;</code>
+     */
+    long getId();
+
+    /**
+     * <code>required string name = 2;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 2;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>optional string phone = 3;</code>
+     */
+    boolean hasPhone();
+    /**
+     * <code>optional string phone = 3;</code>
+     */
+    java.lang.String getPhone();
+    /**
+     * <code>optional string phone = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getPhoneBytes();
+
+    /**
+     * <code>optional bytes picture = 4;</code>
+     */
+    boolean hasPicture();
+    /**
+     * <code>optional bytes picture = 4;</code>
+     */
+    com.google.protobuf.ByteString getPicture();
+  }
   /**
    * Protobuf type {@code Contact}
    */
@@ -2133,42 +1740,28 @@ public enum TypeCase
       com.google.protobuf.GeneratedMessage implements
       // @@protoc_insertion_point(message_implements:Contact)
       ContactOrBuilder {
-    public static final int ID_FIELD_NUMBER = 1;
-    public static final int NAME_FIELD_NUMBER = 2;
-    public static final int PHONE_FIELD_NUMBER = 3;
-    public static final int PICTURE_FIELD_NUMBER = 4;
-    private static final Contact defaultInstance;
-    private static final long serialVersionUID = 0L;
-    public static com.google.protobuf.Parser<Contact> PARSER =
-        new com.google.protobuf.AbstractParser<Contact>() {
-      public Contact parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Contact(input, extensionRegistry);
-      }
-    };
-
-    static {
-      defaultInstance = new Contact(true);
-      defaultInstance.initFields();
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    private int bitField0_;
-    private long id_;
-    private java.lang.Object name_;
-    private java.lang.Object phone_;
-    private com.google.protobuf.ByteString picture_;
-    private byte memoizedIsInitialized = -1;
-    private int memoizedSerializedSize = -1;
     // Use Contact.newBuilder() to construct.
     private Contact(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-
     private Contact(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Contact defaultInstance;
+    public static Contact getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Contact getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
     private Contact(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2226,92 +1819,9 @@ public enum TypeCase
         makeExtensionsImmutable();
       }
     }
-
-    public static Contact getDefaultInstance() {
-      return defaultInstance;
-    }
-
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.polytech.spik.protocol.SpikMessages.internal_static_Contact_descriptor;
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Contact parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Contact parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-
-    public static Builder newBuilder(com.polytech.spik.protocol.SpikMessages.Contact prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-
-    public Contact getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -2321,18 +1831,30 @@ public enum TypeCase
               com.polytech.spik.protocol.SpikMessages.Contact.class, com.polytech.spik.protocol.SpikMessages.Contact.Builder.class);
     }
 
+    public static com.google.protobuf.Parser<Contact> PARSER =
+        new com.google.protobuf.AbstractParser<Contact>() {
+      public Contact parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Contact(input, extensionRegistry);
+      }
+    };
+
     @java.lang.Override
     public com.google.protobuf.Parser<Contact> getParserForType() {
       return PARSER;
     }
 
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
     /**
      * <code>required int64 id = 1;</code>
      */
     public boolean hasId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>required int64 id = 1;</code>
      */
@@ -2340,13 +1862,14 @@ public enum TypeCase
       return id_;
     }
 
+    public static final int NAME_FIELD_NUMBER = 2;
+    private java.lang.Object name_;
     /**
      * <code>required string name = 2;</code>
      */
     public boolean hasName() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-
     /**
      * <code>required string name = 2;</code>
      */
@@ -2355,7 +1878,7 @@ public enum TypeCase
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -2364,7 +1887,6 @@ public enum TypeCase
         return s;
       }
     }
-
     /**
      * <code>required string name = 2;</code>
      */
@@ -2372,7 +1894,7 @@ public enum TypeCase
         getNameBytes() {
       java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         name_ = b;
@@ -2382,13 +1904,14 @@ public enum TypeCase
       }
     }
 
+    public static final int PHONE_FIELD_NUMBER = 3;
+    private java.lang.Object phone_;
     /**
      * <code>optional string phone = 3;</code>
      */
     public boolean hasPhone() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-
     /**
      * <code>optional string phone = 3;</code>
      */
@@ -2397,7 +1920,7 @@ public enum TypeCase
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -2406,7 +1929,6 @@ public enum TypeCase
         return s;
       }
     }
-
     /**
      * <code>optional string phone = 3;</code>
      */
@@ -2414,7 +1936,7 @@ public enum TypeCase
         getPhoneBytes() {
       java.lang.Object ref = phone_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         phone_ = b;
@@ -2424,13 +1946,14 @@ public enum TypeCase
       }
     }
 
+    public static final int PICTURE_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString picture_;
     /**
      * <code>optional bytes picture = 4;</code>
      */
     public boolean hasPicture() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-
     /**
      * <code>optional bytes picture = 4;</code>
      */
@@ -2444,7 +1967,7 @@ public enum TypeCase
       phone_ = "";
       picture_ = com.google.protobuf.ByteString.EMPTY;
     }
-
+    private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2480,6 +2003,7 @@ public enum TypeCase
       getUnknownFields().writeTo(output);
     }
 
+    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
@@ -2506,14 +2030,71 @@ public enum TypeCase
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Contact parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Contact parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Contact parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
 
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.polytech.spik.protocol.SpikMessages.Contact prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
     public Builder toBuilder() { return newBuilder(this); }
 
     @java.lang.Override
@@ -2522,7 +2103,6 @@ public enum TypeCase
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
      * Protobuf type {@code Contact}
      */
@@ -2530,11 +2110,18 @@ public enum TypeCase
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Contact)
         com.polytech.spik.protocol.SpikMessages.ContactOrBuilder {
-      private int bitField0_;
-      private long id_ ;
-      private java.lang.Object name_ = "";
-      private java.lang.Object phone_ = "";
-      private com.google.protobuf.ByteString picture_ = com.google.protobuf.ByteString.EMPTY;
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.polytech.spik.protocol.SpikMessages.internal_static_Contact_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.polytech.spik.protocol.SpikMessages.internal_static_Contact_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.polytech.spik.protocol.SpikMessages.Contact.class, com.polytech.spik.protocol.SpikMessages.Contact.Builder.class);
+      }
+
       // Construct using com.polytech.spik.protocol.SpikMessages.Contact.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
@@ -2545,26 +2132,12 @@ public enum TypeCase
         super(parent);
         maybeForceBuilderInitialization();
       }
-
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.polytech.spik.protocol.SpikMessages.internal_static_Contact_descriptor;
-      }
-
-      private static Builder create() {
-        return new Builder();
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.polytech.spik.protocol.SpikMessages.internal_static_Contact_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.polytech.spik.protocol.SpikMessages.Contact.class, com.polytech.spik.protocol.SpikMessages.Contact.Builder.class);
-      }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
+      }
+      private static Builder create() {
+        return new Builder();
       }
 
       public Builder clear() {
@@ -2659,11 +2232,11 @@ public enum TypeCase
 
       public final boolean isInitialized() {
         if (!hasId()) {
-
+          
           return false;
         }
         if (!hasName()) {
-
+          
           return false;
         }
         return true;
@@ -2686,21 +2259,21 @@ public enum TypeCase
         }
         return this;
       }
+      private int bitField0_;
 
+      private long id_ ;
       /**
        * <code>required int64 id = 1;</code>
        */
       public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>required int64 id = 1;</code>
        */
       public long getId() {
         return id_;
       }
-
       /**
        * <code>required int64 id = 1;</code>
        */
@@ -2710,7 +2283,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required int64 id = 1;</code>
        */
@@ -2721,13 +2293,13 @@ public enum TypeCase
         return this;
       }
 
+      private java.lang.Object name_ = "";
       /**
        * <code>required string name = 2;</code>
        */
       public boolean hasName() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-
       /**
        * <code>required string name = 2;</code>
        */
@@ -2745,7 +2317,22 @@ public enum TypeCase
           return (java.lang.String) ref;
         }
       }
-
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
       /**
        * <code>required string name = 2;</code>
        */
@@ -2759,24 +2346,15 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required string name = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
       }
-
       /**
        * <code>required string name = 2;</code>
        */
@@ -2791,23 +2369,13 @@ public enum TypeCase
         return this;
       }
 
-      /**
-       * <code>required string name = 2;</code>
-       */
-      public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-
+      private java.lang.Object phone_ = "";
       /**
        * <code>optional string phone = 3;</code>
        */
       public boolean hasPhone() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-
       /**
        * <code>optional string phone = 3;</code>
        */
@@ -2825,7 +2393,22 @@ public enum TypeCase
           return (java.lang.String) ref;
         }
       }
-
+      /**
+       * <code>optional string phone = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPhoneBytes() {
+        java.lang.Object ref = phone_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          phone_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
       /**
        * <code>optional string phone = 3;</code>
        */
@@ -2839,24 +2422,15 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>optional string phone = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getPhoneBytes() {
-        java.lang.Object ref = phone_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          phone_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      public Builder clearPhone() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        phone_ = getDefaultInstance().getPhone();
+        onChanged();
+        return this;
       }
-
       /**
        * <code>optional string phone = 3;</code>
        */
@@ -2871,16 +2445,7 @@ public enum TypeCase
         return this;
       }
 
-      /**
-       * <code>optional string phone = 3;</code>
-       */
-      public Builder clearPhone() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        phone_ = getDefaultInstance().getPhone();
-        onChanged();
-        return this;
-      }
-
+      private com.google.protobuf.ByteString picture_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes picture = 4;</code>
        */
@@ -2918,9 +2483,64 @@ public enum TypeCase
       // @@protoc_insertion_point(builder_scope:Contact)
     }
 
+    static {
+      defaultInstance = new Contact(true);
+      defaultInstance.initFields();
+    }
+
     // @@protoc_insertion_point(class_scope:Contact)
   }
 
+  public interface ConversationOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Conversation)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int64 id = 1;</code>
+     */
+    boolean hasId();
+    /**
+     * <code>required int64 id = 1;</code>
+     */
+    long getId();
+
+    /**
+     * <code>repeated int64 participants = 2;</code>
+     */
+    java.util.List<java.lang.Long> getParticipantsList();
+    /**
+     * <code>repeated int64 participants = 2;</code>
+     */
+    int getParticipantsCount();
+    /**
+     * <code>repeated int64 participants = 2;</code>
+     */
+    long getParticipants(int index);
+
+    /**
+     * <code>repeated .Sms messages = 3;</code>
+     */
+    java.util.List<com.polytech.spik.protocol.SpikMessages.Sms> 
+        getMessagesList();
+    /**
+     * <code>repeated .Sms messages = 3;</code>
+     */
+    com.polytech.spik.protocol.SpikMessages.Sms getMessages(int index);
+    /**
+     * <code>repeated .Sms messages = 3;</code>
+     */
+    int getMessagesCount();
+    /**
+     * <code>repeated .Sms messages = 3;</code>
+     */
+    java.util.List<? extends com.polytech.spik.protocol.SpikMessages.SmsOrBuilder> 
+        getMessagesOrBuilderList();
+    /**
+     * <code>repeated .Sms messages = 3;</code>
+     */
+    com.polytech.spik.protocol.SpikMessages.SmsOrBuilder getMessagesOrBuilder(
+        int index);
+  }
   /**
    * Protobuf type {@code Conversation}
    */
@@ -2928,39 +2548,28 @@ public enum TypeCase
       com.google.protobuf.GeneratedMessage implements
       // @@protoc_insertion_point(message_implements:Conversation)
       ConversationOrBuilder {
-    public static final int ID_FIELD_NUMBER = 1;
-    public static final int PARTICIPANTS_FIELD_NUMBER = 2;
-    public static final int MESSAGES_FIELD_NUMBER = 3;
-    private static final Conversation defaultInstance;
-    private static final long serialVersionUID = 0L;
-    public static com.google.protobuf.Parser<Conversation> PARSER =
-        new com.google.protobuf.AbstractParser<Conversation>() {
-      public Conversation parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Conversation(input, extensionRegistry);
-      }
-    };
-
-    static {
-      defaultInstance = new Conversation(true);
-      defaultInstance.initFields();
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    private int bitField0_;
-    private long id_;
-    private java.util.List<java.lang.Long> participants_;
-    private java.util.List<com.polytech.spik.protocol.SpikMessages.Sms> messages_;
-    private byte memoizedIsInitialized = -1;
-    private int memoizedSerializedSize = -1;
     // Use Conversation.newBuilder() to construct.
     private Conversation(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
     private Conversation(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Conversation defaultInstance;
+    public static Conversation getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Conversation getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
     private Conversation(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3036,92 +2645,9 @@ public enum TypeCase
         makeExtensionsImmutable();
       }
     }
-
-    public static Conversation getDefaultInstance() {
-      return defaultInstance;
-    }
-
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.polytech.spik.protocol.SpikMessages.internal_static_Conversation_descriptor;
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Conversation parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Conversation parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-
-    public static Builder newBuilder(com.polytech.spik.protocol.SpikMessages.Conversation prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-
-    public Conversation getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -3131,18 +2657,30 @@ public enum TypeCase
               com.polytech.spik.protocol.SpikMessages.Conversation.class, com.polytech.spik.protocol.SpikMessages.Conversation.Builder.class);
     }
 
+    public static com.google.protobuf.Parser<Conversation> PARSER =
+        new com.google.protobuf.AbstractParser<Conversation>() {
+      public Conversation parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Conversation(input, extensionRegistry);
+      }
+    };
+
     @java.lang.Override
     public com.google.protobuf.Parser<Conversation> getParserForType() {
       return PARSER;
     }
 
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
     /**
      * <code>required int64 id = 1;</code>
      */
     public boolean hasId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>required int64 id = 1;</code>
      */
@@ -3150,6 +2688,8 @@ public enum TypeCase
       return id_;
     }
 
+    public static final int PARTICIPANTS_FIELD_NUMBER = 2;
+    private java.util.List<java.lang.Long> participants_;
     /**
      * <code>repeated int64 participants = 2;</code>
      */
@@ -3157,14 +2697,12 @@ public enum TypeCase
         getParticipantsList() {
       return participants_;
     }
-
     /**
      * <code>repeated int64 participants = 2;</code>
      */
     public int getParticipantsCount() {
       return participants_.size();
     }
-
     /**
      * <code>repeated int64 participants = 2;</code>
      */
@@ -3172,35 +2710,33 @@ public enum TypeCase
       return participants_.get(index);
     }
 
+    public static final int MESSAGES_FIELD_NUMBER = 3;
+    private java.util.List<com.polytech.spik.protocol.SpikMessages.Sms> messages_;
     /**
      * <code>repeated .Sms messages = 3;</code>
      */
     public java.util.List<com.polytech.spik.protocol.SpikMessages.Sms> getMessagesList() {
       return messages_;
     }
-
     /**
      * <code>repeated .Sms messages = 3;</code>
      */
-    public java.util.List<? extends com.polytech.spik.protocol.SpikMessages.SmsOrBuilder>
+    public java.util.List<? extends com.polytech.spik.protocol.SpikMessages.SmsOrBuilder> 
         getMessagesOrBuilderList() {
       return messages_;
     }
-
     /**
      * <code>repeated .Sms messages = 3;</code>
      */
     public int getMessagesCount() {
       return messages_.size();
     }
-
     /**
      * <code>repeated .Sms messages = 3;</code>
      */
     public com.polytech.spik.protocol.SpikMessages.Sms getMessages(int index) {
       return messages_.get(index);
     }
-
     /**
      * <code>repeated .Sms messages = 3;</code>
      */
@@ -3214,7 +2750,7 @@ public enum TypeCase
       participants_ = java.util.Collections.emptyList();
       messages_ = java.util.Collections.emptyList();
     }
-
+    private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3249,6 +2785,7 @@ public enum TypeCase
       getUnknownFields().writeTo(output);
     }
 
+    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
@@ -3276,14 +2813,71 @@ public enum TypeCase
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Conversation parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Conversation parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Conversation parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
 
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.polytech.spik.protocol.SpikMessages.Conversation prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
     public Builder toBuilder() { return newBuilder(this); }
 
     @java.lang.Override
@@ -3292,7 +2886,6 @@ public enum TypeCase
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
      * Protobuf type {@code Conversation}
      */
@@ -3300,13 +2893,18 @@ public enum TypeCase
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Conversation)
         com.polytech.spik.protocol.SpikMessages.ConversationOrBuilder {
-      private int bitField0_;
-      private long id_ ;
-      private java.util.List<java.lang.Long> participants_ = java.util.Collections.emptyList();
-      private java.util.List<com.polytech.spik.protocol.SpikMessages.Sms> messages_ =
-        java.util.Collections.emptyList();
-      private com.google.protobuf.RepeatedFieldBuilder<
-          com.polytech.spik.protocol.SpikMessages.Sms, com.polytech.spik.protocol.SpikMessages.Sms.Builder, com.polytech.spik.protocol.SpikMessages.SmsOrBuilder> messagesBuilder_;
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.polytech.spik.protocol.SpikMessages.internal_static_Conversation_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.polytech.spik.protocol.SpikMessages.internal_static_Conversation_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.polytech.spik.protocol.SpikMessages.Conversation.class, com.polytech.spik.protocol.SpikMessages.Conversation.Builder.class);
+      }
+
       // Construct using com.polytech.spik.protocol.SpikMessages.Conversation.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
@@ -3317,27 +2915,13 @@ public enum TypeCase
         super(parent);
         maybeForceBuilderInitialization();
       }
-
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.polytech.spik.protocol.SpikMessages.internal_static_Conversation_descriptor;
-      }
-
-      private static Builder create() {
-        return new Builder();
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.polytech.spik.protocol.SpikMessages.internal_static_Conversation_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.polytech.spik.protocol.SpikMessages.Conversation.class, com.polytech.spik.protocol.SpikMessages.Conversation.Builder.class);
-      }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getMessagesFieldBuilder();
         }
+      }
+      private static Builder create() {
+        return new Builder();
       }
 
       public Builder clear() {
@@ -3445,7 +3029,7 @@ public enum TypeCase
               messagesBuilder_ = null;
               messages_ = other.messages_;
               bitField0_ = (bitField0_ & ~0x00000004);
-              messagesBuilder_ =
+              messagesBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getMessagesFieldBuilder() : null;
             } else {
@@ -3459,12 +3043,12 @@ public enum TypeCase
 
       public final boolean isInitialized() {
         if (!hasId()) {
-
+          
           return false;
         }
         for (int i = 0; i < getMessagesCount(); i++) {
           if (!getMessages(i).isInitialized()) {
-
+            
             return false;
           }
         }
@@ -3488,21 +3072,21 @@ public enum TypeCase
         }
         return this;
       }
+      private int bitField0_;
 
+      private long id_ ;
       /**
        * <code>required int64 id = 1;</code>
        */
       public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>required int64 id = 1;</code>
        */
       public long getId() {
         return id_;
       }
-
       /**
        * <code>required int64 id = 1;</code>
        */
@@ -3512,7 +3096,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required int64 id = 1;</code>
        */
@@ -3523,13 +3106,13 @@ public enum TypeCase
         return this;
       }
 
+      private java.util.List<java.lang.Long> participants_ = java.util.Collections.emptyList();
       private void ensureParticipantsIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           participants_ = new java.util.ArrayList<java.lang.Long>(participants_);
           bitField0_ |= 0x00000002;
          }
       }
-
       /**
        * <code>repeated int64 participants = 2;</code>
        */
@@ -3537,21 +3120,18 @@ public enum TypeCase
           getParticipantsList() {
         return java.util.Collections.unmodifiableList(participants_);
       }
-
       /**
        * <code>repeated int64 participants = 2;</code>
        */
       public int getParticipantsCount() {
         return participants_.size();
       }
-
       /**
        * <code>repeated int64 participants = 2;</code>
        */
       public long getParticipants(int index) {
         return participants_.get(index);
       }
-
       /**
        * <code>repeated int64 participants = 2;</code>
        */
@@ -3562,7 +3142,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>repeated int64 participants = 2;</code>
        */
@@ -3572,7 +3151,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>repeated int64 participants = 2;</code>
        */
@@ -3584,7 +3162,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>repeated int64 participants = 2;</code>
        */
@@ -3595,12 +3172,17 @@ public enum TypeCase
         return this;
       }
 
+      private java.util.List<com.polytech.spik.protocol.SpikMessages.Sms> messages_ =
+        java.util.Collections.emptyList();
       private void ensureMessagesIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           messages_ = new java.util.ArrayList<com.polytech.spik.protocol.SpikMessages.Sms>(messages_);
           bitField0_ |= 0x00000004;
          }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.polytech.spik.protocol.SpikMessages.Sms, com.polytech.spik.protocol.SpikMessages.Sms.Builder, com.polytech.spik.protocol.SpikMessages.SmsOrBuilder> messagesBuilder_;
 
       /**
        * <code>repeated .Sms messages = 3;</code>
@@ -3785,7 +3367,7 @@ public enum TypeCase
       /**
        * <code>repeated .Sms messages = 3;</code>
        */
-      public java.util.List<? extends com.polytech.spik.protocol.SpikMessages.SmsOrBuilder>
+      public java.util.List<? extends com.polytech.spik.protocol.SpikMessages.SmsOrBuilder> 
            getMessagesOrBuilderList() {
         if (messagesBuilder_ != null) {
           return messagesBuilder_.getMessageOrBuilderList();
@@ -3811,12 +3393,12 @@ public enum TypeCase
       /**
        * <code>repeated .Sms messages = 3;</code>
        */
-      public java.util.List<com.polytech.spik.protocol.SpikMessages.Sms.Builder>
+      public java.util.List<com.polytech.spik.protocol.SpikMessages.Sms.Builder> 
            getMessagesBuilderList() {
         return getMessagesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          com.polytech.spik.protocol.SpikMessages.Sms, com.polytech.spik.protocol.SpikMessages.Sms.Builder, com.polytech.spik.protocol.SpikMessages.SmsOrBuilder>
+          com.polytech.spik.protocol.SpikMessages.Sms, com.polytech.spik.protocol.SpikMessages.Sms.Builder, com.polytech.spik.protocol.SpikMessages.SmsOrBuilder> 
           getMessagesFieldBuilder() {
         if (messagesBuilder_ == null) {
           messagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
@@ -3833,9 +3415,69 @@ public enum TypeCase
       // @@protoc_insertion_point(builder_scope:Conversation)
     }
 
+    static {
+      defaultInstance = new Conversation(true);
+      defaultInstance.initFields();
+    }
+
     // @@protoc_insertion_point(class_scope:Conversation)
   }
 
+  public interface SmsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Sms)
+      com.google.protobuf.GeneratedMessage.
+          ExtendableMessageOrBuilder<Sms> {
+
+    /**
+     * <code>optional int64 threadId = 1;</code>
+     */
+    boolean hasThreadId();
+    /**
+     * <code>optional int64 threadId = 1;</code>
+     */
+    long getThreadId();
+
+    /**
+     * <code>required int64 date = 2;</code>
+     */
+    boolean hasDate();
+    /**
+     * <code>required int64 date = 2;</code>
+     */
+    long getDate();
+
+    /**
+     * <code>required string text = 3;</code>
+     */
+    boolean hasText();
+    /**
+     * <code>required string text = 3;</code>
+     */
+    java.lang.String getText();
+    /**
+     * <code>required string text = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getTextBytes();
+
+    /**
+     * <code>required bool read = 4;</code>
+     */
+    boolean hasRead();
+    /**
+     * <code>required bool read = 4;</code>
+     */
+    boolean getRead();
+
+    /**
+     * <code>required .Status status = 5;</code>
+     */
+    boolean hasStatus();
+    /**
+     * <code>required .Status status = 5;</code>
+     */
+    com.polytech.spik.protocol.SpikMessages.Status getStatus();
+  }
   /**
    * Protobuf type {@code Sms}
    */
@@ -3844,43 +3486,28 @@ public enum TypeCase
         Sms> implements
       // @@protoc_insertion_point(message_implements:Sms)
       SmsOrBuilder {
-    public static final int THREADID_FIELD_NUMBER = 1;
-    public static final int DATE_FIELD_NUMBER = 2;
-    public static final int TEXT_FIELD_NUMBER = 3;
-    public static final int READ_FIELD_NUMBER = 4;
-    public static final int STATUS_FIELD_NUMBER = 5;
-    private static final Sms defaultInstance;
-    private static final long serialVersionUID = 0L;
-    public static com.google.protobuf.Parser<Sms> PARSER =
-        new com.google.protobuf.AbstractParser<Sms>() {
-      public Sms parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Sms(input, extensionRegistry);
-      }
-    };
-
-    static {
-      defaultInstance = new Sms(true);
-      defaultInstance.initFields();
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    private int bitField0_;
-    private long threadId_;
-    private long date_;
-    private java.lang.Object text_;
-    private boolean read_;
-    private com.polytech.spik.protocol.SpikMessages.Status status_;
-    private byte memoizedIsInitialized = -1;
-    private int memoizedSerializedSize = -1;
     // Use Sms.newBuilder() to construct.
     private Sms(com.google.protobuf.GeneratedMessage.ExtendableBuilder<com.polytech.spik.protocol.SpikMessages.Sms, ?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
     private Sms(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Sms defaultInstance;
+    public static Sms getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Sms getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
     private Sms(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3948,92 +3575,9 @@ public enum TypeCase
         makeExtensionsImmutable();
       }
     }
-
-    public static Sms getDefaultInstance() {
-      return defaultInstance;
-    }
-
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.polytech.spik.protocol.SpikMessages.internal_static_Sms_descriptor;
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Sms parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Sms parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-
-    public static Builder newBuilder(com.polytech.spik.protocol.SpikMessages.Sms prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-
-    public Sms getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -4043,18 +3587,30 @@ public enum TypeCase
               com.polytech.spik.protocol.SpikMessages.Sms.class, com.polytech.spik.protocol.SpikMessages.Sms.Builder.class);
     }
 
+    public static com.google.protobuf.Parser<Sms> PARSER =
+        new com.google.protobuf.AbstractParser<Sms>() {
+      public Sms parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Sms(input, extensionRegistry);
+      }
+    };
+
     @java.lang.Override
     public com.google.protobuf.Parser<Sms> getParserForType() {
       return PARSER;
     }
 
+    private int bitField0_;
+    public static final int THREADID_FIELD_NUMBER = 1;
+    private long threadId_;
     /**
      * <code>optional int64 threadId = 1;</code>
      */
     public boolean hasThreadId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>optional int64 threadId = 1;</code>
      */
@@ -4062,13 +3618,14 @@ public enum TypeCase
       return threadId_;
     }
 
+    public static final int DATE_FIELD_NUMBER = 2;
+    private long date_;
     /**
      * <code>required int64 date = 2;</code>
      */
     public boolean hasDate() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-
     /**
      * <code>required int64 date = 2;</code>
      */
@@ -4076,13 +3633,14 @@ public enum TypeCase
       return date_;
     }
 
+    public static final int TEXT_FIELD_NUMBER = 3;
+    private java.lang.Object text_;
     /**
      * <code>required string text = 3;</code>
      */
     public boolean hasText() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-
     /**
      * <code>required string text = 3;</code>
      */
@@ -4091,7 +3649,7 @@ public enum TypeCase
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -4100,7 +3658,6 @@ public enum TypeCase
         return s;
       }
     }
-
     /**
      * <code>required string text = 3;</code>
      */
@@ -4108,7 +3665,7 @@ public enum TypeCase
         getTextBytes() {
       java.lang.Object ref = text_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         text_ = b;
@@ -4118,13 +3675,14 @@ public enum TypeCase
       }
     }
 
+    public static final int READ_FIELD_NUMBER = 4;
+    private boolean read_;
     /**
      * <code>required bool read = 4;</code>
      */
     public boolean hasRead() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-
     /**
      * <code>required bool read = 4;</code>
      */
@@ -4132,13 +3690,14 @@ public enum TypeCase
       return read_;
     }
 
+    public static final int STATUS_FIELD_NUMBER = 5;
+    private com.polytech.spik.protocol.SpikMessages.Status status_;
     /**
      * <code>required .Status status = 5;</code>
      */
     public boolean hasStatus() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
-
     /**
      * <code>required .Status status = 5;</code>
      */
@@ -4153,7 +3712,7 @@ public enum TypeCase
       read_ = false;
       status_ = com.polytech.spik.protocol.SpikMessages.Status.SENDING;
     }
-
+    private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4208,6 +3767,7 @@ public enum TypeCase
       getUnknownFields().writeTo(output);
     }
 
+    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
@@ -4239,14 +3799,71 @@ public enum TypeCase
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Sms parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Sms parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.Sms parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
 
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.polytech.spik.protocol.SpikMessages.Sms prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
     public Builder toBuilder() { return newBuilder(this); }
 
     @java.lang.Override
@@ -4255,7 +3872,6 @@ public enum TypeCase
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
      * Protobuf type {@code Sms}
      */
@@ -4264,12 +3880,17 @@ public enum TypeCase
           com.polytech.spik.protocol.SpikMessages.Sms, Builder> implements
         // @@protoc_insertion_point(builder_implements:Sms)
         com.polytech.spik.protocol.SpikMessages.SmsOrBuilder {
-      private int bitField0_;
-      private long threadId_ ;
-      private long date_ ;
-      private java.lang.Object text_ = "";
-      private boolean read_ ;
-      private com.polytech.spik.protocol.SpikMessages.Status status_ = com.polytech.spik.protocol.SpikMessages.Status.SENDING;
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.polytech.spik.protocol.SpikMessages.internal_static_Sms_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.polytech.spik.protocol.SpikMessages.internal_static_Sms_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.polytech.spik.protocol.SpikMessages.Sms.class, com.polytech.spik.protocol.SpikMessages.Sms.Builder.class);
+      }
 
       // Construct using com.polytech.spik.protocol.SpikMessages.Sms.newBuilder()
       private Builder() {
@@ -4281,26 +3902,12 @@ public enum TypeCase
         super(parent);
         maybeForceBuilderInitialization();
       }
-
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.polytech.spik.protocol.SpikMessages.internal_static_Sms_descriptor;
-      }
-
-      private static Builder create() {
-        return new Builder();
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.polytech.spik.protocol.SpikMessages.internal_static_Sms_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.polytech.spik.protocol.SpikMessages.Sms.class, com.polytech.spik.protocol.SpikMessages.Sms.Builder.class);
-      }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
+      }
+      private static Builder create() {
+        return new Builder();
       }
 
       public Builder clear() {
@@ -4403,23 +4010,23 @@ public enum TypeCase
 
       public final boolean isInitialized() {
         if (!hasDate()) {
-
+          
           return false;
         }
         if (!hasText()) {
-
+          
           return false;
         }
         if (!hasRead()) {
-
+          
           return false;
         }
         if (!hasStatus()) {
-
+          
           return false;
         }
         if (!extensionsAreInitialized()) {
-
+          
           return false;
         }
         return true;
@@ -4442,21 +4049,21 @@ public enum TypeCase
         }
         return this;
       }
+      private int bitField0_;
 
+      private long threadId_ ;
       /**
        * <code>optional int64 threadId = 1;</code>
        */
       public boolean hasThreadId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>optional int64 threadId = 1;</code>
        */
       public long getThreadId() {
         return threadId_;
       }
-
       /**
        * <code>optional int64 threadId = 1;</code>
        */
@@ -4466,7 +4073,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>optional int64 threadId = 1;</code>
        */
@@ -4477,20 +4083,19 @@ public enum TypeCase
         return this;
       }
 
+      private long date_ ;
       /**
        * <code>required int64 date = 2;</code>
        */
       public boolean hasDate() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-
       /**
        * <code>required int64 date = 2;</code>
        */
       public long getDate() {
         return date_;
       }
-
       /**
        * <code>required int64 date = 2;</code>
        */
@@ -4500,7 +4105,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required int64 date = 2;</code>
        */
@@ -4511,13 +4115,13 @@ public enum TypeCase
         return this;
       }
 
+      private java.lang.Object text_ = "";
       /**
        * <code>required string text = 3;</code>
        */
       public boolean hasText() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-
       /**
        * <code>required string text = 3;</code>
        */
@@ -4535,7 +4139,22 @@ public enum TypeCase
           return (java.lang.String) ref;
         }
       }
-
+      /**
+       * <code>required string text = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTextBytes() {
+        java.lang.Object ref = text_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          text_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
       /**
        * <code>required string text = 3;</code>
        */
@@ -4549,24 +4168,15 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required string text = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getTextBytes() {
-        java.lang.Object ref = text_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          text_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      public Builder clearText() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        text_ = getDefaultInstance().getText();
+        onChanged();
+        return this;
       }
-
       /**
        * <code>required string text = 3;</code>
        */
@@ -4581,30 +4191,19 @@ public enum TypeCase
         return this;
       }
 
-      /**
-       * <code>required string text = 3;</code>
-       */
-      public Builder clearText() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        text_ = getDefaultInstance().getText();
-        onChanged();
-        return this;
-      }
-
+      private boolean read_ ;
       /**
        * <code>required bool read = 4;</code>
        */
       public boolean hasRead() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-
       /**
        * <code>required bool read = 4;</code>
        */
       public boolean getRead() {
         return read_;
       }
-
       /**
        * <code>required bool read = 4;</code>
        */
@@ -4614,7 +4213,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required bool read = 4;</code>
        */
@@ -4625,6 +4223,7 @@ public enum TypeCase
         return this;
       }
 
+      private com.polytech.spik.protocol.SpikMessages.Status status_ = com.polytech.spik.protocol.SpikMessages.Status.SENDING;
       /**
        * <code>required .Status status = 5;</code>
        */
@@ -4662,9 +4261,83 @@ public enum TypeCase
       // @@protoc_insertion_point(builder_scope:Sms)
     }
 
+    static {
+      defaultInstance = new Sms(true);
+      defaultInstance.initFields();
+    }
+
     // @@protoc_insertion_point(class_scope:Sms)
   }
 
+  public interface SendMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SendMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int64 mid = 1;</code>
+     */
+    boolean hasMid();
+    /**
+     * <code>required int64 mid = 1;</code>
+     */
+    long getMid();
+
+    /**
+     * <code>repeated string participants = 2;</code>
+     */
+    com.google.protobuf.ProtocolStringList
+        getParticipantsList();
+    /**
+     * <code>repeated string participants = 2;</code>
+     */
+    int getParticipantsCount();
+    /**
+     * <code>repeated string participants = 2;</code>
+     */
+    java.lang.String getParticipants(int index);
+    /**
+     * <code>repeated string participants = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getParticipantsBytes(int index);
+
+    /**
+     * <code>required string text = 3;</code>
+     */
+    boolean hasText();
+    /**
+     * <code>required string text = 3;</code>
+     */
+    java.lang.String getText();
+    /**
+     * <code>required string text = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getTextBytes();
+
+    /**
+     * <code>optional string mimeType = 4;</code>
+     */
+    boolean hasMimeType();
+    /**
+     * <code>optional string mimeType = 4;</code>
+     */
+    java.lang.String getMimeType();
+    /**
+     * <code>optional string mimeType = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getMimeTypeBytes();
+
+    /**
+     * <code>optional bytes data = 5;</code>
+     */
+    boolean hasData();
+    /**
+     * <code>optional bytes data = 5;</code>
+     */
+    com.google.protobuf.ByteString getData();
+  }
   /**
    * Protobuf type {@code SendMessage}
    */
@@ -4672,43 +4345,28 @@ public enum TypeCase
       com.google.protobuf.GeneratedMessage implements
       // @@protoc_insertion_point(message_implements:SendMessage)
       SendMessageOrBuilder {
-    public static final int MID_FIELD_NUMBER = 1;
-    public static final int PARTICIPANTS_FIELD_NUMBER = 2;
-    public static final int TEXT_FIELD_NUMBER = 3;
-    public static final int MIMETYPE_FIELD_NUMBER = 4;
-    public static final int DATA_FIELD_NUMBER = 5;
-    private static final SendMessage defaultInstance;
-    private static final long serialVersionUID = 0L;
-    public static com.google.protobuf.Parser<SendMessage> PARSER =
-        new com.google.protobuf.AbstractParser<SendMessage>() {
-      public SendMessage parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SendMessage(input, extensionRegistry);
-      }
-    };
-
-    static {
-      defaultInstance = new SendMessage(true);
-      defaultInstance.initFields();
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    private int bitField0_;
-    private long mid_;
-    private com.google.protobuf.LazyStringList participants_;
-    private java.lang.Object text_;
-    private java.lang.Object mimeType_;
-    private com.google.protobuf.ByteString data_;
-    private byte memoizedIsInitialized = -1;
-    private int memoizedSerializedSize = -1;
     // Use SendMessage.newBuilder() to construct.
     private SendMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
     private SendMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final SendMessage defaultInstance;
+    public static SendMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public SendMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
     private SendMessage(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4778,92 +4436,9 @@ public enum TypeCase
         makeExtensionsImmutable();
       }
     }
-
-    public static SendMessage getDefaultInstance() {
-      return defaultInstance;
-    }
-
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.polytech.spik.protocol.SpikMessages.internal_static_SendMessage_descriptor;
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-
-    public static Builder newBuilder(com.polytech.spik.protocol.SpikMessages.SendMessage prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-
-    public SendMessage getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -4873,18 +4448,30 @@ public enum TypeCase
               com.polytech.spik.protocol.SpikMessages.SendMessage.class, com.polytech.spik.protocol.SpikMessages.SendMessage.Builder.class);
     }
 
+    public static com.google.protobuf.Parser<SendMessage> PARSER =
+        new com.google.protobuf.AbstractParser<SendMessage>() {
+      public SendMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SendMessage(input, extensionRegistry);
+      }
+    };
+
     @java.lang.Override
     public com.google.protobuf.Parser<SendMessage> getParserForType() {
       return PARSER;
     }
 
+    private int bitField0_;
+    public static final int MID_FIELD_NUMBER = 1;
+    private long mid_;
     /**
      * <code>required int64 mid = 1;</code>
      */
     public boolean hasMid() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>required int64 mid = 1;</code>
      */
@@ -4892,6 +4479,8 @@ public enum TypeCase
       return mid_;
     }
 
+    public static final int PARTICIPANTS_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList participants_;
     /**
      * <code>repeated string participants = 2;</code>
      */
@@ -4899,21 +4488,18 @@ public enum TypeCase
         getParticipantsList() {
       return participants_;
     }
-
     /**
      * <code>repeated string participants = 2;</code>
      */
     public int getParticipantsCount() {
       return participants_.size();
     }
-
     /**
      * <code>repeated string participants = 2;</code>
      */
     public java.lang.String getParticipants(int index) {
       return participants_.get(index);
     }
-
     /**
      * <code>repeated string participants = 2;</code>
      */
@@ -4922,13 +4508,14 @@ public enum TypeCase
       return participants_.getByteString(index);
     }
 
+    public static final int TEXT_FIELD_NUMBER = 3;
+    private java.lang.Object text_;
     /**
      * <code>required string text = 3;</code>
      */
     public boolean hasText() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-
     /**
      * <code>required string text = 3;</code>
      */
@@ -4937,7 +4524,7 @@ public enum TypeCase
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -4946,7 +4533,6 @@ public enum TypeCase
         return s;
       }
     }
-
     /**
      * <code>required string text = 3;</code>
      */
@@ -4954,7 +4540,7 @@ public enum TypeCase
         getTextBytes() {
       java.lang.Object ref = text_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         text_ = b;
@@ -4964,13 +4550,14 @@ public enum TypeCase
       }
     }
 
+    public static final int MIMETYPE_FIELD_NUMBER = 4;
+    private java.lang.Object mimeType_;
     /**
      * <code>optional string mimeType = 4;</code>
      */
     public boolean hasMimeType() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-
     /**
      * <code>optional string mimeType = 4;</code>
      */
@@ -4979,7 +4566,7 @@ public enum TypeCase
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -4988,7 +4575,6 @@ public enum TypeCase
         return s;
       }
     }
-
     /**
      * <code>optional string mimeType = 4;</code>
      */
@@ -4996,7 +4582,7 @@ public enum TypeCase
         getMimeTypeBytes() {
       java.lang.Object ref = mimeType_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         mimeType_ = b;
@@ -5006,13 +4592,14 @@ public enum TypeCase
       }
     }
 
+    public static final int DATA_FIELD_NUMBER = 5;
+    private com.google.protobuf.ByteString data_;
     /**
      * <code>optional bytes data = 5;</code>
      */
     public boolean hasData() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-
     /**
      * <code>optional bytes data = 5;</code>
      */
@@ -5027,7 +4614,7 @@ public enum TypeCase
       mimeType_ = "";
       data_ = com.google.protobuf.ByteString.EMPTY;
     }
-
+    private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -5066,6 +4653,7 @@ public enum TypeCase
       getUnknownFields().writeTo(output);
     }
 
+    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
@@ -5101,14 +4689,71 @@ public enum TypeCase
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.SendMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
 
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.polytech.spik.protocol.SpikMessages.SendMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
     public Builder toBuilder() { return newBuilder(this); }
 
     @java.lang.Override
@@ -5117,7 +4762,6 @@ public enum TypeCase
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
      * Protobuf type {@code SendMessage}
      */
@@ -5125,12 +4769,17 @@ public enum TypeCase
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:SendMessage)
         com.polytech.spik.protocol.SpikMessages.SendMessageOrBuilder {
-      private int bitField0_;
-      private long mid_ ;
-      private com.google.protobuf.LazyStringList participants_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private java.lang.Object text_ = "";
-      private java.lang.Object mimeType_ = "";
-      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.polytech.spik.protocol.SpikMessages.internal_static_SendMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.polytech.spik.protocol.SpikMessages.internal_static_SendMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.polytech.spik.protocol.SpikMessages.SendMessage.class, com.polytech.spik.protocol.SpikMessages.SendMessage.Builder.class);
+      }
 
       // Construct using com.polytech.spik.protocol.SpikMessages.SendMessage.newBuilder()
       private Builder() {
@@ -5142,26 +4791,12 @@ public enum TypeCase
         super(parent);
         maybeForceBuilderInitialization();
       }
-
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.polytech.spik.protocol.SpikMessages.internal_static_SendMessage_descriptor;
-      }
-
-      private static Builder create() {
-        return new Builder();
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.polytech.spik.protocol.SpikMessages.internal_static_SendMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.polytech.spik.protocol.SpikMessages.SendMessage.class, com.polytech.spik.protocol.SpikMessages.SendMessage.Builder.class);
-      }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
+      }
+      private static Builder create() {
+        return new Builder();
       }
 
       public Builder clear() {
@@ -5273,11 +4908,11 @@ public enum TypeCase
 
       public final boolean isInitialized() {
         if (!hasMid()) {
-
+          
           return false;
         }
         if (!hasText()) {
-
+          
           return false;
         }
         return true;
@@ -5300,21 +4935,21 @@ public enum TypeCase
         }
         return this;
       }
+      private int bitField0_;
 
+      private long mid_ ;
       /**
        * <code>required int64 mid = 1;</code>
        */
       public boolean hasMid() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>required int64 mid = 1;</code>
        */
       public long getMid() {
         return mid_;
       }
-
       /**
        * <code>required int64 mid = 1;</code>
        */
@@ -5324,7 +4959,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required int64 mid = 1;</code>
        */
@@ -5335,13 +4969,13 @@ public enum TypeCase
         return this;
       }
 
+      private com.google.protobuf.LazyStringList participants_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureParticipantsIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           participants_ = new com.google.protobuf.LazyStringArrayList(participants_);
           bitField0_ |= 0x00000002;
          }
       }
-
       /**
        * <code>repeated string participants = 2;</code>
        */
@@ -5349,21 +4983,18 @@ public enum TypeCase
           getParticipantsList() {
         return participants_.getUnmodifiableView();
       }
-
       /**
        * <code>repeated string participants = 2;</code>
        */
       public int getParticipantsCount() {
         return participants_.size();
       }
-
       /**
        * <code>repeated string participants = 2;</code>
        */
       public java.lang.String getParticipants(int index) {
         return participants_.get(index);
       }
-
       /**
        * <code>repeated string participants = 2;</code>
        */
@@ -5371,7 +5002,6 @@ public enum TypeCase
           getParticipantsBytes(int index) {
         return participants_.getByteString(index);
       }
-
       /**
        * <code>repeated string participants = 2;</code>
        */
@@ -5385,7 +5015,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>repeated string participants = 2;</code>
        */
@@ -5399,7 +5028,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>repeated string participants = 2;</code>
        */
@@ -5411,7 +5039,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>repeated string participants = 2;</code>
        */
@@ -5421,7 +5048,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>repeated string participants = 2;</code>
        */
@@ -5436,13 +5062,13 @@ public enum TypeCase
         return this;
       }
 
+      private java.lang.Object text_ = "";
       /**
        * <code>required string text = 3;</code>
        */
       public boolean hasText() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-
       /**
        * <code>required string text = 3;</code>
        */
@@ -5460,7 +5086,22 @@ public enum TypeCase
           return (java.lang.String) ref;
         }
       }
-
+      /**
+       * <code>required string text = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTextBytes() {
+        java.lang.Object ref = text_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          text_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
       /**
        * <code>required string text = 3;</code>
        */
@@ -5474,24 +5115,15 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required string text = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getTextBytes() {
-        java.lang.Object ref = text_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          text_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      public Builder clearText() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        text_ = getDefaultInstance().getText();
+        onChanged();
+        return this;
       }
-
       /**
        * <code>required string text = 3;</code>
        */
@@ -5506,23 +5138,13 @@ public enum TypeCase
         return this;
       }
 
-      /**
-       * <code>required string text = 3;</code>
-       */
-      public Builder clearText() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        text_ = getDefaultInstance().getText();
-        onChanged();
-        return this;
-      }
-
+      private java.lang.Object mimeType_ = "";
       /**
        * <code>optional string mimeType = 4;</code>
        */
       public boolean hasMimeType() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-
       /**
        * <code>optional string mimeType = 4;</code>
        */
@@ -5540,7 +5162,22 @@ public enum TypeCase
           return (java.lang.String) ref;
         }
       }
-
+      /**
+       * <code>optional string mimeType = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMimeTypeBytes() {
+        java.lang.Object ref = mimeType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          mimeType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
       /**
        * <code>optional string mimeType = 4;</code>
        */
@@ -5554,24 +5191,15 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>optional string mimeType = 4;</code>
        */
-      public com.google.protobuf.ByteString
-          getMimeTypeBytes() {
-        java.lang.Object ref = mimeType_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          mimeType_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      public Builder clearMimeType() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        mimeType_ = getDefaultInstance().getMimeType();
+        onChanged();
+        return this;
       }
-
       /**
        * <code>optional string mimeType = 4;</code>
        */
@@ -5586,16 +5214,7 @@ public enum TypeCase
         return this;
       }
 
-      /**
-       * <code>optional string mimeType = 4;</code>
-       */
-      public Builder clearMimeType() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        mimeType_ = getDefaultInstance().getMimeType();
-        onChanged();
-        return this;
-      }
-
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes data = 5;</code>
        */
@@ -5633,9 +5252,36 @@ public enum TypeCase
       // @@protoc_insertion_point(builder_scope:SendMessage)
     }
 
+    static {
+      defaultInstance = new SendMessage(true);
+      defaultInstance.initFields();
+    }
+
     // @@protoc_insertion_point(class_scope:SendMessage)
   }
 
+  public interface StatusChangedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:StatusChanged)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int64 mid = 1;</code>
+     */
+    boolean hasMid();
+    /**
+     * <code>required int64 mid = 1;</code>
+     */
+    long getMid();
+
+    /**
+     * <code>required .Status status = 2;</code>
+     */
+    boolean hasStatus();
+    /**
+     * <code>required .Status status = 2;</code>
+     */
+    com.polytech.spik.protocol.SpikMessages.Status getStatus();
+  }
   /**
    * Protobuf type {@code StatusChanged}
    */
@@ -5643,38 +5289,28 @@ public enum TypeCase
       com.google.protobuf.GeneratedMessage implements
       // @@protoc_insertion_point(message_implements:StatusChanged)
       StatusChangedOrBuilder {
-    public static final int MID_FIELD_NUMBER = 1;
-    public static final int STATUS_FIELD_NUMBER = 2;
-    private static final StatusChanged defaultInstance;
-    private static final long serialVersionUID = 0L;
-    public static com.google.protobuf.Parser<StatusChanged> PARSER =
-        new com.google.protobuf.AbstractParser<StatusChanged>() {
-      public StatusChanged parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StatusChanged(input, extensionRegistry);
-      }
-    };
-
-    static {
-      defaultInstance = new StatusChanged(true);
-      defaultInstance.initFields();
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    private int bitField0_;
-    private long mid_;
-    private com.polytech.spik.protocol.SpikMessages.Status status_;
-    private byte memoizedIsInitialized = -1;
-    private int memoizedSerializedSize = -1;
-
     // Use StatusChanged.newBuilder() to construct.
     private StatusChanged(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
     private StatusChanged(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final StatusChanged defaultInstance;
+    public static StatusChanged getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public StatusChanged getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
     private StatusChanged(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5726,92 +5362,9 @@ public enum TypeCase
         makeExtensionsImmutable();
       }
     }
-
-    public static StatusChanged getDefaultInstance() {
-      return defaultInstance;
-    }
-
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.polytech.spik.protocol.SpikMessages.internal_static_StatusChanged_descriptor;
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-
-    public static Builder newBuilder(com.polytech.spik.protocol.SpikMessages.StatusChanged prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-
-    public StatusChanged getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -5821,18 +5374,30 @@ public enum TypeCase
               com.polytech.spik.protocol.SpikMessages.StatusChanged.class, com.polytech.spik.protocol.SpikMessages.StatusChanged.Builder.class);
     }
 
+    public static com.google.protobuf.Parser<StatusChanged> PARSER =
+        new com.google.protobuf.AbstractParser<StatusChanged>() {
+      public StatusChanged parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new StatusChanged(input, extensionRegistry);
+      }
+    };
+
     @java.lang.Override
     public com.google.protobuf.Parser<StatusChanged> getParserForType() {
       return PARSER;
     }
 
+    private int bitField0_;
+    public static final int MID_FIELD_NUMBER = 1;
+    private long mid_;
     /**
      * <code>required int64 mid = 1;</code>
      */
     public boolean hasMid() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>required int64 mid = 1;</code>
      */
@@ -5840,13 +5405,14 @@ public enum TypeCase
       return mid_;
     }
 
+    public static final int STATUS_FIELD_NUMBER = 2;
+    private com.polytech.spik.protocol.SpikMessages.Status status_;
     /**
      * <code>required .Status status = 2;</code>
      */
     public boolean hasStatus() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-
     /**
      * <code>required .Status status = 2;</code>
      */
@@ -5858,7 +5424,7 @@ public enum TypeCase
       mid_ = 0L;
       status_ = com.polytech.spik.protocol.SpikMessages.Status.SENDING;
     }
-
+    private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -5888,6 +5454,7 @@ public enum TypeCase
       getUnknownFields().writeTo(output);
     }
 
+    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
@@ -5906,14 +5473,71 @@ public enum TypeCase
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.SpikMessages.StatusChanged parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
 
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.polytech.spik.protocol.SpikMessages.StatusChanged prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
     public Builder toBuilder() { return newBuilder(this); }
 
     @java.lang.Override
@@ -5922,7 +5546,6 @@ public enum TypeCase
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
      * Protobuf type {@code StatusChanged}
      */
@@ -5930,27 +5553,9 @@ public enum TypeCase
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:StatusChanged)
         com.polytech.spik.protocol.SpikMessages.StatusChangedOrBuilder {
-      private int bitField0_;
-      private long mid_ ;
-      private com.polytech.spik.protocol.SpikMessages.Status status_ = com.polytech.spik.protocol.SpikMessages.Status.SENDING;
-
-      // Construct using com.polytech.spik.protocol.SpikMessages.StatusChanged.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.polytech.spik.protocol.SpikMessages.internal_static_StatusChanged_descriptor;
-      }
-
-      private static Builder create() {
-        return new Builder();
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -5960,9 +5565,22 @@ public enum TypeCase
                 com.polytech.spik.protocol.SpikMessages.StatusChanged.class, com.polytech.spik.protocol.SpikMessages.StatusChanged.Builder.class);
       }
 
+      // Construct using com.polytech.spik.protocol.SpikMessages.StatusChanged.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
+      }
+      private static Builder create() {
+        return new Builder();
       }
 
       public Builder clear() {
@@ -6035,11 +5653,11 @@ public enum TypeCase
 
       public final boolean isInitialized() {
         if (!hasMid()) {
-
+          
           return false;
         }
         if (!hasStatus()) {
-
+          
           return false;
         }
         return true;
@@ -6062,21 +5680,21 @@ public enum TypeCase
         }
         return this;
       }
+      private int bitField0_;
 
+      private long mid_ ;
       /**
        * <code>required int64 mid = 1;</code>
        */
       public boolean hasMid() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>required int64 mid = 1;</code>
        */
       public long getMid() {
         return mid_;
       }
-
       /**
        * <code>required int64 mid = 1;</code>
        */
@@ -6086,7 +5704,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required int64 mid = 1;</code>
        */
@@ -6097,6 +5714,7 @@ public enum TypeCase
         return this;
       }
 
+      private com.polytech.spik.protocol.SpikMessages.Status status_ = com.polytech.spik.protocol.SpikMessages.Status.SENDING;
       /**
        * <code>required .Status status = 2;</code>
        */
@@ -6134,7 +5752,147 @@ public enum TypeCase
       // @@protoc_insertion_point(builder_scope:StatusChanged)
     }
 
+    static {
+      defaultInstance = new StatusChanged(true);
+      defaultInstance.initFields();
+    }
+
     // @@protoc_insertion_point(class_scope:StatusChanged)
+  }
+
+  public static final int MIMETYPE_FIELD_NUMBER = 100;
+  /**
+   * <code>extend .Sms { ... }</code>
+   */
+  public static final
+    com.google.protobuf.GeneratedMessage.GeneratedExtension<
+      com.polytech.spik.protocol.SpikMessages.Sms,
+      java.lang.String> mimeType = com.google.protobuf.GeneratedMessage
+          .newFileScopedGeneratedExtension(
+        java.lang.String.class,
+        null);
+  public static final int DATA_FIELD_NUMBER = 101;
+  /**
+   * <code>extend .Sms { ... }</code>
+   */
+  public static final
+    com.google.protobuf.GeneratedMessage.GeneratedExtension<
+      com.polytech.spik.protocol.SpikMessages.Sms,
+      com.google.protobuf.ByteString> data = com.google.protobuf.GeneratedMessage
+          .newFileScopedGeneratedExtension(
+        com.google.protobuf.ByteString.class,
+        null);
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Wrapper_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_Wrapper_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Contact_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_Contact_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Conversation_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_Conversation_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Sms_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_Sms_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SendMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_SendMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_StatusChanged_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_StatusChanged_fieldAccessorTable;
+
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  private static com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    java.lang.String[] descriptorData = {
+      "\n\rservice.proto\"\270\001\n\007Wrapper\022\033\n\007contact\030\001" +
+      " \001(\0132\010.ContactH\000\022%\n\014conversation\030\002 \001(\0132\r" +
+      ".ConversationH\000\022\023\n\003sms\030\003 \001(\0132\004.SmsH\000\022#\n\013" +
+      "sendMessage\030\004 \001(\0132\014.SendMessageH\000\022\'\n\rsta" +
+      "tusChanged\030\005 \001(\0132\016.StatusChangedH\000B\006\n\004ty" +
+      "pe\"C\n\007Contact\022\n\n\002id\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022" +
+      "\r\n\005phone\030\003 \001(\t\022\017\n\007picture\030\004 \001(\014\"H\n\014Conve" +
+      "rsation\022\n\n\002id\030\001 \002(\003\022\024\n\014participants\030\002 \003(" +
+      "\003\022\026\n\010messages\030\003 \003(\0132\004.Sms\"a\n\003Sms\022\020\n\010thre" +
+      "adId\030\001 \001(\003\022\014\n\004date\030\002 \002(\003\022\014\n\004text\030\003 \002(\t\022\014",
+      "\n\004read\030\004 \002(\010\022\027\n\006status\030\005 \002(\0162\007.Status*\005\010" +
+      "d\020\310\001\"^\n\013SendMessage\022\013\n\003mid\030\001 \002(\003\022\024\n\014part" +
+      "icipants\030\002 \003(\t\022\014\n\004text\030\003 \002(\t\022\020\n\010mimeType" +
+      "\030\004 \001(\t\022\014\n\004data\030\005 \001(\014\"5\n\rStatusChanged\022\013\n" +
+      "\003mid\030\001 \002(\003\022\027\n\006status\030\002 \002(\0162\007.Status*7\n\006S" +
+      "tatus\022\013\n\007SENDING\020\001\022\010\n\004SENT\020\002\022\014\n\010NOT_READ" +
+      "\020\003\022\010\n\004READ\020\004*a\n\021MessageIdentifier\022\013\n\007CON" +
+      "TACT\020\001\022\020\n\014CONVERSATION\020\002\022\007\n\003SMS\020\003\022\020\n\014SEN" +
+      "D_MESSAGE\020\004\022\022\n\016STATUS_CHANGED\020\005:\026\n\010mimeT" +
+      "ype\022\004.Sms\030d \001(\t:\022\n\004data\022\004.Sms\030e \001(\014B*\n\032c",
+      "om.polytech.spik.protocolB\014SpikMessages"
+    };
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        }, assigner);
+    internal_static_Wrapper_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_Wrapper_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_Wrapper_descriptor,
+        new java.lang.String[] { "Contact", "Conversation", "Sms", "SendMessage", "StatusChanged", "Type", });
+    internal_static_Contact_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_Contact_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_Contact_descriptor,
+        new java.lang.String[] { "Id", "Name", "Phone", "Picture", });
+    internal_static_Conversation_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_Conversation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_Conversation_descriptor,
+        new java.lang.String[] { "Id", "Participants", "Messages", });
+    internal_static_Sms_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_Sms_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_Sms_descriptor,
+        new java.lang.String[] { "ThreadId", "Date", "Text", "Read", "Status", });
+    internal_static_SendMessage_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_SendMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_SendMessage_descriptor,
+        new java.lang.String[] { "Mid", "Participants", "Text", "MimeType", "Data", });
+    internal_static_StatusChanged_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_StatusChanged_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_StatusChanged_descriptor,
+        new java.lang.String[] { "Mid", "Status", });
+    mimeType.internalInit(descriptor.getExtensions().get(0));
+    data.internalInit(descriptor.getExtensions().get(1));
   }
 
   // @@protoc_insertion_point(outer_class_scope)

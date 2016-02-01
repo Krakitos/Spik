@@ -13,6 +13,7 @@ import com.polytech.spik.services.sms.LanSmsService;
 import com.polytech.spik.services.sms.SmsContext;
 import com.polytech.spik.views.lists.MessageItem;
 import com.polytech.spik.views.notifications.NotificationManager;
+import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,11 +21,15 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
+import javafx.geometry.Point3D;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Popup;
+import javafx.util.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,6 +48,13 @@ public class MainController implements Initializable, FXEventHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
 
+    private static final Image COMPOSE_IMG =
+            new Image(MainController.class.getClassLoader().getResourceAsStream("images/ic_compose_white_48dp_2x.png"), 36, 36, false, true);
+
+    private static final Image NEW_CONVERSATION_IMG =
+            new Image(MainController.class.getClassLoader().getResourceAsStream("images/ic_add_white_48dp_2x.png"), 36, 36, false, true);
+
+
     /** User Interface Bindings **/
     public TextField message_input;
     public ListView<FXConversation> conversations_list;
@@ -50,9 +62,9 @@ public class MainController implements Initializable, FXEventHandler {
     public Label participants_label;
     public Button emojiDisplayer;
     public Button new_conversation;
+    public ImageView new_conversation_img;
 
     final Node emojiGrid = EmojiUtil.createEmoticonsPane(emoji -> message_input.appendText(emoji.getEmoji().getEmoji()));
-
     final Popup emojiPopup = new Popup();
 
     /** Model **/
@@ -113,6 +125,30 @@ public class MainController implements Initializable, FXEventHandler {
 
             emojiPopup.setAnchorX(x);
             emojiPopup.setAnchorY(y);
+        });
+
+        new_conversation_img.setImage(NEW_CONVERSATION_IMG);
+        new_conversation.setOnMouseEntered(e -> {
+            RotateTransition rotate = new RotateTransition(Duration.millis(200), new_conversation);
+            rotate.setByAngle(360);
+            rotate.setAutoReverse(false);
+            rotate.setOnFinished(e2 -> new_conversation_img.setImage(COMPOSE_IMG));
+            rotate.setAutoReverse(true);
+            rotate.playFromStart();
+        });
+
+        new_conversation.setOnMouseExited(e -> {
+            RotateTransition rotate = new RotateTransition(Duration.millis(200), new_conversation);
+            rotate.setByAngle(-360);
+            rotate.setAutoReverse(false);
+            rotate.setOnFinished(e2 -> {
+                new_conversation_img.setImage(NEW_CONVERSATION_IMG);
+
+                if(new_conversation.getRotate() != 0)
+                    new_conversation.setRotate(0);
+            });
+            rotate.setAutoReverse(true);
+            rotate.playFromStart();
         });
     }
 

@@ -1,16 +1,11 @@
-@font-face {
-    font-family: 'OpenSansEmoji';
-    src: url('../fonts/OpenSansEmoji.ttf');
-}
-
 .root{
-    -fx-font: 14px "Noboto";
+    -fx-font: 14px "Roboto";
     -fx-background-color: #ecf0f1;
 
 }
 
 .text-field{
-    -fx-font-family: "OpenSansEmoji";
+    -fx-font-family: "Roboto";
     -fx-font-size: 32;
 }
 
@@ -71,7 +66,7 @@
     -fx-padding: 0;
     -fx-font-size: 0;
     -fx-cursor: hand;
-    -fx-effect: dropshadow(three-pass-box , rgba(0, 0, 0, 0.6) , 10, 0, 2, 2);
+    /*-fx-effect: dropshadow(three-pass-box , rgba(0, 0, 0, 0.6) , 10, 0, 2, 2);*/
 }
 
 #search_input{

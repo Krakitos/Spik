@@ -66,7 +66,7 @@ public class Spik extends Application {
         primaryStage.setTitle("Spik :)");
         primaryStage.setScene(scene);
         primaryStage.getIcons().addAll(
-            new Image(getClass().getClassLoader().getResourceAsStream("images/ic_phonelink_ring_white_48dp_2x.png")),
+//            new Image(getClass().getClassLoader().getResourceAsStream("images/ic_phonelink_ring_white_48dp_2x.png")),
             new Image(getClass().getClassLoader().getResourceAsStream("images/ic_phonelink_ring_black_48dp_2x.png"))
         );
 

@@ -4,79 +4,9 @@
 package com.polytech.spik.protocol;
 
 public final class DiscoveryMessages {
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DiscoveryMessage_descriptor;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DiscoveryRequest_descriptor;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_DiscoveryResponse_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_DiscoveryMessage_fieldAccessorTable;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_DiscoveryRequest_fieldAccessorTable;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_DiscoveryResponse_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\017discovery.proto\"h\n\020DiscoveryMessage\022$\n" +
-      "\007request\030\001 \001(\0132\021.DiscoveryRequestH\000\022&\n\010r" +
-      "esponse\030\002 \001(\0132\022.DiscoveryResponseH\000B\006\n\004t" +
-      "ype\"w\n\020DiscoveryRequest\022\014\n\004name\030\001 \002(\t\022\034\n" +
-      "\002os\030\002 \002(\0162\020.OperatingSystem\022\024\n\014manufactu" +
-      "rer\030\003 \002(\t\022\r\n\005model\030\004 \002(\t\022\022\n\nsdkVersion\030\005" +
-      " \002(\005\"^\n\021DiscoveryResponse\022\014\n\004name\030\001 \002(\t\022" +
-      "\034\n\002os\030\002 \002(\0162\020.OperatingSystem\022\017\n\007version" +
-      "\030\003 \002(\t\022\014\n\004port\030\004 \002(\005*A\n\017OperatingSystem\022" +
-      "\013\n\007WINDOWS\020\001\022\t\n\005MACOS\020\002\022\t\n\005LINUX\020\003\022\013\n\007AN",
-      "DROID\020\004B/\n\032com.polytech.spik.protocolB\021D" +
-      "iscoveryMessages"
-    };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
-    internal_static_DiscoveryMessage_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_DiscoveryMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_DiscoveryMessage_descriptor,
-        new java.lang.String[] { "Request", "Response", "Type", });
-    internal_static_DiscoveryRequest_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_DiscoveryRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_DiscoveryRequest_descriptor,
-        new java.lang.String[] { "Name", "Os", "Manufacturer", "Model", "SdkVersion", });
-    internal_static_DiscoveryResponse_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_DiscoveryResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_DiscoveryResponse_descriptor,
-        new java.lang.String[] { "Name", "Os", "Version", "Port", });
-  }
   private DiscoveryMessages() {}
-
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
-  }
-
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
   }
   /**
    * Protobuf enum {@code OperatingSystem}
@@ -117,21 +47,9 @@ public final class DiscoveryMessages {
      * <code>ANDROID = 4;</code>
      */
     public static final int ANDROID_VALUE = 4;
-    private static final OperatingSystem[] VALUES = values();
-    private static com.google.protobuf.Internal.EnumLiteMap<OperatingSystem>
-        internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<OperatingSystem>() {
-            public OperatingSystem findValueByNumber(int number) {
-              return OperatingSystem.valueOf(number);
-            }
-          };
-    private final int index;
-    private final int value;
 
-    private OperatingSystem(int index, int value) {
-      this.index = index;
-      this.value = value;
-    }
+
+    public final int getNumber() { return value; }
 
     public static OperatingSystem valueOf(int value) {
       switch (value) {
@@ -147,11 +65,28 @@ public final class DiscoveryMessages {
         internalGetValueMap() {
       return internalValueMap;
     }
+    private static com.google.protobuf.Internal.EnumLiteMap<OperatingSystem>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<OperatingSystem>() {
+            public OperatingSystem findValueByNumber(int number) {
+              return OperatingSystem.valueOf(number);
+            }
+          };
 
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
       return com.polytech.spik.protocol.DiscoveryMessages.getDescriptor().getEnumTypes().get(0);
     }
+
+    private static final OperatingSystem[] VALUES = values();
 
     public static OperatingSystem valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
@@ -162,20 +97,17 @@ public final class DiscoveryMessages {
       return VALUES[desc.getIndex()];
     }
 
-    public final int getNumber() { return value; }
+    private final int index;
+    private final int value;
 
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      return getDescriptor().getValues().get(index);
-    }
-
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
+    private OperatingSystem(int index, int value) {
+      this.index = index;
+      this.value = value;
     }
 
     // @@protoc_insertion_point(enum_scope:OperatingSystem)
   }
+
   public interface DiscoveryMessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:DiscoveryMessage)
       com.google.protobuf.MessageOrBuilder {
@@ -206,121 +138,6 @@ public final class DiscoveryMessages {
      */
     com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponseOrBuilder getResponseOrBuilder();
   }
-  public interface DiscoveryRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DiscoveryRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>required string name = 1;</code>
-     */
-    boolean hasName();
-    /**
-     * <code>required string name = 1;</code>
-     */
-    java.lang.String getName();
-    /**
-     * <code>required string name = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
-
-    /**
-     * <code>required .OperatingSystem os = 2;</code>
-     */
-    boolean hasOs();
-    /**
-     * <code>required .OperatingSystem os = 2;</code>
-     */
-    com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem getOs();
-
-    /**
-     * <code>required string manufacturer = 3;</code>
-     */
-    boolean hasManufacturer();
-    /**
-     * <code>required string manufacturer = 3;</code>
-     */
-    java.lang.String getManufacturer();
-    /**
-     * <code>required string manufacturer = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getManufacturerBytes();
-
-    /**
-     * <code>required string model = 4;</code>
-     */
-    boolean hasModel();
-    /**
-     * <code>required string model = 4;</code>
-     */
-    java.lang.String getModel();
-    /**
-     * <code>required string model = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getModelBytes();
-
-    /**
-     * <code>required int32 sdkVersion = 5;</code>
-     */
-    boolean hasSdkVersion();
-    /**
-     * <code>required int32 sdkVersion = 5;</code>
-     */
-    int getSdkVersion();
-  }
-  public interface DiscoveryResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:DiscoveryResponse)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>required string name = 1;</code>
-     */
-    boolean hasName();
-    /**
-     * <code>required string name = 1;</code>
-     */
-    java.lang.String getName();
-    /**
-     * <code>required string name = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
-
-    /**
-     * <code>required .OperatingSystem os = 2;</code>
-     */
-    boolean hasOs();
-    /**
-     * <code>required .OperatingSystem os = 2;</code>
-     */
-    com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem getOs();
-
-    /**
-     * <code>required string version = 3;</code>
-     */
-    boolean hasVersion();
-    /**
-     * <code>required string version = 3;</code>
-     */
-    java.lang.String getVersion();
-    /**
-     * <code>required string version = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getVersionBytes();
-
-    /**
-     * <code>required int32 port = 4;</code>
-     */
-    boolean hasPort();
-    /**
-     * <code>required int32 port = 4;</code>
-     */
-    int getPort();
-  }
-
   /**
    * Protobuf type {@code DiscoveryMessage}
    */
@@ -328,38 +145,28 @@ public final class DiscoveryMessages {
       com.google.protobuf.GeneratedMessage implements
       // @@protoc_insertion_point(message_implements:DiscoveryMessage)
       DiscoveryMessageOrBuilder {
-    public static final int REQUEST_FIELD_NUMBER = 1;
-    public static final int RESPONSE_FIELD_NUMBER = 2;
-    private static final DiscoveryMessage defaultInstance;
-    private static final long serialVersionUID = 0L;
-    public static com.google.protobuf.Parser<DiscoveryMessage> PARSER =
-        new com.google.protobuf.AbstractParser<DiscoveryMessage>() {
-      public DiscoveryMessage parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DiscoveryMessage(input, extensionRegistry);
-      }
-    };
-
-    static {
-      defaultInstance = new DiscoveryMessage(true);
-      defaultInstance.initFields();
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    private int bitField0_;
-    private int typeCase_ = 0;
-    private java.lang.Object type_;
-    private byte memoizedIsInitialized = -1;
-    private int memoizedSerializedSize = -1;
-
     // Use DiscoveryMessage.newBuilder() to construct.
     private DiscoveryMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
     private DiscoveryMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final DiscoveryMessage defaultInstance;
+    public static DiscoveryMessage getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public DiscoveryMessage getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
     private DiscoveryMessage(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -421,92 +228,9 @@ public final class DiscoveryMessages {
         makeExtensionsImmutable();
       }
     }
-
-    public static DiscoveryMessage getDefaultInstance() {
-      return defaultInstance;
-    };
-
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryMessage_descriptor;
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-
-    public static Builder newBuilder(com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-
-    public DiscoveryMessage getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -516,10 +240,46 @@ public final class DiscoveryMessages {
               com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage.class, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage.Builder.class);
     }
 
+    public static com.google.protobuf.Parser<DiscoveryMessage> PARSER =
+        new com.google.protobuf.AbstractParser<DiscoveryMessage>() {
+      public DiscoveryMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DiscoveryMessage(input, extensionRegistry);
+      }
+    };
+
     @java.lang.Override
     public com.google.protobuf.Parser<DiscoveryMessage> getParserForType() {
       return PARSER;
     }
+
+    private int bitField0_;
+    private int typeCase_ = 0;
+    private java.lang.Object type_;
+    public enum TypeCase
+        implements com.google.protobuf.Internal.EnumLite {
+      REQUEST(1),
+      RESPONSE(2),
+      TYPE_NOT_SET(0);
+      private int value = 0;
+      private TypeCase(int value) {
+        this.value = value;
+      }
+      public static TypeCase valueOf(int value) {
+        switch (value) {
+          case 1: return REQUEST;
+          case 2: return RESPONSE;
+          case 0: return TYPE_NOT_SET;
+          default: throw new java.lang.IllegalArgumentException(
+            "Value is undefined for this oneof enum.");
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
 
     public TypeCase
     getTypeCase() {
@@ -527,13 +287,13 @@ public final class DiscoveryMessages {
           typeCase_);
     }
 
+    public static final int REQUEST_FIELD_NUMBER = 1;
     /**
      * <code>optional .DiscoveryRequest request = 1;</code>
      */
     public boolean hasRequest() {
       return typeCase_ == 1;
     }
-
     /**
      * <code>optional .DiscoveryRequest request = 1;</code>
      */
@@ -543,7 +303,6 @@ public final class DiscoveryMessages {
       }
       return com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.getDefaultInstance();
     }
-
     /**
      * <code>optional .DiscoveryRequest request = 1;</code>
      */
@@ -554,13 +313,13 @@ public final class DiscoveryMessages {
       return com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.getDefaultInstance();
     }
 
+    public static final int RESPONSE_FIELD_NUMBER = 2;
     /**
      * <code>optional .DiscoveryResponse response = 2;</code>
      */
     public boolean hasResponse() {
       return typeCase_ == 2;
     }
-
     /**
      * <code>optional .DiscoveryResponse response = 2;</code>
      */
@@ -570,7 +329,6 @@ public final class DiscoveryMessages {
       }
       return com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.getDefaultInstance();
     }
-
     /**
      * <code>optional .DiscoveryResponse response = 2;</code>
      */
@@ -583,7 +341,7 @@ public final class DiscoveryMessages {
 
     private void initFields() {
     }
-
+    private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -617,6 +375,7 @@ public final class DiscoveryMessages {
       getUnknownFields().writeTo(output);
     }
 
+    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
@@ -635,14 +394,71 @@ public final class DiscoveryMessages {
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
 
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
     public Builder toBuilder() { return newBuilder(this); }
 
     @java.lang.Override
@@ -651,29 +467,6 @@ public final class DiscoveryMessages {
       Builder builder = new Builder(parent);
       return builder;
     }
-public enum TypeCase
-        implements com.google.protobuf.Internal.EnumLite {
-      REQUEST(1),
-      RESPONSE(2),
-      TYPE_NOT_SET(0);
-      private int value = 0;
-      private TypeCase(int value) {
-        this.value = value;
-      }
-      public static TypeCase valueOf(int value) {
-        switch (value) {
-          case 1: return REQUEST;
-          case 2: return RESPONSE;
-          case 0: return TYPE_NOT_SET;
-          default: throw new java.lang.IllegalArgumentException(
-            "Value is undefined for this oneof enum.");
-        }
-      }
-      public int getNumber() {
-        return this.value;
-      }
-    }
-
     /**
      * Protobuf type {@code DiscoveryMessage}
      */
@@ -681,13 +474,18 @@ public enum TypeCase
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:DiscoveryMessage)
         com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessageOrBuilder {
-      private int typeCase_ = 0;
-      private java.lang.Object type_;
-      private int bitField0_;
-      private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.Builder, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequestOrBuilder> requestBuilder_;
-      private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.Builder, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponseOrBuilder> responseBuilder_;
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryMessage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage.class, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage.Builder.class);
+      }
+
       // Construct using com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
@@ -698,26 +496,12 @@ public enum TypeCase
         super(parent);
         maybeForceBuilderInitialization();
       }
-
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryMessage_descriptor;
-      }
-
-      private static Builder create() {
-        return new Builder();
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage.class, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryMessage.Builder.class);
-      }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
+      }
+      private static Builder create() {
+        return new Builder();
       }
 
       public Builder clear() {
@@ -803,13 +587,13 @@ public enum TypeCase
       public final boolean isInitialized() {
         if (hasRequest()) {
           if (!getRequest().isInitialized()) {
-
+            
             return false;
           }
         }
         if (hasResponse()) {
           if (!getResponse().isInitialized()) {
-
+            
             return false;
           }
         }
@@ -833,7 +617,8 @@ public enum TypeCase
         }
         return this;
       }
-
+      private int typeCase_ = 0;
+      private java.lang.Object type_;
       public TypeCase
           getTypeCase() {
         return TypeCase.valueOf(
@@ -847,13 +632,16 @@ public enum TypeCase
         return this;
       }
 
+      private int bitField0_;
+
+      private com.google.protobuf.SingleFieldBuilder<
+          com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.Builder, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequestOrBuilder> requestBuilder_;
       /**
        * <code>optional .DiscoveryRequest request = 1;</code>
        */
       public boolean hasRequest() {
         return typeCase_ == 1;
       }
-
       /**
        * <code>optional .DiscoveryRequest request = 1;</code>
        */
@@ -870,22 +658,6 @@ public enum TypeCase
           return com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.getDefaultInstance();
         }
       }
-
-      /**
-       * <code>optional .DiscoveryRequest request = 1;</code>
-       */
-      public Builder setRequest(
-          com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.Builder builderForValue) {
-        if (requestBuilder_ == null) {
-          type_ = builderForValue.build();
-          onChanged();
-        } else {
-          requestBuilder_.setMessage(builderForValue.build());
-        }
-        typeCase_ = 1;
-        return this;
-      }
-
       /**
        * <code>optional .DiscoveryRequest request = 1;</code>
        */
@@ -902,7 +674,20 @@ public enum TypeCase
         typeCase_ = 1;
         return this;
       }
-
+      /**
+       * <code>optional .DiscoveryRequest request = 1;</code>
+       */
+      public Builder setRequest(
+          com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.Builder builderForValue) {
+        if (requestBuilder_ == null) {
+          type_ = builderForValue.build();
+          onChanged();
+        } else {
+          requestBuilder_.setMessage(builderForValue.build());
+        }
+        typeCase_ = 1;
+        return this;
+      }
       /**
        * <code>optional .DiscoveryRequest request = 1;</code>
        */
@@ -925,7 +710,6 @@ public enum TypeCase
         typeCase_ = 1;
         return this;
       }
-
       /**
        * <code>optional .DiscoveryRequest request = 1;</code>
        */
@@ -945,14 +729,12 @@ public enum TypeCase
         }
         return this;
       }
-
       /**
        * <code>optional .DiscoveryRequest request = 1;</code>
        */
       public com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.Builder getRequestBuilder() {
         return getRequestFieldBuilder().getBuilder();
       }
-
       /**
        * <code>optional .DiscoveryRequest request = 1;</code>
        */
@@ -966,12 +748,11 @@ public enum TypeCase
           return com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.getDefaultInstance();
         }
       }
-
       /**
        * <code>optional .DiscoveryRequest request = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.Builder, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequestOrBuilder>
+          com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.Builder, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequestOrBuilder> 
           getRequestFieldBuilder() {
         if (requestBuilder_ == null) {
           if (!(typeCase_ == 1)) {
@@ -988,6 +769,8 @@ public enum TypeCase
         return requestBuilder_;
       }
 
+      private com.google.protobuf.SingleFieldBuilder<
+          com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.Builder, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponseOrBuilder> responseBuilder_;
       /**
        * <code>optional .DiscoveryResponse response = 2;</code>
        */
@@ -1010,22 +793,6 @@ public enum TypeCase
           return com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.getDefaultInstance();
         }
       }
-
-      /**
-       * <code>optional .DiscoveryResponse response = 2;</code>
-       */
-      public Builder setResponse(
-          com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.Builder builderForValue) {
-        if (responseBuilder_ == null) {
-          type_ = builderForValue.build();
-          onChanged();
-        } else {
-          responseBuilder_.setMessage(builderForValue.build());
-        }
-        typeCase_ = 2;
-        return this;
-      }
-
       /**
        * <code>optional .DiscoveryResponse response = 2;</code>
        */
@@ -1042,7 +809,20 @@ public enum TypeCase
         typeCase_ = 2;
         return this;
       }
-
+      /**
+       * <code>optional .DiscoveryResponse response = 2;</code>
+       */
+      public Builder setResponse(
+          com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.Builder builderForValue) {
+        if (responseBuilder_ == null) {
+          type_ = builderForValue.build();
+          onChanged();
+        } else {
+          responseBuilder_.setMessage(builderForValue.build());
+        }
+        typeCase_ = 2;
+        return this;
+      }
       /**
        * <code>optional .DiscoveryResponse response = 2;</code>
        */
@@ -1107,7 +887,7 @@ public enum TypeCase
        * <code>optional .DiscoveryResponse response = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.Builder, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponseOrBuilder>
+          com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.Builder, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponseOrBuilder> 
           getResponseFieldBuilder() {
         if (responseBuilder_ == null) {
           if (!(typeCase_ == 2)) {
@@ -1127,9 +907,78 @@ public enum TypeCase
       // @@protoc_insertion_point(builder_scope:DiscoveryMessage)
     }
 
+    static {
+      defaultInstance = new DiscoveryMessage(true);
+      defaultInstance.initFields();
+    }
+
     // @@protoc_insertion_point(class_scope:DiscoveryMessage)
   }
 
+  public interface DiscoveryRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DiscoveryRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>required .OperatingSystem os = 2;</code>
+     */
+    boolean hasOs();
+    /**
+     * <code>required .OperatingSystem os = 2;</code>
+     */
+    com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem getOs();
+
+    /**
+     * <code>required string manufacturer = 3;</code>
+     */
+    boolean hasManufacturer();
+    /**
+     * <code>required string manufacturer = 3;</code>
+     */
+    java.lang.String getManufacturer();
+    /**
+     * <code>required string manufacturer = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getManufacturerBytes();
+
+    /**
+     * <code>required string model = 4;</code>
+     */
+    boolean hasModel();
+    /**
+     * <code>required string model = 4;</code>
+     */
+    java.lang.String getModel();
+    /**
+     * <code>required string model = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getModelBytes();
+
+    /**
+     * <code>required int32 sdkVersion = 5;</code>
+     */
+    boolean hasSdkVersion();
+    /**
+     * <code>required int32 sdkVersion = 5;</code>
+     */
+    int getSdkVersion();
+  }
   /**
    * Protobuf type {@code DiscoveryRequest}
    */
@@ -1137,44 +986,28 @@ public enum TypeCase
       com.google.protobuf.GeneratedMessage implements
       // @@protoc_insertion_point(message_implements:DiscoveryRequest)
       DiscoveryRequestOrBuilder {
-    public static final int NAME_FIELD_NUMBER = 1;
-    public static final int OS_FIELD_NUMBER = 2;
-    public static final int MANUFACTURER_FIELD_NUMBER = 3;
-    public static final int MODEL_FIELD_NUMBER = 4;
-    public static final int SDKVERSION_FIELD_NUMBER = 5;
-    private static final DiscoveryRequest defaultInstance;
-    private static final long serialVersionUID = 0L;
-    public static com.google.protobuf.Parser<DiscoveryRequest> PARSER =
-        new com.google.protobuf.AbstractParser<DiscoveryRequest>() {
-      public DiscoveryRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DiscoveryRequest(input, extensionRegistry);
-      }
-    };
-
-    static {
-      defaultInstance = new DiscoveryRequest(true);
-      defaultInstance.initFields();
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    private int bitField0_;
-    private java.lang.Object name_;
-    private com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem os_;
-    private java.lang.Object manufacturer_;
-    private java.lang.Object model_;
-    private int sdkVersion_;
-    private byte memoizedIsInitialized = -1;
-    private int memoizedSerializedSize = -1;
-
     // Use DiscoveryRequest.newBuilder() to construct.
     private DiscoveryRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
     private DiscoveryRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final DiscoveryRequest defaultInstance;
+    public static DiscoveryRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public DiscoveryRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
     private DiscoveryRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1244,92 +1077,9 @@ public enum TypeCase
         makeExtensionsImmutable();
       }
     }
-
-    public static DiscoveryRequest getDefaultInstance() {
-      return defaultInstance;
-    }
-
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryRequest_descriptor;
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-
-    public static Builder newBuilder(com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-
-    public DiscoveryRequest getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -1339,18 +1089,30 @@ public enum TypeCase
               com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.class, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.Builder.class);
     }
 
+    public static com.google.protobuf.Parser<DiscoveryRequest> PARSER =
+        new com.google.protobuf.AbstractParser<DiscoveryRequest>() {
+      public DiscoveryRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DiscoveryRequest(input, extensionRegistry);
+      }
+    };
+
     @java.lang.Override
     public com.google.protobuf.Parser<DiscoveryRequest> getParserForType() {
       return PARSER;
     }
 
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private java.lang.Object name_;
     /**
      * <code>required string name = 1;</code>
      */
     public boolean hasName() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>required string name = 1;</code>
      */
@@ -1359,7 +1121,7 @@ public enum TypeCase
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -1368,7 +1130,6 @@ public enum TypeCase
         return s;
       }
     }
-
     /**
      * <code>required string name = 1;</code>
      */
@@ -1376,7 +1137,7 @@ public enum TypeCase
         getNameBytes() {
       java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         name_ = b;
@@ -1386,13 +1147,14 @@ public enum TypeCase
       }
     }
 
+    public static final int OS_FIELD_NUMBER = 2;
+    private com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem os_;
     /**
      * <code>required .OperatingSystem os = 2;</code>
      */
     public boolean hasOs() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-
     /**
      * <code>required .OperatingSystem os = 2;</code>
      */
@@ -1400,13 +1162,14 @@ public enum TypeCase
       return os_;
     }
 
+    public static final int MANUFACTURER_FIELD_NUMBER = 3;
+    private java.lang.Object manufacturer_;
     /**
      * <code>required string manufacturer = 3;</code>
      */
     public boolean hasManufacturer() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-
     /**
      * <code>required string manufacturer = 3;</code>
      */
@@ -1415,7 +1178,7 @@ public enum TypeCase
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -1424,7 +1187,6 @@ public enum TypeCase
         return s;
       }
     }
-
     /**
      * <code>required string manufacturer = 3;</code>
      */
@@ -1432,7 +1194,7 @@ public enum TypeCase
         getManufacturerBytes() {
       java.lang.Object ref = manufacturer_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         manufacturer_ = b;
@@ -1442,13 +1204,14 @@ public enum TypeCase
       }
     }
 
+    public static final int MODEL_FIELD_NUMBER = 4;
+    private java.lang.Object model_;
     /**
      * <code>required string model = 4;</code>
      */
     public boolean hasModel() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-
     /**
      * <code>required string model = 4;</code>
      */
@@ -1457,7 +1220,7 @@ public enum TypeCase
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -1466,7 +1229,6 @@ public enum TypeCase
         return s;
       }
     }
-
     /**
      * <code>required string model = 4;</code>
      */
@@ -1474,7 +1236,7 @@ public enum TypeCase
         getModelBytes() {
       java.lang.Object ref = model_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         model_ = b;
@@ -1484,13 +1246,14 @@ public enum TypeCase
       }
     }
 
+    public static final int SDKVERSION_FIELD_NUMBER = 5;
+    private int sdkVersion_;
     /**
      * <code>required int32 sdkVersion = 5;</code>
      */
     public boolean hasSdkVersion() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
-
     /**
      * <code>required int32 sdkVersion = 5;</code>
      */
@@ -1505,7 +1268,7 @@ public enum TypeCase
       model_ = "";
       sdkVersion_ = 0;
     }
-
+    private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1556,6 +1319,7 @@ public enum TypeCase
       getUnknownFields().writeTo(output);
     }
 
+    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
@@ -1586,14 +1350,71 @@ public enum TypeCase
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
 
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
     public Builder toBuilder() { return newBuilder(this); }
 
     @java.lang.Override
@@ -1602,7 +1423,6 @@ public enum TypeCase
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
      * Protobuf type {@code DiscoveryRequest}
      */
@@ -1610,12 +1430,17 @@ public enum TypeCase
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:DiscoveryRequest)
         com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequestOrBuilder {
-      private int bitField0_;
-      private java.lang.Object name_ = "";
-      private com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem os_ = com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem.WINDOWS;
-      private java.lang.Object manufacturer_ = "";
-      private java.lang.Object model_ = "";
-      private int sdkVersion_ ;
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.class, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.Builder.class);
+      }
 
       // Construct using com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.newBuilder()
       private Builder() {
@@ -1627,26 +1452,12 @@ public enum TypeCase
         super(parent);
         maybeForceBuilderInitialization();
       }
-
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryRequest_descriptor;
-      }
-
-      private static Builder create() {
-        return new Builder();
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.class, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryRequest.Builder.class);
-      }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
+      }
+      private static Builder create() {
+        return new Builder();
       }
 
       public Builder clear() {
@@ -1752,23 +1563,23 @@ public enum TypeCase
 
       public final boolean isInitialized() {
         if (!hasName()) {
-
+          
           return false;
         }
         if (!hasOs()) {
-
+          
           return false;
         }
         if (!hasManufacturer()) {
-
+          
           return false;
         }
         if (!hasModel()) {
-
+          
           return false;
         }
         if (!hasSdkVersion()) {
-
+          
           return false;
         }
         return true;
@@ -1791,14 +1602,15 @@ public enum TypeCase
         }
         return this;
       }
+      private int bitField0_;
 
+      private java.lang.Object name_ = "";
       /**
        * <code>required string name = 1;</code>
        */
       public boolean hasName() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>required string name = 1;</code>
        */
@@ -1816,7 +1628,22 @@ public enum TypeCase
           return (java.lang.String) ref;
         }
       }
-
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
       /**
        * <code>required string name = 1;</code>
        */
@@ -1830,24 +1657,15 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required string name = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
       }
-
       /**
        * <code>required string name = 1;</code>
        */
@@ -1862,30 +1680,19 @@ public enum TypeCase
         return this;
       }
 
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-
+      private com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem os_ = com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem.WINDOWS;
       /**
        * <code>required .OperatingSystem os = 2;</code>
        */
       public boolean hasOs() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-
       /**
        * <code>required .OperatingSystem os = 2;</code>
        */
       public com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem getOs() {
         return os_;
       }
-
       /**
        * <code>required .OperatingSystem os = 2;</code>
        */
@@ -1898,7 +1705,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required .OperatingSystem os = 2;</code>
        */
@@ -1909,13 +1715,13 @@ public enum TypeCase
         return this;
       }
 
+      private java.lang.Object manufacturer_ = "";
       /**
        * <code>required string manufacturer = 3;</code>
        */
       public boolean hasManufacturer() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-
       /**
        * <code>required string manufacturer = 3;</code>
        */
@@ -1933,7 +1739,22 @@ public enum TypeCase
           return (java.lang.String) ref;
         }
       }
-
+      /**
+       * <code>required string manufacturer = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getManufacturerBytes() {
+        java.lang.Object ref = manufacturer_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          manufacturer_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
       /**
        * <code>required string manufacturer = 3;</code>
        */
@@ -1947,24 +1768,15 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required string manufacturer = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getManufacturerBytes() {
-        java.lang.Object ref = manufacturer_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          manufacturer_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      public Builder clearManufacturer() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        manufacturer_ = getDefaultInstance().getManufacturer();
+        onChanged();
+        return this;
       }
-
       /**
        * <code>required string manufacturer = 3;</code>
        */
@@ -1979,23 +1791,13 @@ public enum TypeCase
         return this;
       }
 
-      /**
-       * <code>required string manufacturer = 3;</code>
-       */
-      public Builder clearManufacturer() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        manufacturer_ = getDefaultInstance().getManufacturer();
-        onChanged();
-        return this;
-      }
-
+      private java.lang.Object model_ = "";
       /**
        * <code>required string model = 4;</code>
        */
       public boolean hasModel() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-
       /**
        * <code>required string model = 4;</code>
        */
@@ -2013,7 +1815,22 @@ public enum TypeCase
           return (java.lang.String) ref;
         }
       }
-
+      /**
+       * <code>required string model = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getModelBytes() {
+        java.lang.Object ref = model_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          model_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
       /**
        * <code>required string model = 4;</code>
        */
@@ -2027,24 +1844,15 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required string model = 4;</code>
        */
-      public com.google.protobuf.ByteString
-          getModelBytes() {
-        java.lang.Object ref = model_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          model_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      public Builder clearModel() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        model_ = getDefaultInstance().getModel();
+        onChanged();
+        return this;
       }
-
       /**
        * <code>required string model = 4;</code>
        */
@@ -2059,16 +1867,7 @@ public enum TypeCase
         return this;
       }
 
-      /**
-       * <code>required string model = 4;</code>
-       */
-      public Builder clearModel() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        model_ = getDefaultInstance().getModel();
-        onChanged();
-        return this;
-      }
-
+      private int sdkVersion_ ;
       /**
        * <code>required int32 sdkVersion = 5;</code>
        */
@@ -2103,9 +1902,64 @@ public enum TypeCase
       // @@protoc_insertion_point(builder_scope:DiscoveryRequest)
     }
 
+    static {
+      defaultInstance = new DiscoveryRequest(true);
+      defaultInstance.initFields();
+    }
+
     // @@protoc_insertion_point(class_scope:DiscoveryRequest)
   }
 
+  public interface DiscoveryResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DiscoveryResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>required .OperatingSystem os = 2;</code>
+     */
+    boolean hasOs();
+    /**
+     * <code>required .OperatingSystem os = 2;</code>
+     */
+    com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem getOs();
+
+    /**
+     * <code>required string version = 3;</code>
+     */
+    boolean hasVersion();
+    /**
+     * <code>required string version = 3;</code>
+     */
+    java.lang.String getVersion();
+    /**
+     * <code>required string version = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getVersionBytes();
+
+    /**
+     * <code>required int32 port = 4;</code>
+     */
+    boolean hasPort();
+    /**
+     * <code>required int32 port = 4;</code>
+     */
+    int getPort();
+  }
   /**
    * Protobuf type {@code DiscoveryResponse}
    */
@@ -2113,35 +1967,6 @@ public enum TypeCase
       com.google.protobuf.GeneratedMessage implements
       // @@protoc_insertion_point(message_implements:DiscoveryResponse)
       DiscoveryResponseOrBuilder {
-    public static final int NAME_FIELD_NUMBER = 1;
-    public static final int OS_FIELD_NUMBER = 2;
-    public static final int VERSION_FIELD_NUMBER = 3;
-    public static final int PORT_FIELD_NUMBER = 4;
-    private static final DiscoveryResponse defaultInstance;
-    private static final long serialVersionUID = 0L;
-    public static com.google.protobuf.Parser<DiscoveryResponse> PARSER =
-        new com.google.protobuf.AbstractParser<DiscoveryResponse>() {
-      public DiscoveryResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DiscoveryResponse(input, extensionRegistry);
-      }
-    };
-
-    static {
-      defaultInstance = new DiscoveryResponse(true);
-      defaultInstance.initFields();
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    private int bitField0_;
-    private java.lang.Object name_;
-    private com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem os_;
-    private java.lang.Object version_;
-    private int port_;
-    private byte memoizedIsInitialized = -1;
-    private int memoizedSerializedSize = -1;
     // Use DiscoveryResponse.newBuilder() to construct.
     private DiscoveryResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -2149,6 +1974,21 @@ public enum TypeCase
     }
     private DiscoveryResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
+    private static final DiscoveryResponse defaultInstance;
+    public static DiscoveryResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public DiscoveryResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
     private DiscoveryResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2212,92 +2052,9 @@ public enum TypeCase
         makeExtensionsImmutable();
       }
     }
-
-    public static DiscoveryResponse getDefaultInstance() {
-      return defaultInstance;
-    }
-
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryResponse_descriptor;
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-
-    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-
-    public static Builder newBuilder(com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-
-    public DiscoveryResponse getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -2307,18 +2064,30 @@ public enum TypeCase
               com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.class, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.Builder.class);
     }
 
+    public static com.google.protobuf.Parser<DiscoveryResponse> PARSER =
+        new com.google.protobuf.AbstractParser<DiscoveryResponse>() {
+      public DiscoveryResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DiscoveryResponse(input, extensionRegistry);
+      }
+    };
+
     @java.lang.Override
     public com.google.protobuf.Parser<DiscoveryResponse> getParserForType() {
       return PARSER;
     }
 
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private java.lang.Object name_;
     /**
      * <code>required string name = 1;</code>
      */
     public boolean hasName() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>required string name = 1;</code>
      */
@@ -2327,7 +2096,7 @@ public enum TypeCase
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -2336,7 +2105,6 @@ public enum TypeCase
         return s;
       }
     }
-
     /**
      * <code>required string name = 1;</code>
      */
@@ -2344,7 +2112,7 @@ public enum TypeCase
         getNameBytes() {
       java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         name_ = b;
@@ -2354,13 +2122,14 @@ public enum TypeCase
       }
     }
 
+    public static final int OS_FIELD_NUMBER = 2;
+    private com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem os_;
     /**
      * <code>required .OperatingSystem os = 2;</code>
      */
     public boolean hasOs() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-
     /**
      * <code>required .OperatingSystem os = 2;</code>
      */
@@ -2368,13 +2137,14 @@ public enum TypeCase
       return os_;
     }
 
+    public static final int VERSION_FIELD_NUMBER = 3;
+    private java.lang.Object version_;
     /**
      * <code>required string version = 3;</code>
      */
     public boolean hasVersion() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-
     /**
      * <code>required string version = 3;</code>
      */
@@ -2383,7 +2153,7 @@ public enum TypeCase
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -2392,7 +2162,6 @@ public enum TypeCase
         return s;
       }
     }
-
     /**
      * <code>required string version = 3;</code>
      */
@@ -2400,7 +2169,7 @@ public enum TypeCase
         getVersionBytes() {
       java.lang.Object ref = version_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         version_ = b;
@@ -2410,13 +2179,14 @@ public enum TypeCase
       }
     }
 
+    public static final int PORT_FIELD_NUMBER = 4;
+    private int port_;
     /**
      * <code>required int32 port = 4;</code>
      */
     public boolean hasPort() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-
     /**
      * <code>required int32 port = 4;</code>
      */
@@ -2430,7 +2200,7 @@ public enum TypeCase
       version_ = "";
       port_ = 0;
     }
-
+    private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2474,6 +2244,7 @@ public enum TypeCase
       getUnknownFields().writeTo(output);
     }
 
+    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
@@ -2500,14 +2271,71 @@ public enum TypeCase
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
 
-    public Builder newBuilderForType() { return newBuilder(); }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
 
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
     public Builder toBuilder() { return newBuilder(this); }
 
     @java.lang.Override
@@ -2516,7 +2344,6 @@ public enum TypeCase
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
      * Protobuf type {@code DiscoveryResponse}
      */
@@ -2524,11 +2351,18 @@ public enum TypeCase
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:DiscoveryResponse)
         com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponseOrBuilder {
-      private int bitField0_;
-      private java.lang.Object name_ = "";
-      private com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem os_ = com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem.WINDOWS;
-      private java.lang.Object version_ = "";
-      private int port_ ;
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.class, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.Builder.class);
+      }
+
       // Construct using com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
@@ -2539,26 +2373,12 @@ public enum TypeCase
         super(parent);
         maybeForceBuilderInitialization();
       }
-
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryResponse_descriptor;
-      }
-
-      private static Builder create() {
-        return new Builder();
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.polytech.spik.protocol.DiscoveryMessages.internal_static_DiscoveryResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.class, com.polytech.spik.protocol.DiscoveryMessages.DiscoveryResponse.Builder.class);
-      }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
+      }
+      private static Builder create() {
+        return new Builder();
       }
 
       public Builder clear() {
@@ -2653,19 +2473,19 @@ public enum TypeCase
 
       public final boolean isInitialized() {
         if (!hasName()) {
-
+          
           return false;
         }
         if (!hasOs()) {
-
+          
           return false;
         }
         if (!hasVersion()) {
-
+          
           return false;
         }
         if (!hasPort()) {
-
+          
           return false;
         }
         return true;
@@ -2688,14 +2508,15 @@ public enum TypeCase
         }
         return this;
       }
+      private int bitField0_;
 
+      private java.lang.Object name_ = "";
       /**
        * <code>required string name = 1;</code>
        */
       public boolean hasName() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>required string name = 1;</code>
        */
@@ -2713,7 +2534,22 @@ public enum TypeCase
           return (java.lang.String) ref;
         }
       }
-
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
       /**
        * <code>required string name = 1;</code>
        */
@@ -2727,24 +2563,15 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required string name = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
       }
-
       /**
        * <code>required string name = 1;</code>
        */
@@ -2759,30 +2586,19 @@ public enum TypeCase
         return this;
       }
 
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-
+      private com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem os_ = com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem.WINDOWS;
       /**
        * <code>required .OperatingSystem os = 2;</code>
        */
       public boolean hasOs() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-
       /**
        * <code>required .OperatingSystem os = 2;</code>
        */
       public com.polytech.spik.protocol.DiscoveryMessages.OperatingSystem getOs() {
         return os_;
       }
-
       /**
        * <code>required .OperatingSystem os = 2;</code>
        */
@@ -2795,7 +2611,6 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required .OperatingSystem os = 2;</code>
        */
@@ -2806,13 +2621,13 @@ public enum TypeCase
         return this;
       }
 
+      private java.lang.Object version_ = "";
       /**
        * <code>required string version = 3;</code>
        */
       public boolean hasVersion() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-
       /**
        * <code>required string version = 3;</code>
        */
@@ -2830,7 +2645,22 @@ public enum TypeCase
           return (java.lang.String) ref;
         }
       }
-
+      /**
+       * <code>required string version = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getVersionBytes() {
+        java.lang.Object ref = version_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          version_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
       /**
        * <code>required string version = 3;</code>
        */
@@ -2844,24 +2674,15 @@ public enum TypeCase
         onChanged();
         return this;
       }
-
       /**
        * <code>required string version = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getVersionBytes() {
-        java.lang.Object ref = version_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          version_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      public Builder clearVersion() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        version_ = getDefaultInstance().getVersion();
+        onChanged();
+        return this;
       }
-
       /**
        * <code>required string version = 3;</code>
        */
@@ -2876,16 +2697,7 @@ public enum TypeCase
         return this;
       }
 
-      /**
-       * <code>required string version = 3;</code>
-       */
-      public Builder clearVersion() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        version_ = getDefaultInstance().getVersion();
-        onChanged();
-        return this;
-      }
-
+      private int port_ ;
       /**
        * <code>required int32 port = 4;</code>
        */
@@ -2920,7 +2732,81 @@ public enum TypeCase
       // @@protoc_insertion_point(builder_scope:DiscoveryResponse)
     }
 
+    static {
+      defaultInstance = new DiscoveryResponse(true);
+      defaultInstance.initFields();
+    }
+
     // @@protoc_insertion_point(class_scope:DiscoveryResponse)
+  }
+
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DiscoveryMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_DiscoveryMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DiscoveryRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_DiscoveryRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DiscoveryResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_DiscoveryResponse_fieldAccessorTable;
+
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  private static com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    java.lang.String[] descriptorData = {
+      "\n\017discovery.proto\"h\n\020DiscoveryMessage\022$\n" +
+      "\007request\030\001 \001(\0132\021.DiscoveryRequestH\000\022&\n\010r" +
+      "esponse\030\002 \001(\0132\022.DiscoveryResponseH\000B\006\n\004t" +
+      "ype\"w\n\020DiscoveryRequest\022\014\n\004name\030\001 \002(\t\022\034\n" +
+      "\002os\030\002 \002(\0162\020.OperatingSystem\022\024\n\014manufactu" +
+      "rer\030\003 \002(\t\022\r\n\005model\030\004 \002(\t\022\022\n\nsdkVersion\030\005" +
+      " \002(\005\"^\n\021DiscoveryResponse\022\014\n\004name\030\001 \002(\t\022" +
+      "\034\n\002os\030\002 \002(\0162\020.OperatingSystem\022\017\n\007version" +
+      "\030\003 \002(\t\022\014\n\004port\030\004 \002(\005*A\n\017OperatingSystem\022" +
+      "\013\n\007WINDOWS\020\001\022\t\n\005MACOS\020\002\022\t\n\005LINUX\020\003\022\013\n\007AN",
+      "DROID\020\004B/\n\032com.polytech.spik.protocolB\021D" +
+      "iscoveryMessages"
+    };
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        }, assigner);
+    internal_static_DiscoveryMessage_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_DiscoveryMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_DiscoveryMessage_descriptor,
+        new java.lang.String[] { "Request", "Response", "Type", });
+    internal_static_DiscoveryRequest_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_DiscoveryRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_DiscoveryRequest_descriptor,
+        new java.lang.String[] { "Name", "Os", "Manufacturer", "Model", "SdkVersion", });
+    internal_static_DiscoveryResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_DiscoveryResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_DiscoveryResponse_descriptor,
+        new java.lang.String[] { "Name", "Os", "Version", "Port", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
